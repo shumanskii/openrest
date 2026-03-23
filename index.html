@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Как открыть ресторан — курс Natasha Shumanska</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dark: #2A3D2A;
+  --dark2: #3A5C3A;
+  --rose: #C8622A;
+  --rose-light: #E07840;
+  --rose-bg: #EFECEA;
+  --gray: #F7F5F2;
+  --muted: #888882;
+  --muted2: #444440;
+  --border: #E2DED8;
+  --white: #ffffff;
+  --text: #1A1A18;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--gray);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(247,245,242,0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 48px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px; font-weight: 700;
+  color: var(--text); text-decoration: none;
+}
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--dark); color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px; font-weight: 600;
+  padding: 10px 22px; border-radius: 100px;
+  text-decoration: none; transition: background 0.2s, transform 0.15s;
+}
+.nav-cta:hover { background: var(--dark2); transform: translateY(-1px); }
+
+/* WRAP */
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+/* HERO */
+.hero {
+  background: var(--gray);
+  padding: 140px 0 80px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -120px; right: -120px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(200,98,42,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 60px; align-items: center;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--rose); margin-bottom: 18px;
+}
+.hero-tag::before { content: ''; width: 20px; height: 2px; background: var(--rose); display: block; }
+h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(34px,4vw,52px); font-weight: 800;
+  line-height: 1.1; letter-spacing: -0.025em;
+  color: var(--text); margin-bottom: 22px;
+}
+h1 em {
+  font-style: normal;
+  color: var(--rose);
+}
+.hero-sub {
+  font-size: 15px; color: var(--muted);
+  line-height: 1.8; margin-bottom: 36px; max-width: 480px;
+}
+.stats-row {
+  display: flex; gap: 0; margin-bottom: 40px;
+  border: 1px solid var(--border); border-radius: 12px;
+  background: var(--white); overflow: hidden; width: fit-content;
+}
+.stat {
+  padding: 16px 28px; text-align: center;
+  border-right: 1px solid var(--border);
+}
+.stat:last-child { border-right: none; }
+.stat strong {
+  display: block; font-family: 'Manrope', sans-serif;
+  font-size: 26px; font-weight: 800; color: var(--text); line-height: 1;
+}
+.stat span { font-size: 12px; color: var(--muted); margin-top: 4px; display: block; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--dark); color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px; font-weight: 600;
+  padding: 14px 28px; border-radius: 8px;
+  text-decoration: none; transition: all 0.2s;
+}
+.btn:hover { background: var(--dark2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(42,61,42,0.25); }
+.btn-arrow::after { content: '→'; font-size: 16px; }
+.hero-img-wrap {
+  border-radius: 120px 16px 16px 16px;
+  overflow: hidden; aspect-ratio: 1 / 1.1;
+  box-shadow: 0 24px 60px rgba(54,57,77,0.12);
+}
+.hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* SECTION BASE */
+.sec { padding: 80px 0; }
+.sec-gray { background: var(--rose-bg); }
+.sec-rose { background: var(--gray); }
+.sec-dark { background: var(--dark); }
+.sec-label {
+  display: inline-block;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 10px;
+}
+h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(26px,3vw,38px); font-weight: 800;
+  color: var(--text); line-height: 1.15;
+  letter-spacing: -0.02em; margin-bottom: 14px;
+}
+h2 em { color: var(--rose); font-style: normal; }
+.sec-sub {
+  font-size: 15px; color: var(--muted);
+  max-width: 520px; line-height: 1.8; margin-bottom: 48px;
+}
+
+/* FOR WHO */
+.pain-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+}
+.pain-card {
+  background: var(--white); border-radius: 14px;
+  padding: 26px; border: 1px solid var(--border);
+  display: flex; gap: 18px; align-items: flex-start;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.pain-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.07); transform: translateY(-2px); }
+.pain-icon {
+  width: 38px; height: 38px; min-width: 38px;
+  background: rgba(200,98,42,0.09); border-radius: 9px;
+  display: flex; align-items: center; justify-content: center; font-size: 18px;
+}
+.pain-card h3 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.pain-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+/* RESULTS */
+.res-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 48px;
+}
+.res-card {
+  background: var(--white); border-radius: 16px;
+  padding: 28px 24px; border: 1px solid var(--border);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.res-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.07); transform: translateY(-2px); }
+.res-num {
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px; font-weight: 800; color: var(--rose);
+  background: rgba(200,98,42,0.09); border-radius: 8px;
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.res-card h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.res-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+/* PROGRAM */
+.prog-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 48px;
+}
+.mod {
+  background: var(--white); border-radius: 12px;
+  padding: 20px 22px; border: 1px solid var(--border);
+  display: flex; gap: 16px; align-items: flex-start;
+  transition: box-shadow 0.2s;
+}
+.mod:hover { box-shadow: 0 4px 16px rgba(0,0,0,.07); }
+.mod-n {
+  width: 34px; height: 34px; min-width: 34px;
+  background: rgba(200,98,42,0.09); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 800; color: var(--rose);
+  font-family: 'Manrope', sans-serif;
+}
+.mod h3 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; line-height: 1.4; }
+.mod p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+/* AUTHOR */
+.author-grid {
+  display: grid; grid-template-columns: 360px 1fr; gap: 72px; align-items: center;
+}
+.author-img {
+  border-radius: 16px 120px 16px 16px;
+  overflow: hidden; aspect-ratio: 1;
+  box-shadow: 0 20px 50px rgba(54,57,77,0.1);
+}
+.author-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.author-text h2 { margin-bottom: 6px; }
+.author-role { font-size: 14px; color: var(--rose); font-weight: 600; margin-bottom: 18px; }
+.author-bio { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 28px; }
+.creds { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+.cred { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--muted2); line-height: 1.5; }
+.cred-dot {
+  width: 8px; height: 8px; min-width: 8px;
+  background: var(--rose); border-radius: 50%; margin-top: 6px;
+}
+
+/* PRICE */
+.price-outer { max-width: 620px; margin: 0 auto; }
+.price-card {
+  background: var(--dark); border-radius: 20px;
+  padding: 52px 48px; text-align: center; color: #fff;
+  position: relative; overflow: hidden;
+}
+.price-card::before {
+  content: '';
+  position: absolute; top: -80px; right: -80px;
+  width: 240px; height: 240px;
+  background: rgba(200,98,42,0.15); border-radius: 50%;
+}
+.price-card::after {
+  content: '';
+  position: absolute; bottom: -60px; left: -60px;
+  width: 180px; height: 180px;
+  background: rgba(200,98,42,0.08); border-radius: 50%;
+}
+.price-badge {
+  display: inline-block; background: var(--rose); color: #fff;
+  font-size: 11px; font-weight: 700; padding: 5px 14px;
+  border-radius: 100px; text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 22px;
+}
+.price-card h2 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.price-card .price-desc { font-size: 14px; opacity: 0.55; margin-bottom: 0; }
+.price-amount {
+  font-family: 'Manrope', sans-serif;
+  font-size: 72px; font-weight: 800; line-height: 1;
+  margin: 28px 0 8px; position: relative; z-index: 1;
+}
+.price-note { font-size: 13px; opacity: 0.45; margin-bottom: 32px; }
+.price-features {
+  list-style: none; text-align: left;
+  margin-bottom: 36px; display: flex; flex-direction: column; gap: 13px;
+  position: relative; z-index: 1;
+}
+.price-features li {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 14px; opacity: 0.9;
+}
+.check {
+  min-width: 20px; height: 20px;
+  background: var(--rose); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; color: #fff;
+}
+.btn-white {
+  display: block; background: #fff; color: var(--dark);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px; font-weight: 700;
+  padding: 16px 48px; border-radius: 8px;
+  text-decoration: none; text-align: center;
+  transition: all 0.2s; position: relative; z-index: 1;
+}
+.btn-white:hover { opacity: 0.92; transform: translateY(-1px); }
+
+/* FAQ */
+.faq { max-width: 700px; margin: 48px auto 0; display: flex; flex-direction: column; gap: 10px; }
+.faq-item {
+  background: var(--white); border-radius: 12px; border: 1px solid var(--border);
+  overflow: hidden;
+}
+.faq-q {
+  padding: 20px 24px; font-size: 14px; font-weight: 600; color: var(--text);
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  cursor: pointer; user-select: none;
+}
+.faq-q .faq-plus {
+  width: 26px; height: 26px; min-width: 26px;
+  background: var(--gray); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: var(--muted); line-height: 1;
+  transition: transform 0.2s, background 0.2s;
+}
+.faq-item.open .faq-plus { transform: rotate(45deg); background: var(--rose); color: #fff; }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  font-size: 14px; color: var(--muted); line-height: 1.7;
+  padding: 0 24px; transition: max-height 0.3s ease, padding 0.3s ease;
+}
+.faq-item.open .faq-a { max-height: 200px; padding: 0 24px 20px; }
+
+/* FINAL CTA */
+.final {
+  background: var(--dark); padding: 88px 0; text-align: center;
+  position: relative; overflow: hidden;
+}
+.final::before {
+  content: '';
+  position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(200,98,42,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+.final h2 { color: #fff; font-size: clamp(26px,3vw,40px); margin-bottom: 16px; }
+.final p { font-size: 15px; color: rgba(255,255,255,0.5); margin-bottom: 36px; }
+
+/* FOOTER */
+footer {
+  background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 24px 48px; text-align: center;
+  font-size: 13px; color: rgba(255,255,255,0.3);
+}
+footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+footer a:hover { color: var(--rose); }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav { padding: 0 16px; }
+  .hero { padding: 100px 0 60px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+  h1 { font-size: 34px; }
+  h2 { font-size: 26px; }
+  .hero-img-wrap { display: none; }
+  .stats-row { width: 100%; }
+  .stat { flex: 1; padding: 14px 12px; }
+  .pain-grid { grid-template-columns: 1fr; }
+  .res-grid { grid-template-columns: 1fr 1fr; }
+  .prog-grid { grid-template-columns: 1fr; }
+  .author-grid { grid-template-columns: 1fr; gap: 36px; }
+  .author-img { max-width: 280px; }
+  .price-card { padding: 36px 24px; }
+  .price-amount { font-size: 56px; }
+  .final h2 { font-size: 28px; }
+  .sec { padding: 60px 0; }
+}
+
+/* FADE IN ANIMATION */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-left > * {
+  animation: fadeUp 0.6s ease both;
+}
+.hero-left > *:nth-child(1) { animation-delay: 0.05s; }
+.hero-left > *:nth-child(2) { animation-delay: 0.15s; }
+.hero-left > *:nth-child(3) { animation-delay: 0.25s; }
+.hero-left > *:nth-child(4) { animation-delay: 0.35s; }
+.hero-left > *:nth-child(5) { animation-delay: 0.45s; }
+.hero-img-wrap { animation: fadeUp 0.7s 0.3s ease both; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://consulting.natashumanska.com" class="nav-logo">Natasha.Shumanska</a>
+  <a href="https://consulting.natashumanska.com/#contacts" class="nav-cta">Записаться на курс</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-tag">Онлайн-курс</div>
+        <h1>Открой ресторан<br><em>без ошибок</em><br>и потерь</h1>
+        <p class="hero-sub">Пошаговая система от концепции до открытия — за 1–3 месяца. Для тех, кто хочет войти в гастробизнес с ясной головой и реальным планом.</p>
+        <div class="stats-row">
+          <div class="stat"><strong>12</strong><span>модулей</span></div>
+          <div class="stat"><strong>20+</strong><span>лет опыта</span></div>
+          <div class="stat"><strong>690€</strong><span>стоимость</span></div>
+        </div>
+        <a href="https://consulting.natashumanska.com/#contacts" class="btn btn-arrow">Записаться на курс </a>
+      </div>
+      <div class="hero-img-wrap">
+        <img src="https://cdn.sanity.io/images/qj5ybx4v/production/ab85e8e0166cd5192cb86bc48ef4c0c12008d832-1400x1378.jpg?rect=0,58,1400,1262&w=608&h=548&fm=webp" alt="Natasha Shumanska">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ДЛЯ КОГО -->
+<section class="sec sec-gray">
+  <div class="wrap">
+    <span class="sec-label">Этот курс для тебя, если…</span>
+    <h2>Узнаёшь себя?</h2>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">💡</div>
+        <div><h3>Есть мечта, нет плана</h3><p>Хочешь открыть ресторан, но не знаешь, с чего начать и в каком порядке двигаться.</p></div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">💸</div>
+        <div><h3>Страх потерять деньги</h3><p>Знаешь, что 90% заведений закрываются в первый год, и не хочешь попасть в эту статистику.</p></div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🧩</div>
+        <div><h3>Уже в процессе — нет системы</h3><p>Что-то делаешь, но чувствуешь хаос и отсутствие полной картины.</p></div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🏦</div>
+        <div><h3>Есть бюджет, нет опыта</h3><p>Готов инвестировать, но не понимаешь, куда именно и как не переплатить на старте.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЧТО ПОЛУЧИШЬ -->
+<section class="sec">
+  <div class="wrap">
+    <span class="sec-label">Результаты курса</span>
+    <h2>После курса у тебя будет</h2>
+    <p class="sec-sub">Не просто знания — конкретные документы, цифры и план, с которыми можно идти к инвестору или сразу к аренде.</p>
+    <div class="res-grid">
+      <div class="res-card"><div class="res-num">01</div><h3>Чёткая концепция</h3><p>Название, бренд, позиционирование и УТП, которые отстраивают тебя от конкурентов.</p></div>
+      <div class="res-card"><div class="res-num">02</div><h3>Финансовая модель</h3><p>Бизнес-план с расчётом инвестиций, точкой безубыточности и сроками окупаемости.</p></div>
+      <div class="res-card"><div class="res-num">03</div><h3>Маркетинг-стратегия</h3><p>Готовая стратегия привлечения гостей онлайн и офлайн с первого дня работы.</p></div>
+      <div class="res-card"><div class="res-num">04</div><h3>Анализ рынка</h3><p>Понимание конкурентов, аудитории и того, какой продукт нужен рынку.</p></div>
+      <div class="res-card"><div class="res-num">05</div><h3>Пошаговый план</h3><p>Индивидуальный чек-лист с конкретными шагами, сроками и приоритетами.</p></div>
+      <div class="res-card"><div class="res-num">06</div><h3>Уверенность</h3><p>Ты знаешь, что делать, когда делать и почему — без хаоса и метаний.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ПРОГРАММА -->
+<section class="sec sec-gray">
+  <div class="wrap">
+    <span class="sec-label">Программа курса</span>
+    <h2>12 модулей — полный путь<br>от идеи до открытия</h2>
+    <p class="sec-sub">Каждый модуль — практика, шаблоны и конкретные действия. Никакой воды.</p>
+    <div class="prog-grid">
+      <div class="mod"><div class="mod-n">01</div><div><h3>Знакомство и формат работы</h3><p>Как устроен курс, что ты получишь и как выстроить процесс обучения.</p></div></div>
+      <div class="mod"><div class="mod-n">02</div><div><h3>Концепция, бренд, название</h3><p>Как найти и сформулировать идею, которая будет работать на рынке.</p></div></div>
+      <div class="mod"><div class="mod-n">03</div><div><h3>Анализ конкурентов</h3><p>Кто работает на твоём рынке, какие у них слабые места и как занять свою нишу.</p></div></div>
+      <div class="mod"><div class="mod-n">04</div><div><h3>ЦА, ценности и УТП</h3><p>Для кого ты открываешь, чего они хотят и почему выберут именно тебя.</p></div></div>
+      <div class="mod"><div class="mod-n">05</div><div><h3>7P MIX: продукт</h3><p>Меню и качество — как создать продукт, который продаёт сам себя.</p></div></div>
+      <div class="mod"><div class="mod-n">06</div><div><h3>7P MIX: цена и место</h3><p>Как правильно установить цены и выбрать локацию, которая работает на тебя.</p></div></div>
+      <div class="mod"><div class="mod-n">07</div><div><h3>7P MIX: люди, атмосфера, процессы</h3><p>Команда и сервис — как выстроить так, чтобы не держать всё на себе.</p></div></div>
+      <div class="mod"><div class="mod-n">08</div><div><h3>7P MIX: стратегия продвижения</h3><p>Онлайн и офлайн маркетинг: где искать гостей и делать их постоянными.</p></div></div>
+      <div class="mod"><div class="mod-n">09</div><div><h3>Бизнес-план: рыночные цифры</h3><p>Средние показатели по рынку — аренда, персонал, foodcost — без иллюзий.</p></div></div>
+      <div class="mod"><div class="mod-n">10</div><div><h3>Бизнес-план: инвестиции</h3><p>Как рассчитать стартовые вложения в оборудование, ремонт и запуск.</p></div></div>
+      <div class="mod"><div class="mod-n">11</div><div><h3>Бизнес-план: продажи и персонал</h3><p>Объём продаж, средний чек, сколько людей нужно — все цифры для реального плана.</p></div></div>
+      <div class="mod"><div class="mod-n">12</div><div><h3>Пошаговый план открытия</h3><p>Индивидуальный план действий с конкретными шагами, дедлайнами и приоритетами.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- АВТОР -->
+<section class="sec">
+  <div class="wrap">
+    <div class="author-grid">
+      <div class="author-img">
+        <img src="https://cdn.sanity.io/images/qj5ybx4v/production/6cea8feb9e46947a91eeadfcf1c58f793abe0a91-2731x4096.jpg?rect=0,362,2731,2731&w=340&h=340&fm=webp" alt="Natasha Shumanska">
+      </div>
+      <div class="author-text">
+        <span class="sec-label">Автор курса</span>
+        <h2>Natasha Shumanska</h2>
+        <p class="author-role">Консультант в гастробизнесе</p>
+        <p class="author-bio">20-летний практический опыт в ресторанном и гостиничном бизнесе. Открывала и перезапускала рестораны в Чехии, Беларуси и других странах. Каждый модуль курса основан на реальных кейсах — никакой академической теории.</p>
+        <div class="creds">
+          <div class="cred"><div class="cred-dot"></div>MBA по управлению гостеприимством — Glion Institute, Швейцария</div>
+          <div class="cred"><div class="cred-dot"></div>20+ лет в ресторанном и гостиничном бизнесе</div>
+          <div class="cred"><div class="cred-dot"></div>Увеличила выручку ресторана La Mouka (Прага) в 10 раз</div>
+          <div class="cred"><div class="cred-dot"></div>Работает на русском, чешском и английском</div>
+        </div>
+        <a href="https://consulting.natashumanska.com/#contacts" class="btn btn-arrow">Записаться на курс </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЦЕНА -->
+<section class="sec sec-gray" id="pricing">
+  <div class="wrap">
+    <span class="sec-label" style="display:block;text-align:center">Стоимость</span>
+    <h2 style="text-align:center">Инвестиция в твой бизнес</h2>
+    <div class="price-outer">
+      <div class="price-card">
+        <span class="price-badge">Полный доступ</span>
+        <h2>Как открыть ресторанный бизнес</h2>
+        <p class="price-desc">Онлайн-курс · 12 модулей</p>
+        <div class="price-amount">690€</div>
+        <p class="price-note">Единоразовый платёж · Бессрочный доступ</p>
+        <ul class="price-features">
+          <li><span class="check">✓</span>12 видео-модулей с практическими заданиями</li>
+          <li><span class="check">✓</span>Шаблоны бизнес-плана и финансовых расчётов</li>
+          <li><span class="check">✓</span>Индивидуальный пошаговый план открытия</li>
+          <li><span class="check">✓</span>Бессрочный доступ к материалам</li>
+          <li><span class="check">✓</span>Все будущие обновления курса включены</li>
+        </ul>
+        <a href="https://consulting.natashumanska.com/#contacts" class="btn-white">Записаться на курс</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec">
+  <div class="wrap">
+    <span class="sec-label" style="display:block;text-align:center">FAQ</span>
+    <h2 style="text-align:center">Частые вопросы</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">Подойдёт ли курс для кафе, а не только ресторана?<span class="faq-plus">+</span></div>
+        <div class="faq-a">Да. Все принципы применимы к любому формату: ресторан, кафе, кофейня, пиццерия, бар или доставка еды.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Нужен ли опыт в ресторанном бизнесе?<span class="faq-plus">+</span></div>
+        <div class="faq-a">Нет. Курс подходит как новичкам без опыта, так и тем, кто уже в процессе открытия и хочет выстроить систему.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Для какой страны курс?<span class="faq-plus">+</span></div>
+        <div class="faq-a">Методология универсальна и работает в любой стране. Особое внимание уделяется открытию в Чехии и других странах Европы.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Сколько времени займёт прохождение?<span class="faq-plus">+</span></div>
+        <div class="faq-a">При активном обучении — 4–8 недель. Вы сами выбираете темп. Доступ к материалам бессрочный.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Есть ли обратная связь от автора?<span class="faq-plus">+</span></div>
+        <div class="faq-a">Курс самостоятельный. Личную консультацию с Natasha можно получить отдельно на consulting.natashumanska.com</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ФИНАЛЬНЫЙ CTA -->
+<section class="final">
+  <div class="wrap">
+    <h2>Готов открыть свой ресторан правильно?</h2>
+    <p>Присоединяйся к курсу и пройди путь от идеи до открытия с чёткой системой.</p>
+    <a href="https://consulting.natashumanska.com/#contacts" class="btn btn-arrow" style="font-size:17px;padding:18px 48px;display:inline-flex;margin:0 auto">Записаться на курс </a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Natasha Shumanska · <a href="https://consulting.natashumanska.com">consulting.natashumanska.com</a></p>
+</footer>
+
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
