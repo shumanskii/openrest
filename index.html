@@ -357,6 +357,7 @@ footer a:hover { color: var(--rose); }
   .prog-grid { grid-template-columns: 1fr; }
   .author-grid { grid-template-columns: 1fr; gap: 36px; }
   .author-img { max-width: 280px; }
+  div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
   .price-card { padding: 36px 24px; }
   .price-amount { font-size: 56px; }
   .final h2 { font-size: 28px; }
@@ -384,7 +385,7 @@ footer a:hover { color: var(--rose); }
 <!-- NAV -->
 <nav>
   <a href="https://consulting.natashumanska.com" class="nav-logo">Natasha.Shumanska</a>
-  <a href="https://consulting.natashumanska.com/#contacts" class="nav-cta">Записаться на курс</a>
+  <a href="#pricing" class="nav-cta">Начать открытие →</a>
 </nav>
 
 <!-- HERO -->
@@ -392,15 +393,15 @@ footer a:hover { color: var(--rose); }
   <div class="wrap">
     <div class="hero-inner">
       <div class="hero-left">
-        <div class="hero-tag">Онлайн-курс</div>
-        <h1>Открой ресторан<br><em>без ошибок</em><br>и потерь</h1>
-        <p class="hero-sub">Пошаговая система от концепции до открытия — за 1–3 месяца. Для тех, кто хочет войти в гастробизнес с ясной головой и реальным планом.</p>
+        <div class="hero-tag">Программа с сопровождением · 2026</div>
+        <h1>Открой ресторан<br><em>правильно</em> —<br>мы рядом</h1>
+        <p class="hero-sub">Не знаешь с чего начать, сколько нужно денег, что не забыть и как не потерять всё на старте? Мы пройдём этот путь вместе — с нашим опытом, реальными цифрами и еженедельными живыми встречами.</p>
         <div class="stats-row">
-          <div class="stat"><strong>12</strong><span>модулей</span></div>
           <div class="stat"><strong>20+</strong><span>лет опыта</span></div>
-          <div class="stat"><strong>690€</strong><span>стоимость</span></div>
+          <div class="stat"><strong>12</strong><span>шагов системы</span></div>
+          <div class="stat"><strong>2026</strong><span>актуально</span></div>
         </div>
-        <a href="https://consulting.natashumanska.com/#contacts" class="btn btn-arrow">Записаться на курс </a>
+        <a href="#pricing" class="btn btn-arrow">Выбрать формат </a>
       </div>
       <div class="hero-img-wrap">
         <img src="https://cdn.sanity.io/images/qj5ybx4v/production/ab85e8e0166cd5192cb86bc48ef4c0c12008d832-1400x1378.jpg?rect=0,58,1400,1262&w=608&h=548&fm=webp" alt="Natasha Shumanska">
@@ -412,24 +413,32 @@ footer a:hover { color: var(--rose); }
 <!-- ДЛЯ КОГО -->
 <section class="sec sec-gray">
   <div class="wrap">
-    <span class="sec-label">Этот курс для тебя, если…</span>
+    <span class="sec-label">Это про тебя, если…</span>
     <h2>Узнаёшь себя?</h2>
     <div class="pain-grid">
       <div class="pain-card">
-        <div class="pain-icon">💡</div>
-        <div><h3>Есть мечта, нет плана</h3><p>Хочешь открыть ресторан, но не знаешь, с чего начать и в каком порядке двигаться.</p></div>
+        <div class="pain-icon">😵</div>
+        <div><h3>Не знаешь с чего начать</h3><p>Идея есть, желание есть — но непонятно, какой первый шаг, второй, третий. Голова идёт кругом от количества вопросов.</p></div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">💸</div>
-        <div><h3>Страх потерять деньги</h3><p>Знаешь, что 90% заведений закрываются в первый год, и не хочешь попасть в эту статистику.</p></div>
+        <div><h3>Не понимаешь, сколько нужно денег</h3><p>Цифры в интернете разные, реальность пугает. Не знаешь, хватит ли бюджета и куда пойдут деньги в первую очередь.</p></div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🕳️</div>
+        <div><h3>Боишься наступить на грабли</h3><p>Слышал истории о закрытых ресторанах. Знаешь, что ошибки стоят дорого — и не хочешь учиться на собственных потерях.</p></div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">🧩</div>
-        <div><h3>Уже в процессе — нет системы</h3><p>Что-то делаешь, но чувствуешь хаос и отсутствие полной картины.</p></div>
+        <div><h3>Не знаешь, что не забыть</h3><p>Концепция, документы, оборудование, персонал, маркетинг — кажется, что что-то важное обязательно упустишь.</p></div>
       </div>
       <div class="pain-card">
-        <div class="pain-icon">🏦</div>
-        <div><h3>Есть бюджет, нет опыта</h3><p>Готов инвестировать, но не понимаешь, куда именно и как не переплатить на старте.</p></div>
+        <div class="pain-icon">🗺️</div>
+        <div><h3>Нет системы — только хаос</h3><p>Делаешь что-то, но без чёткого плана. Каждый день новые вопросы, и непонятно, в правильном ли направлении движешься.</p></div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🌍</div>
+        <div><h3>Открываешь в Европе — реалии другие</h3><p>Законы, налоги, менталитет гостей, поставщики — в новой стране всё иначе. Нужен тот, кто уже прошёл этот путь здесь.</p></div>
       </div>
     </div>
   </div>
@@ -438,16 +447,16 @@ footer a:hover { color: var(--rose); }
 <!-- ЧТО ПОЛУЧИШЬ -->
 <section class="sec">
   <div class="wrap">
-    <span class="sec-label">Результаты курса</span>
-    <h2>После курса у тебя будет</h2>
-    <p class="sec-sub">Не просто знания — конкретные документы, цифры и план, с которыми можно идти к инвестору или сразу к аренде.</p>
+    <span class="sec-label">Что меняется</span>
+    <h2>От хаоса — к ресторану,<br>который работает</h2>
+    <p class="sec-sub">Совместно с нами, на нашем багаже знаний и опыте, с учётом всех реалий 2026 года — ты пройдёшь путь от идеи до открытых дверей.</p>
     <div class="res-grid">
-      <div class="res-card"><div class="res-num">01</div><h3>Чёткая концепция</h3><p>Название, бренд, позиционирование и УТП, которые отстраивают тебя от конкурентов.</p></div>
-      <div class="res-card"><div class="res-num">02</div><h3>Финансовая модель</h3><p>Бизнес-план с расчётом инвестиций, точкой безубыточности и сроками окупаемости.</p></div>
-      <div class="res-card"><div class="res-num">03</div><h3>Маркетинг-стратегия</h3><p>Готовая стратегия привлечения гостей онлайн и офлайн с первого дня работы.</p></div>
-      <div class="res-card"><div class="res-num">04</div><h3>Анализ рынка</h3><p>Понимание конкурентов, аудитории и того, какой продукт нужен рынку.</p></div>
-      <div class="res-card"><div class="res-num">05</div><h3>Пошаговый план</h3><p>Индивидуальный чек-лист с конкретными шагами, сроками и приоритетами.</p></div>
-      <div class="res-card"><div class="res-num">06</div><h3>Уверенность</h3><p>Ты знаешь, что делать, когда делать и почему — без хаоса и метаний.</p></div>
+      <div class="res-card"><div class="res-num">01</div><h3>Ясность с первого дня</h3><p>Понимаешь последовательность шагов, сроки и приоритеты. Больше никакого «не знаю, с чего начать».</p></div>
+      <div class="res-card"><div class="res-num">02</div><h3>Реальные цифры на руках</h3><p>Знаешь точно, сколько нужно денег, куда они пойдут и когда ресторан начнёт окупаться.</p></div>
+      <div class="res-card"><div class="res-num">03</div><h3>Концепция, которая продаёт</h3><p>Название, позиционирование, УТП — всё выстроено под твою аудиторию и твой рынок.</p></div>
+      <div class="res-card"><div class="res-num">04</div><h3>Дешевле и без потерь</h3><p>Знаешь, где можно сэкономить без ущерба для качества — и на чём точно нельзя.</p></div>
+      <div class="res-card"><div class="res-num">05</div><h3>Маркетинг с первого дня</h3><p>Стратегия привлечения гостей готова до открытия — не после, когда деньги уже кончились.</p></div>
+      <div class="res-card"><div class="res-num">06</div><h3>Живая поддержка рядом</h3><p>Каждую неделю — онлайн встреча с экспертом. Задаёшь вопросы, получаешь ответы, двигаешься дальше.</p></div>
     </div>
   </div>
 </section>
@@ -455,9 +464,9 @@ footer a:hover { color: var(--rose); }
 <!-- ПРОГРАММА -->
 <section class="sec sec-gray">
   <div class="wrap">
-    <span class="sec-label">Программа курса</span>
-    <h2>12 модулей — полный путь<br>от идеи до открытия</h2>
-    <p class="sec-sub">Каждый модуль — практика, шаблоны и конкретные действия. Никакой воды.</p>
+    <span class="sec-label">Система работы</span>
+    <h2>12 шагов — полный путь<br>от идеи до открытия</h2>
+    <p class="sec-sub">Каждый шаг — живая работа с экспертом. Никакой самостоятельной учёбы в пустоту: мы вместе разбираем твою ситуацию, твои цифры, твой рынок.</p>
     <div class="prog-grid">
       <div class="mod"><div class="mod-n">01</div><div><h3>Знакомство и формат работы</h3><p>Как устроен курс, что ты получишь и как выстроить процесс обучения.</p></div></div>
       <div class="mod"><div class="mod-n">02</div><div><h3>Концепция, бренд, название</h3><p>Как найти и сформулировать идею, которая будет работать на рынке.</p></div></div>
@@ -502,24 +511,49 @@ footer a:hover { color: var(--rose); }
 <!-- ЦЕНА -->
 <section class="sec sec-gray" id="pricing">
   <div class="wrap">
-    <span class="sec-label" style="display:block;text-align:center">Стоимость</span>
-    <h2 style="text-align:center">Инвестиция в твой бизнес</h2>
-    <div class="price-outer">
-      <div class="price-card">
-        <span class="price-badge">Полный доступ</span>
-        <h2>Как открыть ресторанный бизнес</h2>
-        <p class="price-desc">Онлайн-курс · 12 модулей</p>
-        <div class="price-amount">690€</div>
-        <p class="price-note">Единоразовый платёж · Бессрочный доступ</p>
-        <ul class="price-features">
-          <li><span class="check">✓</span>12 видео-модулей с практическими заданиями</li>
-          <li><span class="check">✓</span>Шаблоны бизнес-плана и финансовых расчётов</li>
-          <li><span class="check">✓</span>Индивидуальный пошаговый план открытия</li>
-          <li><span class="check">✓</span>Бессрочный доступ к материалам</li>
-          <li><span class="check">✓</span>Все будущие обновления курса включены</li>
+    <span class="sec-label" style="display:block;text-align:center">Форматы участия</span>
+    <h2 style="text-align:center">Выбери свой путь<br>к открытию</h2>
+    <p class="sec-sub" style="text-align:center;max-width:560px;margin-left:auto;margin-right:auto">Оба формата включают полную систему из 12 шагов. Разница — в уровне личного сопровождения.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto;">
+
+      <!-- ТАРИФ 1 -->
+      <div style="background:var(--white);border-radius:20px;padding:40px 36px;border:1px solid var(--border);position:relative;">
+        <span style="display:inline-block;background:var(--rose-bg);color:var(--rose);font-size:11px;font-weight:700;padding:5px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:20px;">Самостоятельный</span>
+        <h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:var(--text);margin-bottom:8px;letter-spacing:-0.02em;">Как открыть<br>ресторанный бизнес</h3>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:24px;">Программа · 12 шагов · Доступ к материалам</p>
+        <div style="font-family:'Manrope',sans-serif;font-size:56px;font-weight:800;color:var(--text);line-height:1;margin-bottom:6px;">500€</div>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:28px;">Единоразовый платёж · Бессрочный доступ</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:32px;">
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span>12 шагов системы открытия</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span>Шаблоны бизнес-плана и финансовых расчётов</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span>Реальные цифры европейского рынка 2026</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span>Индивидуальный план открытия</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span>Бессрочный доступ + все обновления</li>
         </ul>
-        <a href="https://consulting.natashumanska.com/#contacts" class="btn-white">Записаться на курс</a>
+        <a href="https://consulting.natashumanska.com" style="display:block;background:var(--dark);color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;padding:15px 24px;border-radius:8px;text-decoration:none;text-align:center;transition:all 0.2s;" onmouseover="this.style.background='#3A5C3A'" onmouseout="this.style.background='#2A3D2A'">Начать →</a>
       </div>
+
+      <!-- ТАРИФ 2 -->
+      <div style="background:var(--dark);border-radius:20px;padding:40px 36px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:rgba(200,98,42,0.15);border-radius:50%;"></div>
+        <div style="position:absolute;bottom:-40px;left:-40px;width:140px;height:140px;background:rgba(200,98,42,0.08);border-radius:50%;"></div>
+        <span style="display:inline-block;background:var(--rose);color:#fff;font-size:11px;font-weight:700;padding:5px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:20px;position:relative;z-index:1;">С сопровождением</span>
+        <div style="position:absolute;top:36px;right:36px;background:rgba(255,255,255,0.1);border-radius:8px;padding:5px 10px;font-size:11px;font-weight:700;color:rgba(255,255,255,0.7);z-index:1;">Хит</div>
+        <h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-0.02em;position:relative;z-index:1;">Открытие вместе<br>с Natasha</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:24px;position:relative;z-index:1;">Программа + 7 личных встреч · Полное сопровождение</p>
+        <div style="font-family:'Manrope',sans-serif;font-size:56px;font-weight:800;color:#fff;line-height:1;margin-bottom:6px;position:relative;z-index:1;">2 000€</div>
+        <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:28px;position:relative;z-index:1;">Единоразовый платёж · Бессрочный доступ</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:32px;position:relative;z-index:1;">
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Всё из базового формата</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>7 личных онлайн-встреч с Natasha (60–90 мин)</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Каждую неделю — живой разбор твоей ситуации</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Твои цифры, твой рынок, твои вопросы</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Личные консультации по открытию в твоей стране</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Приоритетная связь с экспертом между встречами</li>
+        </ul>
+        <a href="https://consulting.natashumanska.com" style="display:block;background:#fff;color:var(--dark);font-family:'Inter',sans-serif;font-size:14px;font-weight:700;padding:15px 24px;border-radius:8px;text-decoration:none;text-align:center;transition:all 0.2s;position:relative;z-index:1;">Открыть вместе →</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -531,24 +565,24 @@ footer a:hover { color: var(--rose); }
     <h2 style="text-align:center">Частые вопросы</h2>
     <div class="faq">
       <div class="faq-item">
-        <div class="faq-q">Подойдёт ли курс для кафе, а не только ресторана?<span class="faq-plus">+</span></div>
-        <div class="faq-a">Да. Все принципы применимы к любому формату: ресторан, кафе, кофейня, пиццерия, бар или доставка еды.</div>
+        <div class="faq-q">Подойдёт ли для кафе, кофейни или бара — не только ресторана?<span class="faq-plus">+</span></div>
+        <div class="faq-a">Да. Система работает для любого формата общепита: ресторан, кафе, кофейня, пиццерия, бар, доставка. Все принципы универсальны, а на встречах разбираем твой конкретный формат.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Нужен ли опыт в ресторанном бизнесе?<span class="faq-plus">+</span></div>
-        <div class="faq-a">Нет. Курс подходит как новичкам без опыта, так и тем, кто уже в процессе открытия и хочет выстроить систему.</div>
+        <div class="faq-a">Нет. Программа построена так, что подходит и полным новичкам, и тем, кто уже в процессе. Если у тебя нет опыта — тем важнее пройти этот путь с сопровождением.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Для какой страны курс?<span class="faq-plus">+</span></div>
-        <div class="faq-a">Методология универсальна и работает в любой стране. Особое внимание уделяется открытию в Чехии и других странах Европы.</div>
+        <div class="faq-q">Для какой страны это актуально?<span class="faq-plus">+</span></div>
+        <div class="faq-a">Методология универсальна. Особый акцент — на открытие в Чехии и Европе в 2026 году: реальные цифры, актуальные тренды, местная специфика законодательства и аудитории.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Сколько времени займёт прохождение?<span class="faq-plus">+</span></div>
-        <div class="faq-a">При активном обучении — 4–8 недель. Вы сами выбираете темп. Доступ к материалам бессрочный.</div>
+        <div class="faq-q">Как проходят еженедельные встречи в формате с сопровождением?<span class="faq-plus">+</span></div>
+        <div class="faq-a">Онлайн, в живую, один на один с Natasha — 60–90 минут. Разбираем твою ситуацию, твои цифры, твои вопросы. Всего 7 встреч, каждая — конкретный шаг вперёд.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Есть ли обратная связь от автора?<span class="faq-plus">+</span></div>
-        <div class="faq-a">Курс самостоятельный. Личную консультацию с Natasha можно получить отдельно на consulting.natashumanska.com</div>
+        <div class="faq-q">За какой срок реально открыть ресторан?<span class="faq-plus">+</span></div>
+        <div class="faq-a">В среднем 3–6 месяцев от идеи до открытия. Зависит от твоей ситуации, бюджета и страны. На первой встрече составим реалистичный план именно под тебя.</div>
       </div>
     </div>
   </div>
@@ -557,9 +591,9 @@ footer a:hover { color: var(--rose); }
 <!-- ФИНАЛЬНЫЙ CTA -->
 <section class="final">
   <div class="wrap">
-    <h2>Готов открыть свой ресторан правильно?</h2>
-    <p>Присоединяйся к курсу и пройди путь от идеи до открытия с чёткой системой.</p>
-    <a href="https://consulting.natashumanska.com/#contacts" class="btn btn-arrow" style="font-size:17px;padding:18px 48px;display:inline-flex;margin:0 auto">Записаться на курс </a>
+    <h2>Готов открыть ресторан —<br>не в одиночку?</h2>
+    <p>Мы уже прошли этот путь десятки раз. Теперь пройдём его вместе с тобой.</p>
+    <a href="#pricing" class="btn btn-arrow" style="font-size:15px;padding:16px 40px;display:inline-flex;margin:0 auto">Выбрать формат </a>
   </div>
 </section>
 
