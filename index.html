@@ -602,6 +602,13 @@ footer a:hover { color: var(--rose); }
   </div>
   <div style="font-size:12px;color:rgba(255,255,255,0.2);">Designed by Shumanskii Andrei</div>
 </footer>
-
+<script>
+  document.querySelectorAll('.faq-q').forEach(function(q) {
+    q.addEventListener('click', function() {
+      var item = this.closest('.faq-item');
+      item.classList.toggle('open');
+    });
+  });
+</script>
 </body>
 </html>
