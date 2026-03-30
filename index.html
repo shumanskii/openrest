@@ -236,14 +236,18 @@ h2 em { color: var(--rose); font-style: normal; }
 }
 
 /* REVIEWS */
+.reviews-wrapper {
+  position: relative;
+}
 .reviews-track {
   display: flex;
   gap: 20px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding: 4px 0 20px;
+  padding: 4px 4px 20px;
   scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 .reviews-track::-webkit-scrollbar { display: none; }
 .review-card {
@@ -271,6 +275,7 @@ h2 em { color: var(--rose); font-style: normal; }
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--border);
+  background: var(--gray);
 }
 .review-name {
   font-size: 14px;
@@ -300,6 +305,27 @@ h2 em { color: var(--rose); font-style: normal; }
   text-decoration: none;
 }
 .review-ig:hover { color: var(--rose); }
+.reviews-nav {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.reviews-nav button {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--white);
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--muted2);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.reviews-nav button:hover {
+  background: var(--dark);
+  color: #fff;
+  border-color: var(--dark);
+}
 @media (max-width: 768px) {
   .review-card { min-width: 280px; max-width: 280px; }
 }
@@ -610,7 +636,8 @@ footer a:hover { color: var(--rose); }
     <span class="sec-label">Отзывы клиентов</span>
     <h2>Что говорят те, кто уже<br><em>работал с нами</em></h2>
     <p class="sec-sub">Реальные отзывы из Instagram — от людей, которые открывали и перезапускали свой бизнес вместе с Наташей и Андреем.</p>
-    <div class="reviews-track">
+    <div class="reviews-wrapper">
+    <div class="reviews-track" id="reviewsTrack">
 
       <div class="review-card">
         <div class="review-header">
@@ -700,7 +727,12 @@ footer a:hover { color: var(--rose); }
         <div class="review-text">Спасибо, Наташа и Андрей за ценную информацию. Очень все логично, оптимизированно и практично.</div>
       </div>
 
+    </div><!-- /reviews-track -->
+    <div class="reviews-nav">
+      <button id="reviewsPrev" aria-label="Назад">←</button>
+      <button id="reviewsNext" aria-label="Вперёд">→</button>
     </div>
+    </div><!-- /reviews-wrapper -->
   </div>
 </section>
 
@@ -812,6 +844,16 @@ footer a:hover { color: var(--rose); }
       var item = this.closest('.faq-item');
       item.classList.toggle('open');
     });
+  });
+
+  // Reviews navigation
+  var track = document.getElementById('reviewsTrack');
+  var cardWidth = 340 + 20; // card + gap
+  document.getElementById('reviewsPrev').addEventListener('click', function() {
+    track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+  });
+  document.getElementById('reviewsNext').addEventListener('click', function() {
+    track.scrollBy({ left: cardWidth, behavior: 'smooth' });
   });
 </script>
 </body>
