@@ -235,6 +235,75 @@ h2 em { color: var(--rose); font-style: normal; }
   background: var(--rose); border-radius: 50%; margin-top: 6px;
 }
 
+/* REVIEWS */
+.reviews-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 0 20px;
+  scrollbar-width: none;
+}
+.reviews-track::-webkit-scrollbar { display: none; }
+.review-card {
+  min-width: 340px;
+  max-width: 340px;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 28px 24px;
+  border: 1px solid var(--border);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: box-shadow 0.2s;
+}
+.review-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.07); }
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.review-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+}
+.review-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+.review-name a {
+  color: var(--text);
+  text-decoration: none;
+}
+.review-name a:hover { color: var(--rose); }
+.review-meta {
+  font-size: 11px;
+  color: var(--muted);
+}
+.review-text {
+  font-size: 13px;
+  color: var(--muted2);
+  line-height: 1.7;
+}
+.review-ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--muted);
+  text-decoration: none;
+}
+.review-ig:hover { color: var(--rose); }
+@media (max-width: 768px) {
+  .review-card { min-width: 280px; max-width: 280px; }
+}
+
 /* PRICE */
 .price-outer { max-width: 620px; margin: 0 auto; }
 .price-card {
@@ -503,7 +572,7 @@ footer a:hover { color: var(--rose); }
       <div class="mod"><div class="mod-n">08</div><div><h3>7P MIX: стратегия продвижения</h3><p>Онлайн и оффлайн маркетинг: как привлекать гостей и получить очередь уже к открытию.</p></div></div>
       <div class="mod"><div class="mod-n">09</div><div><h3>Бизнес-план: точные цифры</h3><p>Точные цифры именно для вашего проекта — аренда, персонал, foodcost.</p></div></div>
       <div class="mod"><div class="mod-n">10</div><div><h3>Бизнес-план и unit-экономика</h3><p>Как рассчитать стартовые вложения в оборудование, ремонт и запуск, объём продаж, средний чек, сколько людей нужно.</p></div></div>
-      <div class="mod"><div class="mod-n">11</div><div><h3>Проектирование и оснащение</h3><p>Проектирвание кухни, бара, гостевых пространств, выбор необходимой техники.</p></div></div>
+      <div class="mod"><div class="mod-n">11</div><div><h3>Проектирование и оснащение</h3><p>Проектирование кухни, бара, гостевых пространств, выбор необходимой техники.</p></div></div>
       <div class="mod"><div class="mod-n">12</div><div><h3>Пошаговый план открытия</h3><p>Индивидуальный план действий с конкретными шагами, дедлайнами и приоритетами.</p></div></div>
     </div>
   </div>
@@ -529,6 +598,108 @@ footer a:hover { color: var(--rose); }
         </div>
         <a href="https://consulting.natashumanska.com/#contacts" class="btn btn-arrow">Узнать больше </a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЦЕНА -->
+
+<!-- ОТЗЫВЫ -->
+<section class="sec sec-gray">
+  <div class="wrap">
+    <span class="sec-label">Отзывы клиентов</span>
+    <h2>Что говорят те, кто уже<br><em>работал с нами</em></h2>
+    <p class="sec-sub">Реальные отзывы из Instagram — от людей, которые открывали и перезапускали свой бизнес вместе с Наташей и Андреем.</p>
+    <div class="reviews-track">
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="20.jpg" alt="Valentina" class="review-avatar">
+          <div>
+            <div class="review-name"><a href="https://www.instagram.com/valentina.same_/" target="_blank">valentina.same_</a></div>
+            <div class="review-meta">Instagram · ❤️ от автора</div>
+          </div>
+        </div>
+        <div class="review-text">Если вы планируете открывать ресторан, лучше сразу обращаться к специалистам. Жалею, что мы не встретили вас в самом начале этого процесса. Наташа генерирует огромное количество идей, а вместе с Андреем они настоящие профессионалы своего дела.</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="24.jpg" alt="Simkate" class="review-avatar">
+          <div>
+            <div class="review-name"><a href="https://www.instagram.com/simkate/" target="_blank">simkate</a></div>
+            <div class="review-meta">Instagram · ❤️ от автора</div>
+          </div>
+        </div>
+        <div class="review-text">Наталья, я очень ценю ваш профессионализм, открытость и готовность делиться знаниями и реальным опытом, который экономит огромное количество времени и денег. Самое главное — что вы не просто даёте «правильные ответы», а объясняете логику мышления.</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="23.jpg" alt="Raimbek" class="review-avatar">
+          <div>
+            <div class="review-name"><a href="https://www.instagram.com/raimbek.cz/" target="_blank">raimbek.cz</a></div>
+            <div class="review-meta">Instagram</div>
+          </div>
+        </div>
+        <div class="review-text">Консультация оставила у нас исключительно положительное впечатление. Наталья подробно ответила на все наши вопросы, внимательно разобрала нашу ситуацию. Было особенно ценно, что она не просто давала общие рекомендации, а объясняла логику каждого шага.</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="21.jpg" alt="Katya" class="review-avatar">
+          <div>
+            <div class="review-name"><a href="https://www.instagram.com/katya.sunduchkovaa/" target="_blank">katya.sunduchkovaa</a></div>
+            <div class="review-meta">Instagram · ❤️ от автора</div>
+          </div>
+        </div>
+        <div class="review-text">Спасибо в свое время за консультацию, сразу поняла, что кафе в Праге мне по зубам, да и не сильно хотелось. Зато подсказали множество фишек, которые можно внедрить сейчас или в обозримом будущем, то что конкретно мне подходит ☺️</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="26.jpg" alt="Inna" class="review-avatar">
+          <div>
+            <div class="review-name"><a href="https://www.instagram.com/inna.whaley/" target="_blank">inna.whaley</a></div>
+            <div class="review-meta">Instagram · ❤️ от автора</div>
+          </div>
+        </div>
+        <div class="review-text">Благодарю за консультации и подробные таблички для расчётов. А ещё за то, что помогли отточить концепцию и порекомендовали отличных специалистов. 😊</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="25.jpg" alt="Dima" class="review-avatar">
+          <div>
+            <div class="review-name"><a href="https://www.instagram.com/dimazavrr_/" target="_blank">dimazavrr_</a></div>
+            <div class="review-meta">Instagram · ❤️ от автора</div>
+          </div>
+        </div>
+        <div class="review-text">Спасибо Наталье и Андрею за их работу в этом деле. Всегда есть ответы, даже на самые необычные вопросы 💯</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="22.jpg" alt="Khromberry" class="review-avatar">
+          <div>
+            <div class="review-name"><a href="https://www.instagram.com/khromberry/" target="_blank">khromberry</a></div>
+            <div class="review-meta">Instagram · ❤️ от автора</div>
+          </div>
+        </div>
+        <div class="review-text">Как хорошо что я вас встретила именно тогда, когда мне так нужны были эти знания)) Лучшие 🔥🔥</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <img src="27.jpg" alt="Daria" class="review-avatar">
+          <div>
+            <div class="review-name"><a href="https://www.instagram.com/dariapastel/" target="_blank">dariapastel</a></div>
+            <div class="review-meta">Instagram · ❤️ от автора</div>
+          </div>
+        </div>
+        <div class="review-text">Спасибо, Наташа и Андрей за ценную информацию. Очень все логично, оптимизированно и практично.</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -578,7 +749,7 @@ footer a:hover { color: var(--rose); }
           <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Прототип логотипа и фирменного стиля</li>
           <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Онлайн-просмотр вашего помещения</li>
           <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Помощь с проектированием</li>
-          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Доступ в школу <a href="https://natashumanska.com" target="_blank" style="color:#fff;">natashumanska.com</a> на 2 года</li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Доступ в школу <a href="https://natashumanska.com" target="_blank" style="color:#fff;text-decoration:underline;text-underline-offset:2px;">natashumanska.com</a> на 2 года</li>
           <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Доступ в онлайн-библиотеку</li>
         </ul>
        <a href="https://wa.me/420778028785?text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%D0%B7%D0%B0%202000%20%D0%B5%D0%B2%D1%80%D0%BE.%0A%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%20%D0%B2%D0%B0%D0%BC%D0%B8%20%D0%B2%D1%81%D1%82%D1%80%D0%B5%D1%82%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%B2%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD-%D0%BA%D0%BE%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D0%B8%2C%20%D1%87%D1%82%D0%BE%D0%B1%D1%8B%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D0%BE%D0%B2%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%20%D0%BF%D1%80%D0%B8%D0%BD%D1%8F%D1%82%D0%B8%D0%B5%D0%BC%20%D0%BE%D0%BA%D0%BE%D0%BD%D1%87%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F" target="_blank" style="display:block;background:#fff;color:var(--dark);font-family:'Inter',sans-serif;font-size:14px;font-weight:700;padding:15px 24px;border-radius:8px;text-decoration:none;text-align:center;transition:all 0.2s;position:relative;z-index:1;">Открыть вместе →</a>
@@ -607,7 +778,7 @@ footer a:hover { color: var(--rose); }
       </div>
       <div class="faq-item">
         <div class="faq-q">Как проходят еженедельные встречи в формате с сопровождением?<span class="faq-plus">+</span></div>
-        <div class="faq-a">Онлайн, в живую, один на один  с Наташей и Андреем — 60 минут. Разбираем вашу ситуацию, цифры, вопросы. Всего 6 встреч, каждая — конкретный шаг вперёд.</div>
+        <div class="faq-a">Онлайн, вживую, один на один  с Наташей и Андреем — 60 минут. Разбираем вашу ситуацию, цифры, вопросы. Всего 6 встреч, каждая — конкретный шаг вперёд.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">За какой срок реально открыть ресторан?<span class="faq-plus">+</span></div>
