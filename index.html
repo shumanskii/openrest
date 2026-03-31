@@ -1002,11 +1002,10 @@ footer a:hover { color: var(--rose); }
       alert('Пожалуйста, заполните все поля.');
       return;
     }
-    var msg = 'Привет! Хочу записаться на встречу-знакомство.\n\n'
+    var msg = 'Добрый день! Хочу записаться на встречу-знакомство.\n\n'
       + '👤 Имя: ' + name + '\n'
       + '🍽️ Ресторан / концепция: ' + resto + '\n'
-      + '🌍 Страна: ' + country + '\n\n'
-      + 'Когда можно созвониться?';
+      + '🌍 Страна: ' + country;
     var url = 'https://wa.me/420778028785?text=' + encodeURIComponent(msg);
     window.open(url, '_blank');
   });
