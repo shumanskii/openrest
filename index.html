@@ -414,6 +414,120 @@ h2 em { color: var(--rose); font-style: normal; }
 }
 .faq-item.open .faq-a { max-height: 200px; padding: 0 24px 20px; }
 
+/* BOOKING */
+.booking-section {
+  background: var(--gray);
+  padding: 80px 0;
+}
+.booking-inner {
+  max-width: 580px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  padding: 52px 48px;
+  box-shadow: 0 12px 40px rgba(42,61,42,0.07);
+}
+.booking-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(200,98,42,0.09);
+  color: var(--rose);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+.booking-inner h2 {
+  font-size: clamp(22px,3vw,30px);
+  margin-bottom: 10px;
+}
+.booking-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+.booking-desc strong {
+  color: var(--muted2);
+  font-weight: 600;
+}
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.booking-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.booking-field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted2);
+  letter-spacing: 0.03em;
+}
+.booking-field input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--gray);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.booking-field input:focus {
+  border-color: var(--rose);
+  background: #fff;
+}
+.booking-field input::placeholder {
+  color: var(--muted);
+}
+.booking-submit {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 15px 28px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.booking-submit:hover {
+  background: #1EBE58;
+  transform: translateY(-1px);
+}
+.booking-submit svg {
+  width: 20px; height: 20px; flex-shrink: 0;
+}
+.booking-note {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+@media (max-width: 640px) {
+  .booking-inner { padding: 36px 24px; }
+}
+
 /* FINAL CTA */
 .final {
   background: var(--dark); padding: 88px 0; text-align: center;
@@ -505,7 +619,7 @@ footer a:hover { color: var(--rose); }
 <!-- NAV -->
 <nav>
   <a href="https://consulting.natashumanska.com" class="nav-logo">Natasha.Shumanska</a>
-  <a href="#pricing" class="nav-cta">Выбрать формат →</a>
+  <a href="#booking" class="nav-cta">Записаться на встречу →</a>
 </nav>
 
 <!-- HERO -->
@@ -790,6 +904,39 @@ footer a:hover { color: var(--rose); }
   </div>
 </section>
 
+<!-- ЗАПИСЬ НА ВСТРЕЧУ -->
+<section class="booking-section" id="booking">
+  <div class="wrap">
+    <div class="booking-inner">
+      <div class="booking-badge">📅 Бесплатно · 10–15 минут</div>
+      <h2>Запись на встречу-<br>знакомство</h2>
+      <p class="booking-desc">
+        Перед стартом программы мы проводим короткий созвон — <strong>10–15 минут</strong>.<br>
+        Познакомимся, разберёмся в вашей ситуации и убедимся, что курс подходит именно вам.
+      </p>
+      <div class="booking-form">
+        <div class="booking-field">
+          <label for="b-name">Ваше имя</label>
+          <input type="text" id="b-name" placeholder="Например, Анна" autocomplete="name">
+        </div>
+        <div class="booking-field">
+          <label for="b-resto">Название ресторана или концепция</label>
+          <input type="text" id="b-resto" placeholder="Например, итальянское кафе или пока без названия">
+        </div>
+        <div class="booking-field">
+          <label for="b-country">Страна открытия</label>
+          <input type="text" id="b-country" placeholder="Например, Чехия, Германия, ОАЭ…">
+        </div>
+        <button class="booking-submit" id="bookingBtn" type="button">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.855L.057 23.09a.75.75 0 00.952.905l5.416-1.424A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.886 0-3.656-.51-5.176-1.4l-.372-.215-3.857 1.015 1.032-3.764-.229-.38A10 10 0 112 12c0 5.514 4.486 10 10 10z"/></svg>
+          Записаться через WhatsApp
+        </button>
+        <p class="booking-note">Нажимая кнопку, вы перейдёте в WhatsApp — сообщение сформируется автоматически</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="sec">
   <div class="wrap">
@@ -846,7 +993,23 @@ footer a:hover { color: var(--rose); }
     });
   });
 
-  // Reviews navigation
+  // Booking form → WhatsApp
+  document.getElementById('bookingBtn').addEventListener('click', function() {
+    var name = document.getElementById('b-name').value.trim();
+    var resto = document.getElementById('b-resto').value.trim();
+    var country = document.getElementById('b-country').value.trim();
+    if (!name || !resto || !country) {
+      alert('Пожалуйста, заполните все поля.');
+      return;
+    }
+    var msg = 'Привет! Хочу записаться на встречу-знакомство.\n\n'
+      + '👤 Имя: ' + name + '\n'
+      + '🍽️ Ресторан / концепция: ' + resto + '\n'
+      + '🌍 Страна: ' + country + '\n\n'
+      + 'Когда можно созвониться?';
+    var url = 'https://wa.me/420778028785?text=' + encodeURIComponent(msg);
+    window.open(url, '_blank');
+  });
   var track = document.getElementById('reviewsTrack');
   var cardWidth = 340 + 20; // card + gap
   document.getElementById('reviewsPrev').addEventListener('click', function() {
