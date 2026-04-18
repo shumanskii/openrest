@@ -613,6 +613,9 @@ footer a:hover { color: var(--rose); }
   .price-plan { grid-template-columns: 1fr; gap: 24px; padding: 28px 20px; }
   .price-plan-right { border-top: 1px solid var(--border); padding-top: 20px; }
   .price-plan-dark .price-plan-right { border-top: 1px solid rgba(255,255,255,0.1); }
+  /* Видео — одна колонка */
+  #ytPlayer1, #ytPlayer2 { border-radius: 12px; }
+  .videos-grid { grid-template-columns: 1fr !important; }
 }
 
 /* FADE IN ANIMATION */
@@ -646,7 +649,7 @@ footer a:hover { color: var(--rose); }
       <div class="hero-left">
         <div class="hero-tag">Программа с сопровождением · 2026</div>
         <h1>Открываете ресторан<br><em>в эмиграции?</em><br>Мы уже прошли то,<br>что вас пугает.</h1>
-        <p class="hero-sub">Лицензии, которые вы не найдёте в Google. Реальная unit-экономика, а не цифры из головы. Концепт, адаптированный под местную аудиторию. Скрытые расходы, о которых узнают уже после открытия — мы покажем их до.</p>
+        <p class="hero-sub">Большинство открываются без системы — и узнают о своих ошибках уже после того, как вложены деньги. Мы проведём вас за руку по всему пути: от первой идеи до первого гостя — без потерь, которых можно было избежать.</p>
         <div class="stats-row">
           <div class="stat"><strong>20+</strong><span>лет опыта</span></div>
           <div class="stat"><strong>7+</strong><span>лет в Европе</span></div>
@@ -669,27 +672,27 @@ footer a:hover { color: var(--rose); }
     <div class="pain-grid">
       <div class="pain-card">
         <div class="pain-icon">😵</div>
-        <div><h3>Не знаешь с чего начать</h3><p>Идея есть, желание есть — но непонятно, какой первый шаг, второй, третий. Голова идёт кругом от количества вопросов.</p></div>
+        <div><h3>Не знаешь с чего начать</h3><p>Ты уже несколько месяцев изучаешь тему — и всё равно не знаешь, с чего начать. Каждый следующий вопрос рождает три новых.</p></div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">💸</div>
-        <div><h3>Не понимаешь, сколько нужно денег</h3><p>Цифры в интернете разные, реальность пугает. Не знаешь, хватит ли бюджета и куда пойдут деньги в первую очередь.</p></div>
+        <div><h3>Не понимаешь, сколько нужно денег</h3><p>В интернете пишут одно, риелтор говорит другое, знакомый ресторатор называет третье. Непонятно, кому верить и хватит ли вообще того, что есть.</p></div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">🕳️</div>
-        <div><h3>Боишься наступить на грабли</h3><p>Слышал истории о закрытых ресторанах. Знаешь, что ошибки стоят дорого — и не хочешь учиться на собственных потерях.</p></div>
+        <div><h3>Боишься наступить на грабли</h3><p>Ошибки в ресторанном бизнесе стоят десятки тысяч евро. И большинство из них совершают не от незнания — а потому что не было рядом того, кто уже через это прошёл.</p></div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">🧩</div>
-        <div><h3>Не знаешь, что не забыть</h3><p>Концепция, документы, оборудование, персонал, маркетинг — кажется, что что-то важное обязательно упустишь.</p></div>
+        <div><h3>Не знаешь, что не забыть</h3><p>Каждую неделю всплывает что-то новое, о чём ты не думал. И страшно не то, что много задач — а то, что не знаешь, что ещё не знаешь.</p></div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">🗺️</div>
-        <div><h3>Нет системы — только хаос</h3><p>Делаешь что-то, но без чёткого плана. Каждый день новые вопросы, и непонятно, в правильном ли направлении движешься.</p></div>
+        <div><h3>Нет системы — только хаос</h3><p>Делаешь что-то каждый день — но ощущение, что топчешься на месте. Непонятно, правильно ли вообще идёшь и не придётся ли всё переделывать.</p></div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">🌍</div>
-        <div><h3>Открываешь в Европе или в эмиграции</h3><p>Законы, налоги, менталитет гостей, поставщики — в новой стране всё иначе. Нужен тот, кто уже прошёл этот путь здесь.</p></div>
+        <div><h3>Открываешь в Европе или в эмиграции</h3><p>Ты можешь потратить полгода, разбираясь в местной специфике самостоятельно. Или поговорить с теми, кто уже открыл здесь десятки заведений — и пройти этот путь за недели.</p></div>
       </div>
     </div>
   </div>
@@ -700,24 +703,43 @@ footer a:hover { color: var(--rose); }
   <div class="wrap">
     <div style="text-align:center;margin-bottom:36px;">
       <span class="sec-label">Смотри прямо сейчас</span>
-      <h2 style="margin-bottom:12px;">8 провалов рестораторов<br><em>при открытии гастробизнеса</em></h2>
-      <p class="sec-sub" style="margin:0 auto;text-align:center;max-width:520px;">Разбираем реальные ошибки, которые стоят денег и нервов — чтобы ты их не повторил.</p>
+      <h2 style="margin-bottom:12px;">Посмотри — прежде чем<br><em>тратить деньги на ошибки</em></h2>
+      <p class="sec-sub" style="margin:0 auto;text-align:center;max-width:520px;">Реальные разборы, реальные цифры, реальные ошибки — чтобы ты их не повторил.</p>
     </div>
-    <div style="max-width:780px;margin:0 auto;">
-      <div id="ytPlayer" style="position:relative;border-radius:20px;overflow:hidden;cursor:pointer;box-shadow:0 24px 60px rgba(42,61,42,0.15);aspect-ratio:16/9;background:#0d0d0d;"
-        onclick="(function(el){var iframe=document.createElement('iframe');iframe.style.cssText='width:100%;height:100%;position:absolute;top:0;left:0;border:none;';iframe.src='https://www.youtube.com/embed/mXiTc7mkyCM?si=XK7eLdGZIMYH7MOs&autoplay=1';iframe.allow='autoplay;encrypted-media';iframe.allowFullscreen=true;el.innerHTML='';el.appendChild(iframe);el.style.cursor='default';})(this)">
-        <img src="thumb.jpg" alt="8 провалов рестораторов при открытии гастробизнеса"
-          style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;top:0;left:0;">
-        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.22);transition:background 0.25s;"
-          onmouseover="this.style.background='rgba(0,0,0,0.35)'" onmouseout="this.style.background='rgba(0,0,0,0.22)'">
-          <div style="width:80px;height:80px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 40px rgba(200,98,42,0.55);transition:transform 0.2s,box-shadow 0.2s;"
-            onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 16px 50px rgba(200,98,42,0.7)'"
-            onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 12px 40px rgba(200,98,42,0.55)'">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="white" style="margin-left:4px;"><path d="M8 5v14l11-7z"/></svg>
+    <div class="videos-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1040px;margin:0 auto;">
+
+      <!-- Видео 1 -->
+      <div>
+        <div id="ytPlayer1" style="position:relative;border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:0 16px 40px rgba(42,61,42,0.15);aspect-ratio:16/9;background:#0d0d0d;"
+          onclick="(function(el){var iframe=document.createElement('iframe');iframe.style.cssText='width:100%;height:100%;position:absolute;top:0;left:0;border:none;';iframe.src='https://www.youtube.com/embed/mXiTc7mkyCM?autoplay=1';iframe.allow='autoplay;encrypted-media';iframe.allowFullscreen=true;el.innerHTML='';el.appendChild(iframe);el.style.cursor='default';})(this)">
+          <img src="thumb.jpg" alt="8 провалов рестораторов при открытии гастробизнеса" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;top:0;left:0;">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.22);transition:background 0.25s;" onmouseover="this.style.background='rgba(0,0,0,0.35)'" onmouseout="this.style.background='rgba(0,0,0,0.22)'">
+            <div style="width:64px;height:64px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(200,98,42,0.55);transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="white" style="margin-left:3px;"><path d="M8 5v14l11-7z"/></svg>
+            </div>
           </div>
         </div>
+        <p style="font-size:13px;font-weight:600;color:var(--text);margin-top:14px;line-height:1.5;">8 провалов рестораторов при открытии гастробизнеса</p>
+        <p style="font-size:12px;color:var(--muted);margin-top:4px;">Разбираем реальные ошибки, которые стоят денег и нервов</p>
       </div>
+
+      <!-- Видео 2 -->
+      <div>
+        <div id="ytPlayer2" style="position:relative;border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:0 16px 40px rgba(42,61,42,0.15);aspect-ratio:16/9;background:#0d0d0d;"
+          onclick="(function(el){var iframe=document.createElement('iframe');iframe.style.cssText='width:100%;height:100%;position:absolute;top:0;left:0;border:none;';iframe.src='https://www.youtube.com/embed/ljMpLRHY174?autoplay=1';iframe.allow='autoplay;encrypted-media';iframe.allowFullscreen=true;el.innerHTML='';el.appendChild(iframe);el.style.cursor='default';})(this)">
+          <img src="180426.jpg" alt="Проведу за руку — как открыть ресторан в эмиграции" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;top:0;left:0;">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.22);transition:background 0.25s;" onmouseover="this.style.background='rgba(0,0,0,0.35)'" onmouseout="this.style.background='rgba(0,0,0,0.22)'">
+            <div style="width:64px;height:64px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(200,98,42,0.55);transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="white" style="margin-left:3px;"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:13px;font-weight:600;color:var(--text);margin-top:14px;line-height:1.5;">Проведу за руку: как открыть ресторан в эмиграции</p>
+        <p style="font-size:12px;color:var(--muted);margin-top:4px;">О том, как не потеряться в новой стране и открыть сильно</p>
+      </div>
+
     </div>
+    <style>@media(max-width:640px){.videos-grid{grid-template-columns:1fr!important;}}</style>
   </div>
 </section>
   
@@ -899,28 +921,37 @@ footer a:hover { color: var(--rose); }
     <span class="sec-label" style="display:block;text-align:center">Форматы участия</span>
     <h2 style="text-align:center">Выбери свой путь<br>к открытию</h2>
     <p class="sec-sub" style="text-align:center;max-width:560px;margin-left:auto;margin-right:auto">Три формата участия — выбери тот, что подходит именно вашей ситуации.</p>
+    <div style="max-width:680px;margin:0 auto 40px;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:20px 28px;display:flex;gap:16px;align-items:flex-start;">
+      <div style="min-width:36px;height:36px;background:rgba(200,98,42,0.09);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;">💡</div>
+      <div>
+        <p style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;">Почему это окупается до открытия</p>
+        <p style="font-size:13px;color:var(--muted);line-height:1.65;">Одна ошибка при выборе помещения стоит 5 000–20 000€. Неверный финансовый расчёт — ещё столько же. Неподходящая концепция — потеря всего вложенного. Стоимость программы несопоставима с ценой одной допущенной ошибки.</p>
+      </div>
+    </div>
     <div class="pricing-grid">
 
-      <!-- ТАРИФ 1 -->
+      <!-- ТАРИФ 1 — 500€ -->
       <div class="price-plan price-plan-light">
         <div class="price-plan-left">
           <span style="display:inline-block;background:var(--rose-bg);color:var(--rose);font-size:11px;font-weight:700;padding:5px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:20px;width:fit-content;">Самостоятельный</span>
-          <h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:var(--text);margin-bottom:8px;letter-spacing:-0.02em;">Как открыть<br>ресторанный бизнес</h3>
-          <p style="font-size:13px;color:var(--muted);margin-bottom:24px;">Программа · 12 шагов · Доступ к материалам</p>
+          <h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:var(--text);margin-bottom:10px;letter-spacing:-0.02em;">Есть идея — но не знаю,<br>с чего начать</h3>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:10px;line-height:1.6;">Для тех, кто хочет двигаться самостоятельно, но <strong style="color:var(--text);">без хаоса и дорогостоящих ошибок</strong>. Получаешь всю систему открытия — проверенную на десятках реальных заведений.</p>
+          <p style="font-size:12px;color:var(--rose);font-weight:600;margin-bottom:20px;">✦ Идеально, если у тебя есть идея, но ещё нет чёткого плана</p>
           <div style="font-family:'Manrope',sans-serif;font-size:52px;font-weight:800;color:var(--text);line-height:1;margin-bottom:6px;">500€</div>
-          <p style="font-size:12px;color:var(--muted);margin-bottom:28px;">Единоразовый платёж · Бессрочный доступ</p>
-          <a href="https://buy.stripe.com/fZu8wP4l1azX6DCeYfcwg0b" target="_blank" style="display:inline-block;background:var(--dark);color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;padding:13px 24px;border-radius:8px;text-decoration:none;text-align:center;transition:all 0.2s;margin-top:auto;" onmouseover="this.style.background='#3A5C3A'" onmouseout="this.style.background='#2A3D2A'">Начать →</a>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:28px;">Единоразовый платёж · Доступ на 6 месяцев · Все обновления</p>
+          <a href="https://buy.stripe.com/fZu8wP4l1azX6DCeYfcwg0b" target="_blank" style="display:inline-block;background:var(--dark);color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;padding:13px 24px;border-radius:8px;text-decoration:none;text-align:center;transition:all 0.2s;margin-top:auto;" onmouseover="this.style.background='#3A5C3A'" onmouseout="this.style.background='#2A3D2A'">Начать свой путь →</a>
         </div>
         <div class="price-plan-right">
+          <p style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;">Что входит</p>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;">
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span>Система открытия: 12 шагов</li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span>Бизнес-план и финансовые расчёты</li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span>Сроки окупаемости и % рентабельности</li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span>Алгоритм разработки продающего меню</li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span>Поиск и подбор персонала</li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span>Стратегия продвижения</li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span>Индивидуальный план открытия</li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span>Бессрочный доступ + все обновления</li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span><span><strong>Пошаговая система открытия</strong> — чёткая структура от идеи до первого гостя. Не собьётесь, не запутаетесь, не пропустите ничего важного</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span><span><strong>Бизнес-план и финансовые расчёты</strong> — по готовому шаблону считаете свой проект: все вложения, все расходы, все цифры. Ничего не упустите и не придумаете на глаз</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span><span><strong>Окупаемость, рентабельность, сроки возврата вложений</strong> — чётко поймёте, хватает ли у вас средств на то, что вы задумали, и когда проект начнёт работать на вас</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span><span><strong>Формирование продукта и меню</strong> — разберётесь, что вы продаёте, из чего это состоит, сколько стоит и почему именно столько. Продукт, который понятен гостю и выгоден вам</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span><span><strong>Поиск и подбор персонала</strong> — поймёте, кого, когда и как нанимать, чтобы с первого дня собрать команду, на которую можно опереться</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span><span><strong>Стратегия продвижения</strong> — как рассказать о себе до открытия, чтобы в первый день не было пусто. Где искать гостей и как сделать так, чтобы они возвращались</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span><span><strong>Живые встречи по четвергам — 6 месяцев</strong> — после каждой встречи можно задать вопрос конкретно по вашему проекту и получить ответ от эксперта</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span><span><strong>Сообщество участников</strong> — люди, которые открываются прямо сейчас, рядом с вами. Можно спросить, поделиться, не быть один на один с этим</span></li>
           </ul>
         </div>
       </div>
@@ -928,47 +959,50 @@ footer a:hover { color: var(--rose); }
       <!-- ТАРИФ 1.5 — 850€ -->
       <div class="price-plan price-plan-light" style="border:2px solid var(--rose);">
         <div class="price-plan-left">
-          <span style="display:inline-block;background:var(--rose);color:#fff;font-size:11px;font-weight:700;padding:5px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:20px;width:fit-content;">С аудитом</span>
-          <h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:var(--text);margin-bottom:8px;letter-spacing:-0.02em;">Мини-аудит<br>+ курсы под вас</h3>
-          <p style="font-size:13px;color:var(--muted);margin-bottom:24px;">Аудит · Курсы · Вебинары</p>
+          <span style="display:inline-block;background:var(--rose);color:#fff;font-size:11px;font-weight:700;padding:5px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:20px;width:fit-content;">Популярный</span>
+          <h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:var(--text);margin-bottom:10px;letter-spacing:-0.02em;">Уже начал — но боюсь,<br>что иду не туда</h3>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:10px;line-height:1.6;">Для тех, кто уже в процессе и хочет убедиться, что <strong style="color:var(--text);">не совершает критических ошибок</strong>. Мы смотрим на вашу ситуацию свежим взглядом и показываем, где риски и как их обойти.</p>
+          <p style="font-size:12px;color:var(--rose);font-weight:600;margin-bottom:20px;">✦ Идеально, если у тебя уже есть помещение, шеф-повар или франшиза — но что-то идёт не так и непонятно почему</p>
           <div style="font-family:'Manrope',sans-serif;font-size:52px;font-weight:800;color:var(--text);line-height:1;margin-bottom:6px;">850€</div>
-          <p style="font-size:12px;color:var(--muted);margin-bottom:28px;">Единоразовый платёж · Бессрочный доступ</p>
-          <a href="https://buy.stripe.com/cNiaEXeZFeQdfa803lcwg0f" target="_blank" style="display:inline-block;background:var(--rose);color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;padding:13px 24px;border-radius:8px;text-decoration:none;text-align:center;transition:all 0.2s;margin-top:auto;">Начать →</a>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:28px;">Единоразовый платёж · Доступ на 6 месяцев · Все обновления</p>
+          <a href="https://buy.stripe.com/cNiaEXeZFeQdfa803lcwg0f" target="_blank" style="display:inline-block;background:var(--rose);color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;padding:13px 24px;border-radius:8px;text-decoration:none;text-align:center;transition:all 0.2s;margin-top:auto;">Проверить мой путь →</a>
         </div>
         <div class="price-plan-right">
+          <p style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;">Всё из тарифа 500€, плюс</p>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;">
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span>Мини-аудит вашего бизнеса (90 минут)</li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);word-break:break-word;"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;flex-shrink:0;">✓</span><span>4 курса из нашей <a href="https://natashumanska.com" target="_blank" style="color:var(--rose);text-decoration:underline;text-underline-offset:2px;">школы</a> в подарок — подобраны лично для вас после аудита</span></li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;flex-shrink:0;">✓</span><span>Доступ на все <a href="https://www.natashumanska.com/courses/monthly" target="_blank" style="color:var(--rose);text-decoration:underline;text-underline-offset:2px;">наши вебинары</a> — 6 месяцев</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;">✓</span><span><strong>Мини-аудит вашего проекта (90 мин)</strong> — Мы лично разбираем вашу ситуацию: где ошибки, где риски, как исправить</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);word-break:break-word;"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;flex-shrink:0;">✓</span><span><strong>4 готовых курса из <a href="https://www.natashumanska.com/" target="_blank" style="color:var(--rose);text-decoration:underline;text-underline-offset:2px;">школы Ресторанного бизнеса</a>, подобранных лично для вас</strong> — после аудита вы получаете именно те модули, которые нужны в вашей точке пути, именно сейчас</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted2);"><span style="min-width:18px;height:18px;background:rgba(200,98,42,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--rose);margin-top:1px;flex-shrink:0;">✓</span><span><strong>Доступ к средовым вебинарам на 6 месяцев</strong> — каждую среду прокачиваете управленческие навыки и задаёте вопросы эксперту напрямую</span></li>
           </ul>
         </div>
       </div>
 
-      <!-- ТАРИФ 2 -->
+      <!-- ТАРИФ 2 — 2000€ -->
       <div class="price-plan price-plan-dark">
         <div style="position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:rgba(200,98,42,0.15);border-radius:50%;pointer-events:none;"></div>
         <div style="position:absolute;bottom:-40px;left:-40px;width:140px;height:140px;background:rgba(200,98,42,0.08);border-radius:50%;pointer-events:none;"></div>
         <div class="price-plan-left" style="position:relative;z-index:1;">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
-            <span style="display:inline-block;background:var(--rose);color:#fff;font-size:11px;font-weight:700;padding:5px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:0.08em;">С сопровождением</span>
+            <span style="display:inline-block;background:var(--rose);color:#fff;font-size:11px;font-weight:700;padding:5px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:0.08em;">Максимум</span>
             <span style="display:inline-block;background:rgba(255,255,255,0.1);border-radius:8px;padding:5px 10px;font-size:11px;font-weight:700;color:rgba(255,255,255,0.7);">Хит</span>
           </div>
-          <h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-0.02em;">Открытие вместе<br>с Наташей и Андреем</h3>
-          <p style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:24px;">Программа + 6 личных встреч · Полное сопровождение</p>
+          <h3 style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px;letter-spacing:-0.02em;">Хочу открыть сильно,<br>быстро и без потерь</h3>
+          <p style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:10px;line-height:1.6;">Для тех, кто не хочет рисковать деньгами и временем в одиночку. Мы лично проведём вас от первого шага до открытия.</p>
+          <p style="font-size:12px;color:var(--rose-light);font-weight:600;margin-bottom:20px;">✦ Идеально, если времени мало, уверенности не хватает — и вы хотите знать, что рядом есть те, кто не даст вам свернуть не туда</p>
           <div style="font-family:'Manrope',sans-serif;font-size:52px;font-weight:800;color:#fff;line-height:1;margin-bottom:6px;">2 000€</div>
-          <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:28px;">Единоразовый платёж · Бессрочный доступ</p>
+          <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:28px;">Единоразовый платёж · Доступ на 12 месяцев · Все обновления</p>
           <a href="https://wa.me/420778028785?text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%D0%B7%D0%B0%202000%20%D0%B5%D0%B2%D1%80%D0%BE.%0A%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%20%D0%B2%D0%B0%D0%BC%D0%B8%20%D0%B2%D1%81%D1%82%D1%80%D0%B5%D1%82%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%B2%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD-%D0%BA%D0%BE%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D0%B8%2C%20%D1%87%D1%82%D0%BE%D0%B1%D1%8B%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D0%BE%D0%B2%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%20%D0%BF%D1%80%D0%B8%D0%BD%D1%8F%D1%82%D0%B8%D0%B5%D0%BC%20%D0%BE%D0%BA%D0%BE%D0%BD%D1%87%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D1%8F" target="_blank" style="display:inline-block;background:#fff;color:var(--dark);font-family:'Inter',sans-serif;font-size:14px;font-weight:700;padding:13px 24px;border-radius:8px;text-decoration:none;text-align:center;transition:all 0.2s;margin-top:auto;">Открыть вместе →</a>
         </div>
         <div class="price-plan-right" style="position:relative;z-index:1;">
+          <p style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;">Всё из первого тарифа, плюс</p>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;">
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Всё из самостоятельного тарифа</li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>6 личных онлайн-встреч (60 минут)</li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Связь с экспертом в личном чате между встречами</li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Прототип логотипа и фирменного стиля</li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Онлайн-просмотр вашего помещения</li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Помощь с проектированием</li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;flex-shrink:0;">✓</span><span>Доступ в <a href="https://natashumanska.com" target="_blank" style="color:#fff;text-decoration:underline;text-underline-offset:2px;">школу</a> на 2 года</span></li>
-            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span>Доступ в онлайн-библиотеку</li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span><span><strong>6 личных встреч</strong> — разбираем только ваш проект, никаких шаблонных советов</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span><span><strong>Личный чат с экспертом на 12 месяцев</strong> — есть вопросы, которые не ждут четверга: если что-то срочное или важное — пишете нам, мы ответим в чате</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span><span><strong>Онлайн-просмотр вашего помещения</strong> — вместе разберём, подходит оно вам или нет. Даже если не подходит — после этого разбора вы будете точно знать, на что смотреть при выборе следующего</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span><span><strong>Первый эскиз логотипа и фирменного стиля</strong> — не просто советы, а реальный результат: вы уйдёте с первыми набросками визуального образа вашего бренда</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span><span><strong>Личное пространство в Miro + облачная папка</strong> — стратегия, референсы, задачи с дедлайнами, контакты, расходы — всё в одном месте, совместная работа с нами в режиме реального времени</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;">✓</span><span><strong>Живое сообщество с экспертами все 12 месяцев</strong></span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="min-width:18px;height:18px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-top:1px;flex-shrink:0;">✓</span><span><strong>Доступ в <a href="https://www.natashumanska.com/" target="_blank" style="color:#fff;text-decoration:underline;text-underline-offset:2px;">школу ресторатора</a> на 2 года</strong> — после открытия начнётся новый этап: управление, команда, процессы. Там уже всё готово — стандарты, чек-листы, курсы. Чтобы не разбираться с нуля в самый ответственный момент</span></li>
           </ul>
         </div>
       </div>
@@ -981,10 +1015,10 @@ footer a:hover { color: var(--rose); }
   <div class="wrap">
     <div class="booking-inner">
       <div class="booking-badge">Бесплатно · 20–30 минут</div>
-      <h2>Обязательная встреча-<br>знакомство</h2>
+      <h2>Не знаешь, какой формат<br>подходит тебе?</h2>
       <p class="booking-desc">
-        На программу нельзя попасть без личного знакомства с нами.<br>
-        Нам важно убедиться, что открытие ресторанного бизнеса — это действительно то, что вам нужно в вашей ситуации.
+        Запишись на бесплатную встречу-знакомство — разберём твою ситуацию вместе.<br>
+        <strong>Мы не берём всех подряд:</strong> нам важно убедиться, что программа действительно подходит именно тебе — и что ты готов двигаться.
       </p>
       <div class="booking-form">
         <div class="booking-field">
@@ -1042,9 +1076,9 @@ footer a:hover { color: var(--rose); }
 <!-- ФИНАЛЬНЫЙ CTA -->
 <section class="final">
   <div class="wrap">
-    <h2>Готов открыть ресторан —<br>не в одиночку?</h2>
-    <p>Мы уже прошли этот путь десятки раз. Теперь пройдём его вместе с тобой.</p>
-    <a href="#pricing" class="btn btn-arrow" style="font-size:15px;padding:16px 40px;display:inline-flex;">Выбрать формат</a>
+    <h2>Ресторан в эмиграции —<br>это реально. Мы знаем.</h2>
+    <p>220+ кейсов в 18 странах. Приходи на бесплатную встречу — разберём твою ситуацию и поймём, готов ли ты к открытию.</p>
+    <a href="#booking" class="btn btn-arrow" style="font-size:15px;padding:16px 40px;display:inline-flex;">Записаться на встречу</a>
   </div>
 </section>
 
