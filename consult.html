@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -225,12 +226,10 @@ footer a:hover { color: var(--rose); }
   <div class="wrap">
     <div class="hero-tag">Индивидуальная работа</div>
     <h1>Личная <em>консультация</em><br>с Наташей и Андреем</h1>
-    <p class="hero-sub">Разберём вашу ситуацию один на один — концепцию, локацию, цифры, риски. Без общих советов, только про ваш проект.</p>
+    <p class="hero-sub">Встреча один на один — разберём вашу ситуацию, ответим на вопросы и наметим следующий шаг.</p>
     <div class="features">
       <div class="feature-pill"><span class="dot"></span>60–90 минут</div>
       <div class="feature-pill"><span class="dot"></span>Встреча в Zoom</div>
-      <div class="feature-pill"><span class="dot"></span>220+ кейсов в 18 странах</div>
-      <div class="feature-pill"><span class="dot"></span>Европа и эмиграция</div>
     </div>
   </div>
 </section>
@@ -288,6 +287,10 @@ footer a:hover { color: var(--rose); }
             elementOrSelector: "#my-cal-inline",
             calLink: "shumanskii/90min",
             layout: "month_view",
+            config: {
+              locale: "ru",
+              timeFormat: "24h",
+            },
           });
 
           Cal.ns["90min"]("ui", {
@@ -306,12 +309,12 @@ footer a:hover { color: var(--rose); }
   <div class="about-strip">
     <div>
       <h3>Наташа и Андрей Шуманские</h3>
-      <p>20+ лет в ресторанном бизнесе. 7+ лет в Европе. Помогаем открываться там, где не знаешь с чего начать.</p>
+      <p>20+ лет в ресторанном бизнесе. 7+ лет в Европе.</p>
     </div>
     <div class="about-creds">
       <div class="about-cred"><span class="about-cred-dot"></span>220+ открытий в 18 странах</div>
-      <div class="about-cred"><span class="about-cred-dot"></span>Акцент на Чехию и Европу</div>
-      <div class="about-cred"><span class="about-cred-dot"></span>Только реальные цифры и кейсы</div>
+      <div class="about-cred"><span class="about-cred-dot"></span>Чехия и Европа</div>
+      <div class="about-cred"><span class="about-cred-dot"></span>Реальные кейсы и цифры</div>
       <div class="about-cred"><span class="about-cred-dot"></span>От идеи до первого гостя</div>
     </div>
   </div>
