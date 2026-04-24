@@ -3,30 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QJJCJM1L26"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QJJCJM1L26');
-</script>
 
-  <!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108732133', 'ym');
-
-    ym(108732133, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/108732133" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-
-  
 <!-- ═══════════════════════════════════════════
      SEO — ОСНОВНЫЕ ТЕГИ
      Обновлено: апрель 2026
@@ -812,6 +789,65 @@ footer a:hover { color: var(--rose); }
   .videos-grid { grid-template-columns: 1fr !important; }
 }
 
+/* CLIENTS MARQUEE */
+.clients-section {
+  padding: 72px 0;
+  background: var(--white);
+  overflow: hidden;
+}
+.marquee-outer {
+  overflow: hidden;
+  position: relative;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 40s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+.marquee-inner {
+  display: flex;
+  gap: 16px;
+  padding: 8px 8px;
+}
+.logo-item {
+  flex-shrink: 0;
+  width: 160px;
+  height: 100px;
+  background: var(--gray);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.logo-item:hover { box-shadow: 0 4px 20px rgba(0,0,0,.1); transform: translateY(-2px); }
+.logo-item a { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; cursor: pointer; }
+.logo-item a img { pointer-events: none; }
+.logo-item img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.65;
+  transition: filter 0.3s, opacity 0.3s;
+}
+.logo-item:hover img { filter: grayscale(0%); opacity: 1; }
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@media (max-width: 768px) {
+  .logo-item { width: 120px; height: 80px; padding: 12px; }
+  .clients-section { padding: 52px 0; }
+}
+
 /* FADE IN ANIMATION */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
@@ -1002,6 +1038,113 @@ footer a:hover { color: var(--rose); }
 </section>
 
 <!-- ЦЕНА -->
+
+<!-- ЛОГОТИПЫ КЛИЕНТОВ -->
+<section class="clients-section">
+  <div class="wrap" style="text-align:center;margin-bottom:32px;">
+    <span class="sec-label">Наши клиенты</span>
+    <h2 style="margin-bottom:0;">Рестораны и кафе,<br>которые открылись <em>с нами</em></h2>
+  </div>
+  <div class="marquee-outer">
+    <div class="marquee-track" id="marqueeTrack">
+      <!-- Логотипы подгружаются из Sanity CMS -->
+      <div class="marquee-inner" id="marqueeInner1"></div>
+      <div class="marquee-inner" id="marqueeInner2" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  // ─────────────────────────────────────────────
+  // Sanity config
+  // ⚠️ projectId и dataset уже верные
+  // Если поле с логотипом называется иначе — замени "logo" на правильное имя поля
+  // ─────────────────────────────────────────────
+  var SANITY_PROJECT = 'qj5ybx4v';
+  var SANITY_DATASET = 'production';
+  var SANITY_API_VERSION = '2024-01-01';
+
+  // GROQ-запрос: title + logo + link — все поля из Sanity схемы
+  var query = encodeURIComponent(
+    '*[_type == "client"] | order(_createdAt asc) { _id, title, "logoUrl": logo.asset->url, link }'
+  );
+
+  var url = 'https://' + SANITY_PROJECT + '.api.sanity.io/v' + SANITY_API_VERSION
+    + '/data/query/' + SANITY_DATASET + '?query=' + query;
+
+  function buildLogoHTML(clients) {
+    return clients.map(function(c) {
+      if (!c.logoUrl) return '';
+      var imgSrc = c.logoUrl + '?w=200&h=100&fit=max&auto=format';
+      var img = '<img src="' + imgSrc + '" alt="' + (c.title || '') + '" loading="lazy">';
+      // Если есть ссылка — оборачиваем в <a>, открывается в новой вкладке
+      if (c.link) {
+        return '<div class="logo-item"><a href="' + c.link + '" target="_blank" rel="noopener noreferrer" title="' + (c.title || '') + '">' + img + '</a></div>';
+      }
+      return '<div class="logo-item">' + img + '</div>';
+    }).join('');
+  }
+
+  fetch(url)
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var clients = (data.result || []).filter(function(c) { return c.logoUrl; });
+      if (!clients.length) {
+        // Fallback: если API недоступен или нет логотипов — показываем статику
+        console.warn('Sanity: клиенты не загружены, используется статический fallback');
+        useFallback();
+        return;
+      }
+      var html = buildLogoHTML(clients);
+      document.getElementById('marqueeInner1').innerHTML = html;
+      document.getElementById('marqueeInner2').innerHTML = html;
+    })
+    .catch(function(err) {
+      console.warn('Sanity fetch error:', err);
+      useFallback();
+    });
+
+  // Статический fallback — оригинальные логотипы если Sanity недоступен
+  function useFallback() {
+    var fallback = [
+      {src:'logos/la_mouka.jpg', alt:'La Mouka'},
+      {src:'logos/pasternak.jpg', alt:'Pasternak'},
+      {src:'logos/muj_bagel.jpg', alt:'Muj Bagel'},
+      {src:'logos/mana75.jpg', alt:'Mana 75 Barcelona'},
+      {src:'logos/honto.jpg', alt:'Honto Bistro'},
+      {src:'logos/sunset_cinema.png', alt:'Sunset Cinema'},
+      {src:'logos/ugli.jpg', alt:'Углы'},
+      {src:'logos/stroganov.jpg', alt:'Строганов Гриль'},
+      {src:'logos/plov.jpg', alt:'Plov Project'},
+      {src:'logos/tenet.jpg', alt:'Tenet Hotel'},
+      {src:'logos/farfalle.jpg', alt:'Farfalle'},
+      {src:'logos/atrium.jpg', alt:'Atrium Palace Hotel'},
+      {src:'logos/wtc.jpg', alt:'WTC Ekaterinburg'},
+      {src:'logos/barva.png', alt:'Barva Ukrainian Cuisine'},
+      {src:'logos/dobro_dobro.jpg', alt:'Dobro & Dobro Cafe'},
+      {src:'logos/elefant.png', alt:'Café Elefant'},
+      {src:'logos/family_nest.jfif', alt:'Family Nest'},
+      {src:'logos/goethova.png', alt:'Goethova Pivnice'},
+      {src:'logos/inside.jpg', alt:'Inside'},
+      {src:'logos/khromberry.jpg', alt:'Khromberry'},
+      {src:'logos/la_famiglia.jfif', alt:'Pizzeria La Famiglia'},
+      {src:'logos/moments.jpg', alt:'Moments'},
+      {src:'logos/nomade.jpg', alt:'Nomade'},
+      {src:'logos/nasi.jpeg', alt:'Nasi'},
+      {src:'logos/ribs.jfif', alt:'Ribs of Prague'},
+      {src:'logos/royal_candy.png', alt:'Royal Candy'},
+      {src:'logos/typhoon.png', alt:'Typhoon Coffee'},
+      {src:'logos/wander_wines.jfif', alt:'Wander Wines'}
+    ];
+    var html = fallback.map(function(l) {
+      return '<div class="logo-item"><img src="' + l.src + '" alt="' + l.alt + '" loading="lazy"></div>';
+    }).join('');
+    document.getElementById('marqueeInner1').innerHTML = html;
+    document.getElementById('marqueeInner2').innerHTML = html;
+  }
+})();
+</script>
 
 <!-- ОТЗЫВЫ -->
 <section class="sec sec-gray">
