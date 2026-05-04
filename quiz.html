@@ -1,3 +1,6 @@
+r · HTML
+Copy
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -16,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+ 
 <style>
 :root {
   --dark: #2A3D2A;
@@ -40,7 +43,7 @@ body {
   -webkit-font-smoothing: antialiased;
   line-height: 1.6;
 }
-
+ 
 /* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -62,9 +65,9 @@ nav {
   text-decoration: none; transition: color 0.2s;
 }
 .nav-back:hover { color: var(--rose); }
-
+ 
 .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
+ 
 /* HERO */
 .hero {
   background: var(--dark);
@@ -111,7 +114,7 @@ nav {
   font-size: 11px; color: var(--rose); font-weight: 700;
   flex-shrink: 0;
 }
-
+ 
 /* FORM SECTION */
 .form-sec {
   padding: 64px 0 80px;
@@ -141,7 +144,7 @@ nav {
 }
 .form-card-head-text p { font-size: 13px; color: var(--muted); }
 .form-body { padding: 36px 40px 40px; }
-
+ 
 /* FIELDS */
 .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
 .frow.full { grid-template-columns: 1fr; }
@@ -165,7 +168,7 @@ nav {
   border-color: var(--dark); background: #fff;
 }
 .field textarea { resize: vertical; min-height: 120px; }
-
+ 
 /* CHECKBOXES */
 .checks { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; }
 .check { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
@@ -174,10 +177,10 @@ nav {
   accent-color: var(--dark); flex-shrink: 0; cursor: pointer;
 }
 .check label { font-size: 13px; color: var(--muted2); line-height: 1.5; cursor: pointer; }
-
+ 
 /* DIVIDER */
 .fdiv { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
-
+ 
 /* INFO BOXES */
 .info-box {
   border-radius: 10px; padding: 14px 16px;
@@ -185,7 +188,7 @@ nav {
 }
 .info-box.green { background: #f0f7f0; border: 1px solid #c8e6c9; color: #2a5a2a; }
 .info-box.beige { background: var(--rose-bg); border: 1px solid #ddd5c8; color: var(--muted2); }
-
+ 
 /* SUBMIT */
 .btn-submit {
   width: 100%;
@@ -200,7 +203,7 @@ nav {
 }
 .btn-submit:hover { background: var(--dark2); transform: translateY(-1px); }
 .btn-submit:disabled { background: #8a9e8a; cursor: not-allowed; transform: none; }
-
+ 
 /* THANKS */
 .thanks {
   display: none; text-align: center;
@@ -219,7 +222,7 @@ nav {
   border-radius: 10px; padding: 12px 20px;
   font-size: 13px; color: var(--muted2); line-height: 1.6;
 }
-
+ 
 /* FOOTER */
 footer {
   background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08);
@@ -228,7 +231,7 @@ footer {
 }
 footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
 footer a:hover { color: var(--rose); }
-
+ 
 /* MOBILE */
 @media (max-width: 640px) {
   nav { padding: 0 16px; }
@@ -241,15 +244,15 @@ footer a:hover { color: var(--rose); }
 }
 </style>
 </head>
-
+ 
 <body>
-
+ 
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="https://go.natashumanska.com/">Наташа Шуманская</a>
   <a class="nav-back" href="https://go.natashumanska.com/">← На главную</a>
 </nav>
-
+ 
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
@@ -263,12 +266,12 @@ footer a:hover { color: var(--rose); }
     </div>
   </div>
 </section>
-
+ 
 <!-- FORM -->
 <section class="form-sec">
   <div class="wrap">
     <div class="form-card">
-
+ 
       <div class="form-card-head">
         <div class="form-card-icon">📋</div>
         <div class="form-card-head-text">
@@ -276,10 +279,10 @@ footer a:hover { color: var(--rose); }
           <p>Мы потратим минимум час на анализ вашей ситуации — все поля обязательны</p>
         </div>
       </div>
-
+ 
       <div class="form-body" id="form-wrap">
         <form id="razvor-form" action="https://formspree.io/f/xjglgdzp" method="POST">
-
+ 
           <div class="frow">
             <div class="field">
               <label for="r-name">Имя и Фамилия *</label>
@@ -290,7 +293,7 @@ footer a:hover { color: var(--rose); }
               <input type="email" id="r-email" name="email" placeholder="anna@mail.com" required>
             </div>
           </div>
-
+ 
           <div class="frow">
             <div class="field">
               <label for="r-phone">Телефон *</label>
@@ -301,7 +304,7 @@ footer a:hover { color: var(--rose); }
               <input type="text" id="r-country" name="country" placeholder="Чехия" required>
             </div>
           </div>
-
+ 
           <div class="frow">
             <div class="field">
               <label for="r-city">Город *</label>
@@ -317,27 +320,33 @@ footer a:hover { color: var(--rose); }
               </select>
             </div>
           </div>
-
+ 
           <div class="frow full">
             <div class="field">
               <label for="r-source">Как вы нас нашли? *</label>
               <input type="text" id="r-source" name="source" placeholder="Instagram, рекомендация, Google..." required>
             </div>
           </div>
-
+ 
           <div class="frow full">
             <div class="field">
               <label for="r-question">Ваш вопрос и описание ситуации *</label>
               <textarea id="r-question" name="question" placeholder="Опишите подробно вашу ситуацию и вопрос, на который хотите получить ответ. Чем больше деталей — тем точнее разбор." required></textarea>
             </div>
           </div>
-
-          <div class="info-box green">
-            📎 Если хотите прикрепить материалы (бизнес-план, брендбук, расчёты, меню) — отправьте их отдельным письмом на <strong>hello@natashumanska.com</strong> с темой «Разбор ситуации».
+ 
+          <div class="frow full">
+            <div class="field">
+              <label for="r-files">Ссылка на материалы (необязательно)</label>
+              <input type="url" id="r-files" name="files_link" placeholder="https://drive.google.com/... или disk.yandex.ru/...">
+              <div style="margin-top:6px;font-size:12px;color:var(--muted);line-height:1.6;">
+                📎 Если хотите поделиться материалами (бизнес-план, брендбук, финансовые расчёты, меню и др.) — загрузите их в Google Drive, Яндекс Диск, Dropbox или любое другое облако и вставьте сюда ссылку на папку с открытым доступом.
+              </div>
+            </div>
           </div>
-
+ 
           <hr class="fdiv">
-
+ 
           <div class="checks">
             <label class="check">
               <input type="checkbox" name="gdpr" required>
@@ -352,19 +361,19 @@ footer a:hover { color: var(--rose); }
               <span>Я подтверждаю, что ознакомлен(а) с политикой конфиденциальности *</span>
             </label>
           </div>
-
+ 
           <div class="info-box beige">
             🔒 Мы обязуемся сохранять конфиденциальность и никогда не передавать третьим лицам любую информацию из ваших материалов.<br><br>
             📬 Чтобы наш ответ не попал в спам, добавьте <strong>hello@natashumanska.com</strong> в список контактов вашего почтового сервиса.
           </div>
-
+ 
           <button type="submit" class="btn-submit" id="razvor-btn">
             Отправить вопрос на разбор →
           </button>
-
+ 
         </form>
       </div>
-
+ 
       <div class="thanks" id="razvor-thanks">
         <div class="thanks-icon">✅</div>
         <h3>Спасибо! Получили ваш вопрос</h3>
@@ -373,23 +382,23 @@ footer a:hover { color: var(--rose); }
           📬 Добавьте <strong>hello@natashumanska.com</strong> в контакты,<br>чтобы письмо не попало в спам
         </div>
       </div>
-
+ 
     </div>
   </div>
 </section>
-
+ 
 <!-- FOOTER -->
 <footer>
   <p>© 2026 Наташа Шуманская · <a href="https://go.natashumanska.com/">Главная страница</a></p>
 </footer>
-
+ 
 <script>
 (function(){
   var form = document.getElementById('razvor-form');
   var btn = document.getElementById('razvor-btn');
   var wrap = document.getElementById('form-wrap');
   var thanks = document.getElementById('razvor-thanks');
-
+ 
   form.addEventListener('submit', function(e){
     e.preventDefault();
     btn.disabled = true;
@@ -418,6 +427,7 @@ footer a:hover { color: var(--rose); }
   });
 })();
 </script>
-
+ 
 </body>
 </html>
+ 
