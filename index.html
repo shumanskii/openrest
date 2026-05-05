@@ -864,6 +864,12 @@ footer a:hover { color: var(--rose); }
 .hero-img-wrap { animation: fadeUp 0.7s 0.3s ease both; }
  
 /* BANNER RAZVOR */
+ 
+/* BANNER MOBILE */
+@media(max-width:600px){
+  .razvor-banner-inner{flex-direction:column!important;gap:20px!important;padding:28px 20px!important;}
+}
+ 
 @media(max-width:640px){
   .razvor-banner-inner{flex-direction:column!important;padding:32px 24px!important;text-align:center;}
   .razvor-banner-inner p{margin:0 auto!important;}
@@ -902,31 +908,32 @@ footer a:hover { color: var(--rose); }
  
 <!-- ДЛЯ КОГО -->
 <!-- БАННЕР — БЕСПЛАТНЫЙ РАЗБОР -->
-<section style="padding:0 0 0;background:var(--gray);">
-  <div class="wrap" style="max-width:1080px;margin:0 auto;padding:0 24px 0;">
-    <div style="background:var(--dark);border-radius:24px;padding:48px 56px;display:flex;align-items:center;justify-content:space-between;gap:40px;position:relative;overflow:hidden;margin-bottom:0;">
+<section style="padding:40px 0;background:var(--gray);">
+  <div class="wrap">
+    <div style="background:var(--dark);border-radius:20px;padding:40px 44px;position:relative;overflow:hidden;">
       <div style="position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(200,98,42,0.15) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
-      <div style="flex:1;min-width:0;">
-        <div style="display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--rose);margin-bottom:14px;">
-          <span style="width:18px;height:2px;background:var(--rose);display:block;"></span>
-          личный разбор
-        </div>
-        <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(22px,2.5vw,32px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:12px;letter-spacing:-0.02em;">
-          Задайте нам любой вопрос,<br>где вы не можете принять решение<br>или боитесь совершить ошибку
-        </h2>
-        <p style="font-size:15px;color:rgba(255,255,255,0.5);line-height:1.7;max-width:480px;">
-         Опишите вашу ситуацию или вопрос — мы всё проанализируем, укажем ключевые ошибки и подскажем, на что в первую очередь обратить внимание.
-        </p>
+      <div style="display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--rose);margin-bottom:14px;">
+        <span style="width:18px;height:2px;background:var(--rose);display:block;"></span>
+        Личный разбор · Бесплатно
       </div>
-      <div style="flex-shrink:0;text-align:center;">
-        <a href="https://go.natashumanska.com/quiz.html" target="_blank"
-           style="display:inline-flex;align-items:center;gap:10px;background:var(--rose);color:#fff;font-family:'Manrope',sans-serif;font-size:15px;font-weight:700;padding:16px 32px;border-radius:100px;text-decoration:none;white-space:nowrap;box-shadow:0 8px 30px rgba(200,98,42,0.4);transition:background 0.2s,transform 0.15s;"
-           onmouseover="this.style.background='#E07840';this.style.transform='translateY(-2px)'"
-           onmouseout="this.style.background='var(--rose)';this.style.transform='translateY(0)'">
-          Получить разбор
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <div style="margin-top:10px;font-size:12px;color:rgba(255,255,255,0.3);">Ответ за 48 часов · Конфиденциально</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:220px;">
+          <div style="font-family:'Manrope',sans-serif;font-size:clamp(17px,2.2vw,26px);font-weight:800;color:#fff;line-height:1.25;margin-bottom:10px;letter-spacing:-0.02em;">
+            Задайте вопрос, где боитесь совершить ошибку
+          </div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;max-width:440px;margin:0;">
+            Опишите ситуацию — мы проанализируем и укажем ключевые риски. Личный ответ за 48 часов.
+          </p>
+        </div>
+        <div style="flex-shrink:0;">
+          <a href="https://go.natashumanska.com/quiz.html" target="_blank"
+             style="display:inline-flex;align-items:center;gap:10px;background:var(--rose);color:#fff;font-family:'Manrope',sans-serif;font-size:15px;font-weight:700;padding:15px 28px;border-radius:100px;text-decoration:none;white-space:nowrap;box-shadow:0 8px 30px rgba(200,98,42,0.4);"
+             onmouseover="this.style.background='#E07840';this.style.transform='translateY(-2px)'"
+             onmouseout="this.style.background='var(--rose)';this.style.transform='none'">
+            Получить разбор →
+          </a>
+          <div style="margin-top:8px;font-size:11px;color:rgba(255,255,255,0.3);text-align:center;">Конфиденциально</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1530,4 +1537,3 @@ footer a:hover { color: var(--rose); }
 </script>
 </body>
 </html>
- 
