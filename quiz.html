@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
  
 <style>
 :root {
@@ -400,6 +401,18 @@ footer a:hover { color: var(--rose); }
 </footer>
  
 <script>
+/* ---------- EMAILJS ---------- */
+ 
+const EMAILJS_PUBLIC_KEY     = 'Njy0Nzer4y-xw9VI0nVc5';
+const EMAILJS_SERVICE_ID     = 'service_5jetiww';
+const EMAILJS_TEMPLATE_GUEST = 'wj6s22w';   // авто-ответ гостю
+const EMAILJS_TEMPLATE_OWNER = 'ity8rgq';   // уведомление владельцу
+const QUIZ_TITLE             = 'Почему бизнес не может без вас?';
+ 
+if (window.emailjs) {
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+}
+ 
 /* ---------- DATA ---------- */
  
 const SCALES = {
@@ -539,6 +552,15 @@ document.getElementById('lead-form').addEventListener('submit', function(e) {
   };
   btn.disabled = true;
   btn.textContent = 'Отправляем...';
+ 
+  // авто-ответ гостю (не блокирует прохождение теста)
+  if (window.emailjs) {
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_GUEST, {
+      name:  leadData.name,
+      email: leadData.email,
+      title: QUIZ_TITLE
+    }).catch(function(){ /* сбой отправки не мешает пользователю */ });
+  }
  
   const payload = new FormData();
   payload.append('form_type', 'quiz_lead');
@@ -712,6 +734,19 @@ function finishQuiz() {
     body: resultPayload,
     headers: { 'Accept': 'application/json' }
   }).catch(function(){ /* не блокируем показ результата пользователю */ });
+ 
+  // уведомление владельцу с контактами и результатами
+  if (window.emailjs) {
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_OWNER, {
+      name:       leadData.name  || '',
+      email:      leadData.email || '',
+      phone:      leadData.phone || '',
+      title:      QUIZ_TITLE,
+      scenario:   scenario.tag + ' — ' + scenario.title,
+      top_3:      top3.map(function(k){ return SCALES[k].title + ' (' + scores[k] + '/16)'; }).join('; '),
+      all_scores: JSON.stringify(scores)
+    }).catch(function(){ /* сбой отправки не мешает показу результата */ });
+  }
  
   document.getElementById('result-greeting').textContent = leadData.email
     ? 'Мы также отправили этот разбор на ' + leadData.email + '.'
