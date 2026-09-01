@@ -87,6 +87,10 @@ nav {
   color: #fff; margin-bottom: 18px;
 }
 .hero-sub { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.8; max-width: 580px; margin-bottom: 20px; }
+.hero-emphasis { color: #fff; font-weight: 600; }
+.hero-list { list-style: none; max-width: 580px; margin: 0 0 20px; display: flex; flex-direction: column; gap: 7px; }
+.hero-list li { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.7; padding-left: 20px; position: relative; }
+.hero-list li::before { content: '—'; position: absolute; left: 0; color: rgba(255,255,255,0.35); }
 .hero-promise { display: flex; gap: 24px; margin-top: 32px; flex-wrap: wrap; }
 .hero-promise-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 500; }
 .hero-promise-item::before {
@@ -155,8 +159,9 @@ nav {
   display: flex; align-items: center; gap: 16px; text-align: left;
   border: 1.5px solid var(--border); background: var(--gray); border-radius: 14px;
   padding: 14px 18px; cursor: pointer; transition: border 0.15s, background 0.15s, transform 0.1s;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif; outline: none;
 }
+.q-opt:focus, .q-opt:focus-visible { outline: none; box-shadow: none; }
 .q-opt:hover { border-color: var(--rose-light); background: #fff; }
 .q-opt.selected { border-color: var(--rose); background: var(--rose-bg); }
 .q-opt-num {
@@ -248,7 +253,21 @@ footer a:hover { color: var(--rose); }
     <div class="wrap">
       <div class="hero-tag">Тест на 5 минут</div>
       <h1>Почему ваш ресторан или отель до сих пор не может без вас?</h1>
-      <p class="hero-sub">Вы постоянно что-то проверяете, согласовываете, исправляете, отвечаете на вопросы сотрудников — а иногда лично заменяете управляющего, закупщика, маркетолога или шефа.<br><br>Причина не всегда в том, что вы «не умеете делегировать».<br><br>Иногда собственник действительно сам удерживает контроль.<br><br>А иногда бизнес объективно пока не способен работать без него.<br><br>Этот тест поможет определить, почему именно процессы в вашем бизнесе замкнуты на вас.</p>
+      <p class="hero-sub">Ваш бизнес приносит деньги. Но только пока вы в нём — каждый день, с утра до ночи.</p>
+      <p class="hero-sub">Стоит вам отвлечься, и всё начинает сыпаться. Поэтому вы по-прежнему:</p>
+      <ul class="hero-list">
+        <li>согласовываете закупки и разбираетесь с поставщиками</li>
+        <li>составляете графики и в последний момент ищете, кем закрыть смену</li>
+        <li>тушите пожары, которых никто не ждал</li>
+        <li>лично улаживаете конфликты с гостями</li>
+        <li>проверяете качество блюд и отвечаете на отзывы в сети</li>
+        <li>принимаете банкеты и вникаете в каждую деталь их организации</li>
+        <li>а иногда сами встаёте на кухню или выходите в зал, потому что «больше некому»</li>
+      </ul>
+      <p class="hero-sub">И так по кругу. День уходит на срочное, важное откладывается «на потом», а стратегией и развитием заняться некогда — вы слишком заняты тем, чтобы всё просто работало.</p>
+      <p class="hero-sub hero-emphasis">Вы построили бизнес, который держится на вас. И теперь он вас не отпускает.</p>
+      <p class="hero-sub">Знакомо? Тогда вопрос не в том, много ли вы работаете. Вопрос в том, что именно мешает выстроить систему, которая работает без вашего постоянного участия. У каждого владельца эта причина своя — и пока вы её не назвали, вы будете латать последствия, а не устранять источник.</p>
+      <p class="hero-sub">Давайте выясним, где именно затык в вашем бизнесе.</p>
       <div class="hero-promise">
         <div class="hero-promise-item">32 вопроса, 5 минут</div>
         <div class="hero-promise-item">8 причин зависимости</div>
@@ -307,6 +326,10 @@ footer a:hover { color: var(--rose); }
                 <input type="checkbox" name="privacy" required>
                 <span>Я подтверждаю, что ознакомлен(а) с <a href="https://consulting.natashumanska.com/terms-conditions" target="_blank" rel="noopener" onclick="event.stopPropagation()">условиями использования</a> *</span>
               </label>
+              <label class="check">
+                <input type="checkbox" name="newsletter">
+                <span>Хочу получать уведомления о новых курсах, уроках, материалах и мастер-классах</span>
+              </label>
             </div>
  
             <div class="info-box">🔒 Мы обязуемся сохранять конфиденциальность и никогда не передавать третьим лицам данные из этого теста.</div>
@@ -364,8 +387,8 @@ footer a:hover { color: var(--rose); }
         <h3>Что делать с этим результатом дальше?</h3>
         <p>Опишите свою ситуацию — укажем как минимум одну ошибку, которая мешает вам прямо сейчас, и как именно разорвать цикл зависимости от вас.</p>
         <div class="result-cta-buttons">
-          <a class="btn-main" href="mailto:hello@natashumanska.com">Написать на почту →</a>
-          <a class="btn-main btn-whatsapp" href="https://wa.me/420608507366" target="_blank" rel="noopener">Написать в WhatsApp →</a>
+          <a class="btn-main" id="cta-email-btn" href="#">Написать на почту →</a>
+          <a class="btn-main btn-whatsapp" id="cta-whatsapp-btn" href="#" target="_blank" rel="noopener">Написать в WhatsApp →</a>
         </div>
       </div>
     </div>
@@ -511,7 +534,8 @@ document.getElementById('lead-form').addEventListener('submit', function(e) {
   leadData = {
     name: data.get('name'),
     email: data.get('email'),
-    phone: data.get('phone')
+    phone: data.get('phone'),
+    newsletter: data.get('newsletter') ? 'да' : 'нет'
   };
   btn.disabled = true;
   btn.textContent = 'Отправляем...';
@@ -521,6 +545,7 @@ document.getElementById('lead-form').addEventListener('submit', function(e) {
   payload.append('name', leadData.name);
   payload.append('email', leadData.email);
   payload.append('phone', leadData.phone);
+  payload.append('newsletter', leadData.newsletter);
  
   fetch('https://formspree.io/f/xjglgdzp', {
     method: 'POST',
@@ -571,6 +596,9 @@ function selectAnswer(val) {
   answers[currentQuestion] = val;
   const opts = document.querySelectorAll('#q-options .q-opt');
   opts.forEach(function(o, i){ o.classList.toggle('selected', i === val); });
+  if (document.activeElement && document.activeElement.blur) {
+    document.activeElement.blur();
+  }
  
   setTimeout(function() {
     if (currentQuestion < QUESTIONS.length - 1) {
@@ -688,6 +716,16 @@ function finishQuiz() {
   document.getElementById('result-greeting').textContent = leadData.email
     ? 'Мы также отправили этот разбор на ' + leadData.email + '.'
     : '';
+ 
+  // готовим шаблоны сообщений для кнопок связи
+  const greetName = leadData.name ? ' Меня зовут ' + leadData.name + '.' : '';
+  const messageTemplate = 'Добрый день!' + greetName + ' Я прошёл(а) опрос у вас на портале и хотел(а) бы с вами созвониться, чтобы обсудить несколько вопросов: [напишите свои вопросы в двух словах]';
+ 
+  const emailBtn = document.getElementById('cta-email-btn');
+  emailBtn.href = 'mailto:hello@natashumanska.com?subject=' + encodeURIComponent('Вопрос после теста') + '&body=' + encodeURIComponent(messageTemplate);
+ 
+  const waBtn = document.getElementById('cta-whatsapp-btn');
+  waBtn.href = 'https://wa.me/420608507366?text=' + encodeURIComponent(messageTemplate);
  
   goTo('screen-result');
 }
