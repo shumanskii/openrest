@@ -3,16 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Бесплатный разбор ситуации | Наташа Шуманская</title>
-<meta name="description" content="Задайте любой вопрос о вашем ресторанном бизнесе — получите личный разбор за 48 часов. Бесплатно.">
+<title>Тест: почему бизнес не может без вас? | Наташа Шуманская</title>
+<meta name="description" content="32 вопроса, 8 причин операционной зависимости и разбор того, что мешает именно вам передать управление рестораном или отелем.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://go.natashumanska.com/razvor">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://go.natashumanska.com/razvor">
-<meta property="og:title" content="Бесплатный разбор ситуации | Наташа Шуманская">
-<meta property="og:description" content="Задайте любой вопрос — получите личный разбор за 48 часов. Укажем минимум одну ошибку, которая может всё испортить.">
-<meta property="og:image" content="https://go.natashumanska.com/file1.jpg">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="canonical" href="https://go.natashumanska.com/quiz.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,6 +24,10 @@
   --border: #E2DED8;
   --white: #ffffff;
   --text: #1A1A18;
+  --band1: #6E8F6E;
+  --band2: #B08D57;
+  --band3: #C8622A;
+  --band4: #A8341E;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -40,8 +38,8 @@ body {
   -webkit-font-smoothing: antialiased;
   line-height: 1.6;
 }
+h1, h2, h3 { font-family: 'Manrope', sans-serif; }
  
-/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   background: rgba(247,245,242,0.96);
@@ -51,11 +49,7 @@ nav {
   height: 64px;
   display: flex; align-items: center; justify-content: space-between;
 }
-.nav-logo {
-  font-family: 'Manrope', sans-serif;
-  font-size: 15px; font-weight: 700;
-  color: var(--text); text-decoration: none;
-}
+.nav-logo { font-size: 15px; font-weight: 700; color: var(--text); text-decoration: none; }
 .nav-back {
   display: inline-flex; align-items: center; gap: 6px;
   font-size: 14px; font-weight: 500; color: var(--muted);
@@ -65,7 +59,10 @@ nav {
  
 .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
  
-/* HERO */
+.screen { display: none; }
+.screen.active { display: block; }
+ 
+/* HERO / INTRO */
 .hero {
   background: var(--dark);
   padding: 120px 0 64px;
@@ -85,158 +82,149 @@ nav {
 }
 .hero-tag::before { content: ''; width: 18px; height: 2px; background: var(--rose); display: block; }
 .hero h1 {
-  font-family: 'Manrope', sans-serif;
-  font-size: clamp(28px, 4vw, 46px); font-weight: 800;
+  font-size: clamp(28px, 4vw, 44px); font-weight: 800;
   line-height: 1.15; letter-spacing: -0.025em;
   color: #fff; margin-bottom: 18px;
 }
-.hero h1 em { font-style: normal; color: var(--rose); }
-.hero-sub {
-  font-size: 15px; color: rgba(255,255,255,0.55);
-  line-height: 1.8; max-width: 560px;
-}
-.hero-promise {
-  display: flex; gap: 24px; margin-top: 32px; flex-wrap: wrap;
-}
-.hero-promise-item {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 500;
-}
+.hero-sub { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.8; max-width: 580px; margin-bottom: 20px; }
+.hero-sub2 { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.8; max-width: 580px; }
+.hero-promise { display: flex; gap: 24px; margin-top: 32px; flex-wrap: wrap; }
+.hero-promise-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 500; }
 .hero-promise-item::before {
-  content: '✓';
-  width: 20px; height: 20px;
-  background: rgba(200,98,42,0.25);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 11px; color: var(--rose); font-weight: 700;
-  flex-shrink: 0;
+  content: '✓'; width: 20px; height: 20px; background: rgba(200,98,42,0.25); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--rose); font-weight: 700; flex-shrink: 0;
 }
+.scale-legend {
+  margin-top: 36px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px; padding: 18px 22px;
+}
+.scale-legend p { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+.scale-legend ol { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.scale-legend li { font-size: 13px; color: rgba(255,255,255,0.75); }
+.scale-legend b { color: #fff; }
  
-/* FORM SECTION */
-.form-sec {
-  padding: 64px 0 80px;
-  background: var(--gray);
+.btn-main {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--rose); color: #fff; font-weight: 700; font-size: 15px;
+  padding: 16px 32px; border-radius: 100px; border: none; cursor: pointer;
+  margin-top: 32px; transition: background 0.2s, transform 0.15s;
 }
-.form-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 4px 32px rgba(0,0,0,0.06);
-}
-.form-card-head {
-  background: var(--rose-bg);
-  border-bottom: 1px solid var(--border);
-  padding: 24px 40px;
-  display: flex; align-items: center; gap: 16px;
-}
-.form-card-icon {
-  width: 44px; height: 44px; border-radius: 12px;
-  background: var(--rose); display: flex; align-items: center; justify-content: center;
-  font-size: 20px; flex-shrink: 0;
-}
-.form-card-head-text h3 {
-  font-family: 'Manrope', sans-serif;
-  font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 2px;
-}
+.btn-main:hover { background: var(--rose-light); transform: translateY(-1px); }
+ 
+/* FORM SECTION (reused pattern) */
+.form-sec { padding: 64px 0 80px; background: var(--gray); }
+.form-card { background: var(--white); border: 1px solid var(--border); border-radius: 24px; overflow: hidden; box-shadow: 0 4px 32px rgba(0,0,0,0.06); }
+.form-card-head { background: var(--rose-bg); border-bottom: 1px solid var(--border); padding: 24px 40px; display: flex; align-items: center; gap: 16px; }
+.form-card-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--rose); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.form-card-head-text h3 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
 .form-card-head-text p { font-size: 13px; color: var(--muted); }
 .form-body { padding: 36px 40px 40px; }
- 
-/* FIELDS */
 .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
 .frow.full { grid-template-columns: 1fr; }
 .field { display: flex; flex-direction: column; gap: 6px; }
-.field label {
-  font-size: 11px; font-weight: 700; color: var(--dark);
-  letter-spacing: 0.06em; text-transform: uppercase;
-}
-.field input, .field select, .field textarea {
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  padding: 11px 14px;
-  font-size: 14px; color: var(--text);
-  font-family: 'Inter', sans-serif;
-  background: var(--gray);
-  transition: border 0.15s, background 0.15s;
-  outline: none;
-  -webkit-appearance: none;
-}
-.field input:focus, .field select:focus, .field textarea:focus {
-  border-color: var(--dark); background: #fff;
-}
-.field textarea { resize: vertical; min-height: 120px; }
- 
-/* CHECKBOXES */
+.field label { font-size: 11px; font-weight: 700; color: var(--dark); letter-spacing: 0.06em; text-transform: uppercase; }
+.field input, .field select { border: 1.5px solid var(--border); border-radius: 10px; padding: 11px 14px; font-size: 14px; color: var(--text); font-family: 'Inter', sans-serif; background: var(--gray); transition: border 0.15s, background 0.15s; outline: none; -webkit-appearance: none; }
+.field input:focus, .field select:focus { border-color: var(--dark); background: #fff; }
 .checks { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; }
 .check { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
-.check input[type="checkbox"] {
-  width: 17px; height: 17px; margin-top: 2px;
-  accent-color: var(--dark); flex-shrink: 0; cursor: pointer;
-}
+.check input[type="checkbox"] { width: 17px; height: 17px; margin-top: 2px; accent-color: var(--dark); flex-shrink: 0; cursor: pointer; }
 .check label { font-size: 13px; color: var(--muted2); line-height: 1.5; cursor: pointer; }
- 
-/* DIVIDER */
 .fdiv { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
- 
-/* INFO BOXES */
-.info-box {
-  border-radius: 10px; padding: 14px 16px;
-  font-size: 13px; line-height: 1.6; margin-bottom: 16px;
-}
-.info-box.green { background: #f0f7f0; border: 1px solid #c8e6c9; color: #2a5a2a; }
-.info-box.beige { background: var(--rose-bg); border: 1px solid #ddd5c8; color: var(--muted2); }
- 
-/* SUBMIT */
+.info-box { border-radius: 10px; padding: 14px 16px; font-size: 13px; line-height: 1.6; margin-bottom: 16px; background: var(--rose-bg); border: 1px solid #ddd5c8; color: var(--muted2); }
 .btn-submit {
-  width: 100%;
-  background: var(--dark); color: #fff;
-  font-family: 'Manrope', sans-serif;
-  font-size: 15px; font-weight: 700;
-  padding: 16px; border-radius: 100px;
-  border: none; cursor: pointer;
-  letter-spacing: 0.01em;
-  transition: background 0.2s, transform 0.15s;
-  margin-top: 8px;
+  width: 100%; background: var(--dark); color: #fff; font-size: 15px; font-weight: 700;
+  padding: 16px; border-radius: 100px; border: none; cursor: pointer; letter-spacing: 0.01em;
+  transition: background 0.2s, transform 0.15s; margin-top: 8px;
 }
 .btn-submit:hover { background: var(--dark2); transform: translateY(-1px); }
 .btn-submit:disabled { background: #8a9e8a; cursor: not-allowed; transform: none; }
  
-/* THANKS */
-.thanks {
-  display: none; text-align: center;
-  padding: 64px 40px;
-}
-.thanks-icon { font-size: 56px; margin-bottom: 20px; }
-.thanks h3 {
-  font-family: 'Manrope', sans-serif;
-  font-size: 26px; font-weight: 800;
-  color: var(--dark); margin-bottom: 12px;
-}
-.thanks p { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 400px; margin: 0 auto 24px; }
-.thanks-note {
-  display: inline-block;
-  background: var(--rose-bg); border: 1px solid #ddd5c8;
-  border-radius: 10px; padding: 12px 20px;
-  font-size: 13px; color: var(--muted2); line-height: 1.6;
-}
+/* QUIZ */
+.quiz-sec { padding: 96px 0 80px; min-height: 100vh; }
+.quiz-progress-wrap { margin-bottom: 36px; }
+.quiz-progress-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+.quiz-progress-top span:first-child { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rose); }
+.quiz-progress-top span:last-child { font-size: 12px; color: var(--muted); }
+.quiz-progress-bar { height: 4px; background: var(--border); border-radius: 4px; overflow: hidden; }
+.quiz-progress-fill { height: 100%; background: var(--rose); border-radius: 4px; transition: width 0.35s ease; width: 0%; }
  
-/* FOOTER */
-footer {
-  background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08);
-  padding: 24px 48px; text-align: center;
-  font-size: 13px; color: rgba(255,255,255,0.3);
+.q-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 44px 40px; box-shadow: 0 4px 32px rgba(0,0,0,0.05); }
+.q-text { font-size: 19px; font-weight: 500; color: var(--text); line-height: 1.55; margin-bottom: 36px; }
+.q-options { display: flex; flex-direction: column; gap: 10px; }
+.q-opt {
+  display: flex; align-items: center; gap: 16px; text-align: left;
+  border: 1.5px solid var(--border); background: var(--gray); border-radius: 14px;
+  padding: 14px 18px; cursor: pointer; transition: border 0.15s, background 0.15s, transform 0.1s;
+  font-family: 'Inter', sans-serif;
 }
+.q-opt:hover { border-color: var(--rose-light); background: #fff; }
+.q-opt.selected { border-color: var(--rose); background: var(--rose-bg); }
+.q-opt-num {
+  width: 32px; height: 32px; border-radius: 50%; background: var(--white); border: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: var(--muted2); flex-shrink: 0;
+}
+.q-opt.selected .q-opt-num { background: var(--rose); border-color: var(--rose); color: #fff; }
+.q-opt-label { font-size: 14px; color: var(--muted2); font-weight: 500; }
+.quiz-nav { display: flex; justify-content: space-between; margin-top: 24px; }
+.q-back {
+  font-size: 13px; font-weight: 600; color: var(--muted); background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; gap: 6px; padding: 8px;
+}
+.q-back:hover { color: var(--rose); }
+.q-back:disabled { opacity: 0; pointer-events: none; }
+ 
+/* RESULTS */
+.result-sec { padding: 96px 0 80px; }
+.result-head { text-align: center; margin-bottom: 40px; }
+.result-head h2 { font-size: clamp(24px, 3.4vw, 34px); font-weight: 800; color: var(--dark); margin-bottom: 12px; }
+.result-head p { font-size: 15px; color: var(--muted); max-width: 560px; margin: 0 auto; }
+ 
+.top3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 48px; }
+.top3-card { background: var(--white); border: 1.5px solid var(--rose); border-radius: 16px; padding: 20px 18px; text-align: center; }
+.top3-rank { font-size: 11px; font-weight: 700; color: var(--rose); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+.top3-title { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 6px; line-height: 1.35; }
+.top3-score { font-size: 22px; font-weight: 800; color: var(--text); }
+.top3-score span { font-size: 13px; font-weight: 500; color: var(--muted); }
+ 
+.scenario-block { background: var(--dark); border-radius: 20px; padding: 36px 40px; margin-bottom: 48px; }
+.scenario-block .tag { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rose-light); margin-bottom: 10px; }
+.scenario-block h3 { font-size: 21px; font-weight: 800; color: #fff; margin-bottom: 14px; line-height: 1.3; }
+.scenario-block p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.8; }
+ 
+.breakdown-head { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 18px; }
+.scale-row { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px; margin-bottom: 10px; }
+.scale-row-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 10px; }
+.scale-row-title { font-size: 14px; font-weight: 700; color: var(--text); }
+.scale-row-sub { font-size: 12px; color: var(--muted); font-weight: 400; margin-top: 2px; }
+.scale-row-score { font-size: 14px; font-weight: 700; white-space: nowrap; }
+.scale-bar { height: 8px; background: var(--gray); border-radius: 8px; overflow: hidden; margin-bottom: 4px; }
+.scale-bar-fill { height: 100%; border-radius: 8px; }
+.scale-band-label { font-size: 11px; color: var(--muted); }
+.scale-row details { margin-top: 10px; }
+.scale-row summary { font-size: 12px; color: var(--rose); cursor: pointer; font-weight: 600; list-style: none; }
+.scale-row summary::-webkit-details-marker { display: none; }
+.scale-row summary::after { content: '— подробнее'; }
+.scale-row details[open] summary::after { content: '— свернуть'; }
+.scale-row-desc { font-size: 13px; color: var(--muted2); line-height: 1.7; margin-top: 8px; }
+ 
+.result-cta { text-align: center; margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border); }
+.result-cta h3 { font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 10px; }
+.result-cta p { font-size: 14px; color: var(--muted); max-width: 480px; margin: 0 auto 8px; }
+ 
+footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 24px 48px; text-align: center; font-size: 13px; color: rgba(255,255,255,0.3); }
 footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
 footer a:hover { color: var(--rose); }
  
-/* MOBILE */
 @media (max-width: 640px) {
   nav { padding: 0 16px; }
   .hero { padding: 96px 0 48px; }
   .frow { grid-template-columns: 1fr; }
   .form-card-head { padding: 20px 20px; }
   .form-body { padding: 24px 20px 28px; }
-  .thanks { padding: 48px 20px; }
+  .q-card { padding: 32px 22px; }
+  .q-text { font-size: 17px; }
+  .top3 { grid-template-columns: 1fr; }
+  .scenario-block { padding: 28px 24px; }
   footer { padding: 20px 16px; }
 }
 </style>
@@ -244,185 +232,470 @@ footer a:hover { color: var(--rose); }
  
 <body>
  
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="https://go.natashumanska.com/">Наташа Шуманская</a>
   <a class="nav-back" href="https://go.natashumanska.com/">← На главную</a>
 </nav>
  
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-tag">Личный разбор</div>
-    <h1>Задайте свой вопрос —<br>получите <em>разбор за 48 часов</em></h1>
-    <p class="hero-sub">Боитесь совершить ошибку или не можете принять решение? Опишите ситуацию — мы укажем вам как минимум одну значимую ошибку, которая вам мешает прямо сейчас.</p>
-    <div class="hero-promise">
-      <div class="hero-promise-item">Разбор именно вашего кейса</div>
-      <div class="hero-promise-item">В течение 48 часов</div>
-      <div class="hero-promise-item">Конфиденциально</div>
+<!-- SCREEN 1: INTRO -->
+<section id="screen-intro" class="screen active">
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-tag">Тест на 5 минут</div>
+      <h1>Почему ваш ресторан или отель до сих пор не может без вас?</h1>
+      <p class="hero-sub">Вы постоянно что-то проверяете, согласовываете, исправляете, отвечаете на вопросы сотрудников — а иногда лично заменяете управляющего, закупщика, маркетолога или шефа. Причина не всегда в том, что вы «не умеете делегировать».</p>
+      <p class="hero-sub2">32 утверждения и 8 возможных причин операционной зависимости покажут, что именно замкнуло процессы вашего бизнеса на вас — и что стоит менять в первую очередь.</p>
+      <div class="hero-promise">
+        <div class="hero-promise-item">32 вопроса, 5 минут</div>
+        <div class="hero-promise-item">8 причин зависимости</div>
+        <div class="hero-promise-item">Личный результат на email</div>
+      </div>
+      <div class="scale-legend">
+        <p>Как отвечать</p>
+        <ol>
+          <li>Оценивайте не то, как «должно быть», а то, как происходило в вашем бизнесе последние 2–3 месяца.</li>
+        </ol>
+      </div>
+      <button class="btn-main" onclick="goTo('screen-lead')">Начать тест →</button>
     </div>
   </div>
 </section>
  
-<!-- FORM -->
-<section class="form-sec">
-  <div class="wrap">
-    <div class="form-card">
- 
-      <div class="form-card-head">
-        <div class="form-card-icon">📋</div>
-        <div class="form-card-head-text">
-          <h3>Заполните все поля</h3>
-          <p>Мы проанализируем вашу ситуацию — все поля обязательны</p>
+<!-- SCREEN 2: LEAD FORM -->
+<section id="screen-lead" class="screen">
+  <div class="form-sec" style="padding-top: 96px;">
+    <div class="wrap">
+      <div class="form-card">
+        <div class="form-card-head">
+          <div class="form-card-icon">📋</div>
+          <div class="form-card-head-text">
+            <h3>Прежде чем начать</h3>
+            <p>Сюда придёт ваш персональный результат теста</p>
+          </div>
         </div>
-      </div>
- 
-      <div class="form-body" id="form-wrap">
-        <form id="razvor-form" action="https://formspree.io/f/xjglgdzp" method="POST">
- 
-          <div class="frow">
-            <div class="field">
-              <label for="r-name">Имя и Фамилия *</label>
-              <input type="text" id="r-name" name="name" placeholder="Анна Иванова" required>
-            </div>
-            <div class="field">
-              <label for="r-email">Email *</label>
-              <input type="email" id="r-email" name="email" placeholder="anna@mail.com" required>
-            </div>
-          </div>
- 
-          <div class="frow">
-            <div class="field">
-              <label for="r-phone">Телефон *</label>
-              <input type="tel" id="r-phone" name="phone" placeholder="+7 999 123 45 67" required>
-            </div>
-            <div class="field">
-              <label for="r-country">Страна *</label>
-              <input type="text" id="r-country" name="country" placeholder="Чехия" required>
-            </div>
-          </div>
- 
-          <div class="frow">
-            <div class="field">
-              <label for="r-city">Город *</label>
-              <input type="text" id="r-city" name="city" placeholder="Прага" required>
-            </div>
-            <div class="field">
-              <label for="r-stage">Стадия бизнеса *</label>
-              <select id="r-stage" name="stage" required>
-                <option value="">— выберите —</option>
-                <option value="planning">Только планирую открыть</option>
-                <option value="opening">В процессе открытия</option>
-                <option value="active">Действующий бизнес</option>
-              </select>
-            </div>
-          </div>
- 
-          <div class="frow full">
-            <div class="field">
-              <label for="r-source">Как вы нас нашли? *</label>
-              <input type="text" id="r-source" name="source" placeholder="" required>
-            </div>
-          </div>
- 
-          <div class="frow full">
-            <div class="field">
-              <label for="r-question">Ваш вопрос и описание ситуации *</label>
-              <textarea id="r-question" name="question" placeholder="Опишите подробно вашу ситуацию и вопрос, на который хотите получить ответ. Чем больше деталей — тем точнее разбор." required></textarea>
-            </div>
-          </div>
- 
-          <div class="frow full">
-            <div class="field">
-              <label for="r-files">Ссылка на материалы (необязательно)</label>
-              <input type="url" id="r-files" name="files_link" placeholder="https://drive.google.com/... или disk.yandex.ru/...">
-              <div style="margin-top:6px;font-size:12px;color:var(--muted);line-height:1.6;">
-                📎 Если хотите поделиться материалами (бизнес-план, брендбук, финансовые расчёты, меню и др.) — загрузите их в Google Drive, Яндекс Диск, Dropbox или любое другое облако и вставьте сюда ссылку на папку с открытым доступом.
+        <div class="form-body">
+          <form id="lead-form">
+            <div class="frow">
+              <div class="field">
+                <label for="l-name">Имя и Фамилия *</label>
+                <input type="text" id="l-name" name="name" placeholder="Анна Иванова" required>
+              </div>
+              <div class="field">
+                <label for="l-email">Email *</label>
+                <input type="email" id="l-email" name="email" placeholder="anna@mail.com" required>
               </div>
             </div>
-          </div>
+            <div class="frow">
+              <div class="field">
+                <label for="l-phone">Телефон *</label>
+                <input type="tel" id="l-phone" name="phone" placeholder="+7 999 123 45 67" required>
+              </div>
+              <div class="field">
+                <label for="l-stage">Стадия бизнеса *</label>
+                <select id="l-stage" name="stage" required>
+                  <option value="">— выберите —</option>
+                  <option value="planning">Только планирую открыть</option>
+                  <option value="opening">В процессе открытия</option>
+                  <option value="active">Действующий бизнес</option>
+                </select>
+              </div>
+            </div>
  
-          <hr class="fdiv">
+            <hr class="fdiv">
  
-          <div class="checks">
-            <label class="check">
-              <input type="checkbox" name="gdpr" required>
-              <span>Я даю согласие на обработку моих персональных данных *</span>
-            </label>
-            <label class="check">
-              <input type="checkbox" name="newsletter" required>
-              <span>Я даю согласие на получение информационной рассылки *</span>
-            </label>
-            <label class="check">
-              <input type="checkbox" name="privacy" required>
-              <span>Я подтверждаю, что ознакомлен(а) с политикой конфиденциальности *</span>
-            </label>
-          </div>
+            <div class="checks">
+              <label class="check">
+                <input type="checkbox" name="gdpr" required>
+                <span>Я даю согласие на обработку моих персональных данных *</span>
+              </label>
+              <label class="check">
+                <input type="checkbox" name="privacy" required>
+                <span>Я подтверждаю, что ознакомлен(а) с политикой конфиденциальности *</span>
+              </label>
+            </div>
  
-          <div class="info-box beige">
-            🔒 Мы обязуемся сохранять конфиденциальность и никогда не передавать третьим лицам любую информацию из ваших материалов.<br><br>
-            📬 Чтобы наш ответ не попал в спам, добавьте <strong>hello@natashumanska.com</strong> в список контактов вашего почтового сервиса.
-          </div>
+            <div class="info-box">🔒 Мы обязуемся сохранять конфиденциальность и никогда не передавать третьим лицам данные из этого теста.</div>
  
-          <button type="submit" class="btn-submit" id="razvor-btn">
-            Отправить вопрос на разбор →
-          </button>
- 
-        </form>
-      </div>
- 
-      <div class="thanks" id="razvor-thanks">
-        <div class="thanks-icon">✅</div>
-        <h3>Спасибо! Получили ваш вопрос</h3>
-        <p>В течение 48 часов вы получите личный разбор вашей ситуации на указанный email.</p>
-        <div class="thanks-note">
-          📬 Добавьте <strong>hello@natashumanska.com</strong> в контакты,<br>чтобы письмо не попало в спам
+            <button type="submit" class="btn-submit" id="lead-btn">Перейти к тесту →</button>
+          </form>
         </div>
       </div>
- 
     </div>
   </div>
 </section>
  
-<!-- FOOTER -->
+<!-- SCREEN 3: QUIZ -->
+<section id="screen-quiz" class="screen">
+  <div class="quiz-sec">
+    <div class="wrap">
+      <div class="quiz-progress-wrap">
+        <div class="quiz-progress-top">
+          <span id="q-counter">Вопрос 1 из 32</span>
+          <span id="q-percent">3%</span>
+        </div>
+        <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="q-progress-fill"></div></div>
+      </div>
+      <div class="q-card">
+        <p class="q-text" id="q-text"></p>
+        <div class="q-options" id="q-options"></div>
+      </div>
+      <div class="quiz-nav">
+        <button class="q-back" id="q-back-btn" onclick="prevQuestion()">← Назад</button>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- SCREEN 4: RESULTS -->
+<section id="screen-result" class="screen">
+  <div class="result-sec">
+    <div class="wrap">
+      <div class="result-head">
+        <h2>Ваш результат</h2>
+        <p id="result-greeting">Мы также отправили этот разбор вам на email.</p>
+      </div>
+ 
+      <div class="top3" id="top3-wrap"></div>
+ 
+      <div class="scenario-block" id="scenario-block"></div>
+ 
+      <div>
+        <p class="breakdown-head">Все 8 шкал подробно</p>
+        <div id="breakdown-wrap"></div>
+      </div>
+ 
+      <div class="result-cta">
+        <h3>Что делать с этим результатом дальше?</h3>
+        <p>Опишите свою ситуацию — укажем как минимум одну ошибку, которая мешает вам прямо сейчас, и как именно разорвать цикл зависимости от вас.</p>
+        <button class="btn-main" onclick="window.location.href='https://go.natashumanska.com/razvor'">Обсудить результат с Наташей →</button>
+      </div>
+    </div>
+  </div>
+</section>
+ 
 <footer>
   <p>© 2026 Наташа Шуманская · <a href="https://go.natashumanska.com/">Главная страница</a></p>
 </footer>
  
 <script>
-(function(){
-  var form = document.getElementById('razvor-form');
-  var btn = document.getElementById('razvor-btn');
-  var wrap = document.getElementById('form-wrap');
-  var thanks = document.getElementById('razvor-thanks');
+/* ---------- DATA ---------- */
  
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    btn.disabled = true;
-    btn.textContent = 'Отправляем...';
-    var data = new FormData(form);
-    fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(function(r){
-      if(r.ok){
-        wrap.style.display = 'none';
-        thanks.style.display = 'block';
-      } else {
-        btn.disabled = false;
-        btn.textContent = 'Отправить вопрос на разбор →';
-        alert('Ошибка отправки. Попробуйте ещё раз.');
-      }
-    })
-    .catch(function(){
-      btn.disabled = false;
-      btn.textContent = 'Отправить вопрос на разбор →';
-      alert('Ошибка сети. Проверьте соединение.');
-    });
+const SCALES = {
+  A: {
+    title: 'Неприятие потерь',
+    subtitle: '«Я боюсь цены чужой ошибки»',
+    desc: 'Высокий результат означает, что потенциальная ошибка сотрудника психологически весит для вас больше, чем потенциальная выгода от передачи ответственности. Вы понимаете пользу делегирования рационально, но в конкретной ситуации мозг выбирает более безопасный вариант: «Лучше я сделаю сам». Пока сотрудники не получают права на ограниченные ошибки, они не приобретают опыта принятия решений — и собственник получает подтверждение собственной гипотезы: «Вот видите — без меня они действительно не могут».'
+  },
+  B: {
+    title: 'Иллюзия контроля и перфекционизм',
+    subtitle: '«Без меня сделают не так»',
+    desc: 'Ваша проблема может быть не в недоверии людям как таковом — вы просто слишком тесно связываете качество результата со своим личным участием. Вы делегируете задачу, но продолжаете контролировать способ её выполнения. В итоге сотрудник получает ответственность формально, а реальное право принимать решения остаётся у вас.'
+  },
+  C: {
+    title: 'Незаменимость как психологическое вознаграждение',
+    subtitle: '«Мне нужно быть нужным»',
+    desc: 'Постоянные звонки, срочные вопросы и необходимость кого-то спасать могут быть утомительными — и одновременно давать сильное ощущение собственной ценности: «Без меня здесь ничего не происходит». Вы можете искренне хотеть освободиться от операционки и одновременно бессознательно поддерживать систему, в которой остаётесь центральной фигурой. Без осознания этой вторичной выгоды новые регламенты могут неожиданно перестать работать.'
+  },
+  D: {
+    title: 'Дефицит управленческих компетенций',
+    subtitle: '«Умею делать, но не умею управлять через других»',
+    desc: 'Вы можете великолепно разбираться в ресторанах или отелях и при этом не владеть технологией управления руководителями: постановкой результата, зонами ответственности, уровнями полномочий, контрольными точками, KPI, обратной связью, системой эскалации проблем. Поэтому «сделать самому» оказывается быстрее, чем «научить управлять» — и собственник постепенно становится главным операционным менеджером своего бизнеса.'
+  },
+  E: {
+    title: 'Отсутствие SOP и базы знаний',
+    subtitle: '«Весь бизнес у нас в головах»',
+    desc: 'Сотрудники спрашивают вас не потому, что беспомощны — а потому, что ответ больше негде получить. Если стандарты, сценарии, чек-листы и накопленный опыт компании не зафиксированы, собственник неизбежно превращается в живую базу знаний. Убрать его из процессов, ничего не изменив, действительно опасно.'
+  },
+  F: {
+    title: 'Слабый менеджмент',
+    subtitle: '«Мне некому передать управление»',
+    desc: 'Возможно, проблема не в вашей неспособности делегировать — делегировать действительно некому. Хороший исполнитель ≠ хороший менеджер. Если руководители не умеют принимать решения и отвечать за результат своего подразделения, собственник вынужден оставаться руководителем следующего уровня вниз.'
+  },
+  G: {
+    title: 'Отсутствие управленческой прозрачности',
+    subtitle: '«Чтобы контролировать, мне нужно присутствовать»',
+    desc: 'Когда управленческой системы нет, собственнику приходится лично ходить и смотреть: сколько людей работает, что на складе, сколько списывают, кто опаздывает. Проблема не в избыточном контроле — проблема в том, что контроль невозможно осуществлять иначе. Задача — заменить физический контроль системой цифр, отчётов и управления по отклонениям.'
+  },
+  H: {
+    title: 'Бизнес завязан на личность собственника',
+    subtitle: '«Компания и я пока одно и то же»',
+    desc: 'Внутри компании процессы уже могут работать достаточно хорошо, но внешние отношения по-прежнему персонализированы: поставщики договариваются с вами, VIP-гости пишут вам, партнёр доверяет вам. Это сильный актив на этапе роста бизнеса, но со временем он превращается в ограничение: ценность создаёт собственник, а не организация.'
+  }
+};
+ 
+const QUESTIONS = [
+  {n:1, g:'A', t:'Когда сотрудник принимает решение самостоятельно, я прежде всего думаю о том, сколько может стоить его ошибка.'},
+  {n:2, g:'D', t:'Мне бывает сложно чётко сформулировать сотруднику, какой результат я от него ожидаю, где заканчиваются его полномочия и в каких случаях он должен обратиться ко мне.'},
+  {n:3, g:'G', t:'Чтобы понимать, нормально ли работает ресторан/отель, мне недостаточно посмотреть несколько отчётов или показателей — мне нужно самому увидеть, что происходит.'},
+  {n:4, g:'B', t:'Даже если сотрудник достигает нужного результата, меня раздражает, когда он делает работу совсем не так, как сделал бы я.'},
+  {n:5, g:'E', t:'На многие вопросы сотрудников невозможно просто дать ссылку на инструкцию, потому что нужного регламента или базы знаний у нас нет.'},
+  {n:6, g:'H', t:'Есть важные гости, поставщики, партнёры или другие контрагенты, отношения с которыми фактически держатся на моём личном контакте.'},
+  {n:7, g:'C', t:'Когда в заведении возникает сложная ситуация и все обращаются ко мне, я чувствую себя особенно нужным бизнесу.'},
+  {n:8, g:'F', t:'Если меня не будет несколько дней, кто-то из руководителей почти наверняка начнёт перекладывать на меня вопросы, которые должен решать сам.'},
+  {n:9, g:'H', t:'Есть договорённости с поставщиками, арендодателем, партнёрами или постоянными гостями, которые практически невозможно полноценно передать сотруднику.'},
+  {n:10, g:'A', t:'Мне проще самому принять важное решение, чем потом исправлять последствия неудачного решения сотрудника.'},
+  {n:11, g:'D', t:'Я могу делегировать задачу, но мне трудно построить систему промежуточного контроля так, чтобы не контролировать человека постоянно.'},
+  {n:12, g:'G', t:'Если я физически не нахожусь в заведении, мне сложно быстро понять, ухудшились ли сервис, расходы, списания, производительность или дисциплина.'},
+  {n:13, g:'B', t:'Мне трудно принять результат на уровне «достаточно хорошо», если я знаю, что сам мог бы сделать лучше.'},
+  {n:14, g:'E', t:'Значительная часть того, как правильно работать в нашем бизнесе, существует скорее в головах опытных сотрудников и в моей голове, чем в единой системе.'},
+  {n:15, g:'H', t:'Некоторые клиенты или постоянные гости ожидают личного внимания именно от меня и могут воспринимать моё отсутствие как снижение уровня сервиса.'},
+  {n:16, g:'C', t:'Если несколько дней никто не обращается ко мне с проблемами, у меня скорее возникает тревога или ощущение потери связи с бизнесом, чем облегчение.'},
+  {n:17, g:'F', t:'У меня есть сотрудники с должностями «управляющий», «директор», «шеф» или руководитель подразделения, но значительную часть реальных управленческих решений всё равно принимаю я.'},
+  {n:18, g:'H', t:'Если завтра из коммуникации с ключевыми контрагентами убрать лично меня, часть отношений с ними заметно ослабнет.'},
+  {n:19, g:'A', t:'Даже понимая, что сотрудникам нужно учиться принимать решения, мне трудно позволить им ошибиться на реальном бизнесе.'},
+  {n:20, g:'D', t:'Мне легче самому решить проблему, чем разбирать с руководителем, почему она возникла, что он должен изменить и как мы будем контролировать результат в дальнейшем.'},
+  {n:21, g:'G', t:'У нас нет одного понятного набора цифр, по которому я за 10–15 минут могу понять состояние бизнеса без звонков сотрудникам.'},
+  {n:22, g:'B', t:'Когда я передаю кому-то свою функцию, мне хочется продолжать проверять детали, даже если объективных признаков проблемы пока нет.'},
+  {n:23, g:'E', t:'Если опытный сотрудник неожиданно увольняется, вместе с ним бизнес фактически теряет часть знаний о том, «как у нас всё работает».'},
+  {n:24, g:'F', t:'Мне приходится напрямую управлять линейными сотрудниками, хотя формально между мной и ими есть руководитель.'},
+  {n:25, g:'C', t:'Мне приятно понимать, что есть вещи, которые в этом бизнесе никто не сможет сделать настолько хорошо, как я.'},
+  {n:26, g:'G', t:'Часть контроля у нас построена по принципу «пока лично не проверишь — не узнаешь».'},
+  {n:27, g:'F', t:'Если я перестану вмешиваться, проблема будет не столько в моём доверии, сколько в том, что некоторым руководителям действительно не хватает компетенций для самостоятельной работы.'},
+  {n:28, g:'A', t:'Я сильнее переживаю из-за возможной ошибки сотрудника, чем радуюсь времени и свободе, которые получил бы благодаря делегированию.'},
+  {n:29, g:'D', t:'Мне бывает сложно определить несколько измеримых показателей, по которым можно контролировать работу руководителя вместо постоянного участия в его операционке.'},
+  {n:30, g:'E', t:'Одни и те же нестандартные ситуации регулярно приходится объяснять сотрудникам заново.'},
+  {n:31, g:'B', t:'Когда кто-то делает мою бывшую работу самостоятельно, я довольно быстро замечаю все несовершенства и испытываю желание вмешаться.'},
+  {n:32, g:'C', t:'Роль человека, который «всегда знает, что делать» и спасает ситуацию, стала важной частью моего ощущения себя как собственника.'}
+];
+ 
+const ANSWER_LABELS = ['Практически никогда', 'Редко', 'Иногда', 'Часто', 'Почти всегда'];
+ 
+const SCENARIOS = {
+  s1: {
+    tag: 'Сценарий 1',
+    title: 'Бизнес мог бы без вас. Но вы сами его не отпускаете',
+    text: 'Высокие результаты прежде всего в неприятии потерь, иллюзии контроля и потребности в незаменимости — а системные шкалы (SOP, менеджмент, прозрачность, персонализация) относительно низкие. Инфраструктура для делегирования у вас уже в значительной степени существует. Главное ограничение сейчас находится не в бизнесе, а в поведении собственника. Создание ещё двадцати регламентов проблему не решит.'
+  },
+  s2: {
+    tag: 'Сценарий 2',
+    title: 'С вами всё нормально. Бизнес действительно пока нельзя оставить',
+    text: 'Личные шкалы (неприятие потерь, перфекционизм, незаменимость) низкие, зато высокие показатели по отсутствию SOP, слабому менеджменту, отсутствию прозрачной системы контроля и завязанности связей на собственнике. Не нужно лечить себя от «гиперконтроля» — ваше присутствие пока действительно компенсирует отсутствующие элементы управленческой системы. Просто уйти из операционки в этой ситуации — не делегирование, а оставить функции без владельца.'
+  },
+  s3: {
+    tag: 'Сценарий 3',
+    title: 'Вы построили себе работу вместо бизнеса',
+    text: 'Особенно важная комбинация: дефицит управленческих компетенций вместе с отсутствием системы и слабыми руководителями. Вы сами остаётесь самым сильным специалистом и одновременно главным менеджером компании. Здесь не нужно заставлять себя меньше работать — нужно перейти на следующий уровень управленческой роли: перестать управлять работой и начать строить систему, которая управляет работой.'
+  },
+  s4: {
+    tag: 'Сценарий 4',
+    title: 'Замкнутый круг собственника',
+    text: 'Высокие показатели есть и среди личных причин, и среди системных — перед вами самый устойчивый сценарий. Вы боитесь передавать решения → руководители не получают опыта → остаются слабыми → вы убеждаетесь, что им нельзя доверять → продолжаете принимать решения сами → система управления не появляется, потому что быстрее спросить вас. Собственник незаменим, потому что система слабая, а система остаётся слабой, потому что собственник незаменим. Разрывать нужно именно этот круг.'
+  },
+  s0: {
+    tag: 'Смешанная картина',
+    title: 'Явного доминирующего сценария нет',
+    text: 'Ваши результаты распределены достаточно ровно — ни личные, ни системные причины не выражены критически сильно. Посмотрите на три ваши самые высокие шкалы ниже: именно с ними стоит начать работу в первую очередь.'
+  }
+};
+ 
+/* ---------- STATE ---------- */
+ 
+let currentQuestion = 0;
+let answers = new Array(QUESTIONS.length).fill(null);
+let leadData = {};
+ 
+/* ---------- NAVIGATION ---------- */
+ 
+function goTo(id) {
+  document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+ 
+/* ---------- LEAD FORM ---------- */
+ 
+document.getElementById('lead-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('lead-btn');
+  const form = e.target;
+  const data = new FormData(form);
+  leadData = {
+    name: data.get('name'),
+    email: data.get('email'),
+    phone: data.get('phone'),
+    stage: data.get('stage')
+  };
+  btn.disabled = true;
+  btn.textContent = 'Отправляем...';
+ 
+  const payload = new FormData();
+  payload.append('form_type', 'quiz_lead');
+  payload.append('name', leadData.name);
+  payload.append('email', leadData.email);
+  payload.append('phone', leadData.phone);
+  payload.append('stage', leadData.stage);
+ 
+  fetch('https://formspree.io/f/xjglgdzp', {
+    method: 'POST',
+    body: payload,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(function(){
+    renderQuestion(0);
+    goTo('screen-quiz');
+  })
+  .catch(function(){
+    // не блокируем прохождение теста из-за сбоя сети
+    renderQuestion(0);
+    goTo('screen-quiz');
+  })
+  .finally(function(){
+    btn.disabled = false;
+    btn.textContent = 'Перейти к тесту →';
   });
-})();
+});
+ 
+/* ---------- QUIZ ---------- */
+ 
+function renderQuestion(index) {
+  currentQuestion = index;
+  const q = QUESTIONS[index];
+  document.getElementById('q-counter').textContent = 'Вопрос ' + (index + 1) + ' из ' + QUESTIONS.length;
+  const pct = Math.round(((index) / QUESTIONS.length) * 100);
+  document.getElementById('q-percent').textContent = pct + '%';
+  document.getElementById('q-progress-fill').style.width = pct + '%';
+  document.getElementById('q-text').textContent = q.t;
+ 
+  const optsWrap = document.getElementById('q-options');
+  optsWrap.innerHTML = '';
+  ANSWER_LABELS.forEach(function(label, val) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'q-opt' + (answers[index] === val ? ' selected' : '');
+    btn.innerHTML = '<span class="q-opt-num">' + val + '</span><span class="q-opt-label">' + label + '</span>';
+    btn.onclick = function() { selectAnswer(val); };
+    optsWrap.appendChild(btn);
+  });
+ 
+  document.getElementById('q-back-btn').disabled = (index === 0);
+}
+ 
+function selectAnswer(val) {
+  answers[currentQuestion] = val;
+  const opts = document.querySelectorAll('#q-options .q-opt');
+  opts.forEach(function(o, i){ o.classList.toggle('selected', i === val); });
+ 
+  setTimeout(function() {
+    if (currentQuestion < QUESTIONS.length - 1) {
+      renderQuestion(currentQuestion + 1);
+    } else {
+      document.getElementById('q-progress-fill').style.width = '100%';
+      document.getElementById('q-percent').textContent = '100%';
+      finishQuiz();
+    }
+  }, 220);
+}
+ 
+function prevQuestion() {
+  if (currentQuestion > 0) {
+    renderQuestion(currentQuestion - 1);
+  }
+}
+ 
+/* ---------- SCORING ---------- */
+ 
+function computeScores() {
+  const scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0 };
+  QUESTIONS.forEach(function(q, i) {
+    scores[q.g] += (answers[i] || 0);
+  });
+  return scores;
+}
+ 
+function bandFor(score) {
+  if (score <= 4) return { label: 'причина практически не выражена', color: 'var(--band1)' };
+  if (score <= 8) return { label: 'зона внимания', color: 'var(--band2)' };
+  if (score <= 12) return { label: 'выраженная причина', color: 'var(--band3)' };
+  return { label: 'критическая зависимость', color: 'var(--band4)' };
+}
+ 
+function determineScenario(scores) {
+  const personal = ['A','B','C'];
+  const systemic = ['E','F','G','H'];
+  const anyPersonalHigh = personal.some(function(k){ return scores[k] >= 9; });
+  const anySystemicHigh = systemic.some(function(k){ return scores[k] >= 9; });
+  const allSystemicLow = systemic.every(function(k){ return scores[k] <= 8; });
+  const allPersonalLow = personal.every(function(k){ return scores[k] <= 8; });
+ 
+  if (scores.D >= 9 && scores.E >= 9 && scores.F >= 9) return SCENARIOS.s3;
+  if (anyPersonalHigh && anySystemicHigh) return SCENARIOS.s4;
+  if (anyPersonalHigh && allSystemicLow) return SCENARIOS.s1;
+  if (allPersonalLow && anySystemicHigh) return SCENARIOS.s2;
+  return SCENARIOS.s0;
+}
+ 
+/* ---------- RESULTS RENDER ---------- */
+ 
+function finishQuiz() {
+  const scores = computeScores();
+  const sorted = Object.keys(scores).sort(function(a, b){ return scores[b] - scores[a]; });
+  const top3 = sorted.slice(0, 3);
+  const scenario = determineScenario(scores);
+ 
+  // top-3 cards
+  const top3Wrap = document.getElementById('top3-wrap');
+  top3Wrap.innerHTML = '';
+  top3.forEach(function(key, i){
+    const s = SCALES[key];
+    const card = document.createElement('div');
+    card.className = 'top3-card';
+    card.innerHTML = '<div class="top3-rank">Причина №' + (i+1) + '</div>' +
+      '<div class="top3-title">' + s.title + '</div>' +
+      '<div class="top3-score">' + scores[key] + '<span> / 16</span></div>';
+    top3Wrap.appendChild(card);
+  });
+ 
+  // scenario block
+  const scenarioWrap = document.getElementById('scenario-block');
+  scenarioWrap.innerHTML = '<div class="tag">' + scenario.tag + '</div>' +
+    '<h3>' + scenario.title + '</h3>' +
+    '<p>' + scenario.text + '</p>';
+ 
+  // full breakdown, sorted desc
+  const breakdownWrap = document.getElementById('breakdown-wrap');
+  breakdownWrap.innerHTML = '';
+  sorted.forEach(function(key){
+    const s = SCALES[key];
+    const score = scores[key];
+    const band = bandFor(score);
+    const pct = Math.round((score / 16) * 100);
+    const row = document.createElement('div');
+    row.className = 'scale-row';
+    row.innerHTML =
+      '<div class="scale-row-top">' +
+        '<div><div class="scale-row-title">' + s.title + '</div><div class="scale-row-sub">' + s.subtitle + '</div></div>' +
+        '<div class="scale-row-score" style="color:' + band.color + '">' + score + ' / 16</div>' +
+      '</div>' +
+      '<div class="scale-bar"><div class="scale-bar-fill" style="width:' + pct + '%; background:' + band.color + '"></div></div>' +
+      '<div class="scale-band-label">' + band.label + '</div>' +
+      '<details><summary></summary><p class="scale-row-desc">' + s.desc + '</p></details>';
+    breakdownWrap.appendChild(row);
+  });
+ 
+  // silent follow-up submission with results
+  const resultPayload = new FormData();
+  resultPayload.append('form_type', 'quiz_result');
+  resultPayload.append('name', leadData.name || '');
+  resultPayload.append('email', leadData.email || '');
+  resultPayload.append('phone', leadData.phone || '');
+  resultPayload.append('stage', leadData.stage || '');
+  resultPayload.append('scenario', scenario.tag + ' — ' + scenario.title);
+  resultPayload.append('top_3', top3.map(function(k){ return SCALES[k].title + ' (' + scores[k] + '/16)'; }).join('; '));
+  resultPayload.append('all_scores', JSON.stringify(scores));
+ 
+  fetch('https://formspree.io/f/xjglgdzp', {
+    method: 'POST',
+    body: resultPayload,
+    headers: { 'Accept': 'application/json' }
+  }).catch(function(){ /* не блокируем показ результата пользователю */ });
+ 
+  document.getElementById('result-greeting').textContent = leadData.email
+    ? 'Мы также отправили этот разбор на ' + leadData.email + '.'
+    : '';
+ 
+  goTo('screen-result');
+}
 </script>
  
 </body>
