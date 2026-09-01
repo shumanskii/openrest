@@ -87,7 +87,6 @@ nav {
   color: #fff; margin-bottom: 18px;
 }
 .hero-sub { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.8; max-width: 580px; margin-bottom: 20px; }
-.hero-sub2 { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.8; max-width: 580px; }
 .hero-promise { display: flex; gap: 24px; margin-top: 32px; flex-wrap: wrap; }
 .hero-promise-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 500; }
 .hero-promise-item::before {
@@ -243,8 +242,7 @@ footer a:hover { color: var(--rose); }
     <div class="wrap">
       <div class="hero-tag">Тест на 5 минут</div>
       <h1>Почему ваш ресторан или отель до сих пор не может без вас?</h1>
-     <p class="hero-sub">Вы постоянно что-то проверяете, согласовываете, исправляете, отвечаете на вопросы сотрудников — а иногда лично заменяете управляющего, закупщика, маркетолога или шефа.<br><br>Причина не всегда в том, что вы «не умеете делегировать».<br><br>Иногда собственник действительно сам удерживает контроль.<br><br>А иногда бизнес объективно пока не способен работать без него.</p>
-      <p class="hero-sub2">Этот тест поможет определить, почему именно процессы в вашем бизнесе замкнуты на вас.</p>
+      <p class="hero-sub">Вы постоянно что-то проверяете, согласовываете, исправляете, отвечаете на вопросы сотрудников — а иногда лично заменяете управляющего, закупщика, маркетолога или шефа.<br><br>Причина не всегда в том, что вы «не умеете делегировать».<br><br>Иногда собственник действительно сам удерживает контроль.<br><br>А иногда бизнес объективно пока не способен работать без него.<br><br>Этот тест поможет определить, почему именно процессы в вашем бизнесе замкнуты на вас.</p>
       <div class="hero-promise">
         <div class="hero-promise-item">32 вопроса, 5 минут</div>
         <div class="hero-promise-item">8 причин зависимости</div>
@@ -285,19 +283,10 @@ footer a:hover { color: var(--rose); }
                 <input type="email" id="l-email" name="email" placeholder="anna@mail.com" required>
               </div>
             </div>
-            <div class="frow">
+            <div class="frow full">
               <div class="field">
                 <label for="l-phone">Телефон *</label>
                 <input type="tel" id="l-phone" name="phone" placeholder="+7 999 123 45 67" required>
-              </div>
-              <div class="field">
-                <label for="l-stage">Стадия бизнеса *</label>
-                <select id="l-stage" name="stage" required>
-                  <option value="">— выберите —</option>
-                  <option value="planning">Только планирую открыть</option>
-                  <option value="opening">В процессе открытия</option>
-                  <option value="active">Действующий бизнес</option>
-                </select>
               </div>
             </div>
  
@@ -306,11 +295,11 @@ footer a:hover { color: var(--rose); }
             <div class="checks">
               <label class="check">
                 <input type="checkbox" name="gdpr" required>
-                <span>Я даю согласие на обработку моих персональных данных *</span>
+                <span>Я даю согласие на обработку моих персональных данных согласно <a href="https://consulting.natashumanska.com/privacy-policy" target="_blank" rel="noopener" onclick="event.stopPropagation()">политике конфиденциальности</a> *</span>
               </label>
               <label class="check">
                 <input type="checkbox" name="privacy" required>
-                <span>Я подтверждаю, что ознакомлен(а) с политикой конфиденциальности *</span>
+                <span>Я подтверждаю, что ознакомлен(а) с <a href="https://consulting.natashumanska.com/terms-conditions" target="_blank" rel="noopener" onclick="event.stopPropagation()">условиями использования</a> *</span>
               </label>
             </div>
  
@@ -513,8 +502,7 @@ document.getElementById('lead-form').addEventListener('submit', function(e) {
   leadData = {
     name: data.get('name'),
     email: data.get('email'),
-    phone: data.get('phone'),
-    stage: data.get('stage')
+    phone: data.get('phone')
   };
   btn.disabled = true;
   btn.textContent = 'Отправляем...';
@@ -524,7 +512,6 @@ document.getElementById('lead-form').addEventListener('submit', function(e) {
   payload.append('name', leadData.name);
   payload.append('email', leadData.email);
   payload.append('phone', leadData.phone);
-  payload.append('stage', leadData.stage);
  
   fetch('https://formspree.io/f/xjglgdzp', {
     method: 'POST',
@@ -679,7 +666,6 @@ function finishQuiz() {
   resultPayload.append('name', leadData.name || '');
   resultPayload.append('email', leadData.email || '');
   resultPayload.append('phone', leadData.phone || '');
-  resultPayload.append('stage', leadData.stage || '');
   resultPayload.append('scenario', scenario.tag + ' — ' + scenario.title);
   resultPayload.append('top_3', top3.map(function(k){ return SCALES[k].title + ' (' + scores[k] + '/16)'; }).join('; '));
   resultPayload.append('all_scores', JSON.stringify(scores));
@@ -700,4 +686,3 @@ function finishQuiz() {
  
 </body>
 </html>
- 
