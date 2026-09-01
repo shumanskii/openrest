@@ -404,6 +404,7 @@ footer a:hover { color: var(--rose); }
           <a class="btn-main" id="cta-email-btn" href="#">Написать на почту →</a>
           <a class="btn-main btn-whatsapp" id="cta-whatsapp-btn" href="#" target="_blank" rel="noopener">Написать в WhatsApp →</a>
         </div>
+        <p id="cta-note" style="display:none; margin-top:16px; font-size:13px; color:var(--muted2);"></p>
       </div>
     </div>
   </div>
@@ -665,7 +666,7 @@ function finishQuiz() {
     const card = document.createElement('div');
     card.className = 'top3-card';
     card.innerHTML = '<div class="top3-rank">Причина №' + (i + 1) + '</div>' +
-      '<div class="top3-title">' + c.code + ' · ' + c.title + '</div>' +
+      '<div class="top3-title">' + c.title + '</div>' +
       '<div class="top3-score">' + scores[k] + '</div>';
     top3Wrap.appendChild(card);
   });
@@ -675,21 +676,21 @@ function finishQuiz() {
   if (profile.type === 'single') {
     const m = CAUSES[profile.main], b = CAUSES[profile.background];
     vTag = 'Главный драйвер';
-    vTitle = m.code + ' · ' + m.title;
+    vTitle = m.title;
     vHtml = '<p>' + m.result + '</p>' +
-      '<p style="margin-top:14px;font-size:13px;opacity:.75;">Фоновая причина: ' + b.code + ' · ' + b.title + '.</p>';
+      '<p style="margin-top:14px;font-size:13px;opacity:.75;">Фоновая причина: ' + b.title + '.</p>';
   } else if (profile.type === 'mixed') {
     const m = CAUSES[profile.main], b = CAUSES[profile.background];
     vTag = 'Смешанный профиль';
-    vTitle = m.code + ' · ' + m.title + '  +  ' + b.code + ' · ' + b.title;
+    vTitle = m.title + '  +  ' + b.title;
     vHtml = '<p>' + m.result + '</p><p style="margin-top:14px;">' + b.result + '</p>';
   } else {
     const k4 = CAUSES.K4, k5 = CAUSES.K5;
     vTag = 'Системная незрелость';
     vTitle = 'Одного корня нет — дело в системе';
     vHtml = '<p>Ни одна причина не выражена заметно сильнее других. Почти всегда это значит, что дело не в отдельном барьере, а в системной незрелости: процессы ещё не упакованы, а живого образца «как бывает иначе» перед глазами не было. Начинать стоит с упаковки процессов и живого примера.</p>' +
-      '<p style="margin-top:14px;">' + k4.code + ' · ' + k4.title + '. ' + k4.result + '</p>' +
-      '<p style="margin-top:14px;">' + k5.code + ' · ' + k5.title + '. ' + k5.result + '</p>';
+      '<p style="margin-top:14px;">' + k4.title + '. ' + k4.result + '</p>' +
+      '<p style="margin-top:14px;">' + k5.title + '. ' + k5.result + '</p>';
   }
   document.getElementById('scenario-block').innerHTML =
     '<div class="tag">' + vTag + '</div><h3>' + vTitle + '</h3>' + vHtml;
@@ -710,7 +711,7 @@ function finishQuiz() {
     row.className = 'scale-row';
     row.innerHTML =
       '<div class="scale-row-top">' +
-        '<div><div class="scale-row-title">' + c.code + ' · ' + c.title + '</div><div class="scale-row-sub">' + c.sub + '</div></div>' +
+        '<div><div class="scale-row-title">' + c.title + '</div><div class="scale-row-sub">' + c.sub + '</div></div>' +
         '<div class="scale-row-score" style="color:' + color + '">' + sc + '</div>' +
       '</div>' +
       '<div class="scale-bar"><div class="scale-bar-fill" style="width:' + pct + '%; background:' + color + '"></div></div>' +
@@ -735,7 +736,20 @@ function finishQuiz() {
  
   const greetName = leadData.name ? ' Меня зовут ' + leadData.name + '.' : '';
   const messageTemplate = 'Добрый день!' + greetName + ' Я прошёл(а) опрос у вас на портале и хотел(а) бы созвониться, чтобы обсудить несколько вопросов: [напишите свои вопросы в двух словах]';
-  document.getElementById('cta-email-btn').href = 'mailto:hello@natashumanska.com?subject=' + encodeURIComponent('Вопрос после теста') + '&body=' + encodeURIComponent(messageTemplate);
+  const OWNER_EMAIL = 'hello@natashumanska.com';
+  const emailBtn = document.getElementById('cta-email-btn');
+  emailBtn.href = 'mailto:' + OWNER_EMAIL + '?subject=' + encodeURIComponent('Вопрос после теста') + '&body=' + encodeURIComponent(messageTemplate);
+  emailBtn.onclick = function() {
+    // На многих десктопах почтовый клиент не привязан и mailto «молчит».
+    // Копируем адрес и показываем его на странице, чтобы гость точно смог написать.
+    // На телефонах mailto при этом продолжает открывать почтовое приложение.
+    try { if (navigator.clipboard) navigator.clipboard.writeText(OWNER_EMAIL); } catch (e) {}
+    const note = document.getElementById('cta-note');
+    if (note) {
+      note.innerHTML = 'Наш адрес: <b>' + OWNER_EMAIL + '</b> — скопирован в буфер обмена. Если почтовое приложение не открылось, вставьте адрес в свою почту вручную.';
+      note.style.display = 'block';
+    }
+  };
   document.getElementById('cta-whatsapp-btn').href = 'https://wa.me/420608507366?text=' + encodeURIComponent(messageTemplate);
  
   goTo('screen-result');
