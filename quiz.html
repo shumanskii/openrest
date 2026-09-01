@@ -419,8 +419,8 @@ footer a:hover { color: var(--rose); }
  
 const EMAILJS_PUBLIC_KEY     = 'Njy0Nzer4y-xw9VI0nVc5';
 const EMAILJS_SERVICE_ID     = 'service_5jetiww';
-const EMAILJS_TEMPLATE_GUEST = 'wj6s22w';   // авто-ответ гостю
-const EMAILJS_TEMPLATE_OWNER = 'ity8rgq';   // уведомление владельцу
+const EMAILJS_TEMPLATE_GUEST = 'template_a8ewx5d';        // письмо ГОСТЮ (ity8rgq: «We've received», To={{email}})
+const EMAILJS_TEMPLATE_OWNER = 'template_95477yn';       // письмо ТЕБЕ (wj6s22w: «Новая заявка», To=твой gmail)
 const QUIZ_TITLE             = 'Почему бизнес не может без вас?';
  
 if (window.emailjs) {
@@ -510,7 +510,7 @@ document.getElementById('lead-form').addEventListener('submit', function(e) {
       name:  leadData.name,
       email: leadData.email,
       title: QUIZ_TITLE
-    }).catch(function(){ /* сбой отправки не мешает пользователю */ });
+    }).catch(function(err){ console.error('EmailJS (гостю):', err); });
   }
  
   renderQuestion(0);
@@ -729,7 +729,7 @@ function finishQuiz() {
       scenario:   vTag + ': ' + vTitle,
       top_3:      keys.slice(0, 3).map(function(k){ return CAUSES[k].code + ' ' + CAUSES[k].title + ' (' + scores[k] + ')'; }).join('; '),
       all_scores: JSON.stringify(scores)
-    }).catch(function(){ /* сбой отправки не мешает показу результата */ });
+    }).catch(function(err){ console.error('EmailJS (владельцу):', err); });
   }
  
   document.getElementById('result-greeting').textContent = 'Разбор — ниже. Мы на связи по оставленным вами контактам.';
