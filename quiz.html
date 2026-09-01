@@ -107,6 +107,7 @@ nav {
   background: var(--rose); color: #fff; font-weight: 700; font-size: 15px;
   padding: 16px 32px; border-radius: 100px; border: none; cursor: pointer;
   margin-top: 32px; transition: background 0.2s, transform 0.15s;
+  text-decoration: none;
 }
 .btn-main:hover { background: var(--rose-light); transform: translateY(-1px); }
  
@@ -209,6 +210,9 @@ nav {
 .result-cta { text-align: center; margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border); }
 .result-cta h3 { font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 10px; }
 .result-cta p { font-size: 14px; color: var(--muted); max-width: 480px; margin: 0 auto 8px; }
+.result-cta-buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+.btn-whatsapp { background: var(--dark); }
+.btn-whatsapp:hover { background: var(--dark2); }
  
 footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 24px 48px; text-align: center; font-size: 13px; color: rgba(255,255,255,0.3); }
 footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
@@ -224,6 +228,8 @@ footer a:hover { color: var(--rose); }
   .q-text { font-size: 17px; }
   .top3 { grid-template-columns: 1fr; }
   .scenario-block { padding: 28px 24px; }
+  .result-cta-buttons { flex-direction: column; align-items: stretch; }
+  .result-cta-buttons .btn-main { width: 100%; }
   footer { padding: 20px 16px; }
 }
 </style>
@@ -357,7 +363,10 @@ footer a:hover { color: var(--rose); }
       <div class="result-cta">
         <h3>Что делать с этим результатом дальше?</h3>
         <p>Опишите свою ситуацию — укажем как минимум одну ошибку, которая мешает вам прямо сейчас, и как именно разорвать цикл зависимости от вас.</p>
-        <button class="btn-main" onclick="window.location.href='https://go.natashumanska.com/razvor'">Обсудить результат с Наташей →</button>
+        <div class="result-cta-buttons">
+          <a class="btn-main" href="mailto:hello@natashumanska.com">Написать на почту →</a>
+          <a class="btn-main btn-whatsapp" href="https://wa.me/420608507366" target="_blank" rel="noopener">Написать в WhatsApp →</a>
+        </div>
       </div>
     </div>
   </div>
