@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Тест: почему бизнес не может без вас? | Наташа Шуманская</title>
-<meta name="description" content="32 вопроса, 8 причин операционной зависимости и разбор того, что мешает именно вам передать управление рестораном или отелем.">
+<meta name="description" content="13 вопросов, 5 причин операционной зависимости и разбор того, что мешает именно вам передать управление рестораном или отелем.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://go.natashumanska.com/quiz.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -166,10 +166,14 @@ nav {
 .q-opt:hover { border-color: var(--rose-light); background: #fff; }
 .q-opt.selected { border-color: var(--rose); background: var(--rose-bg); }
 .q-opt-num {
-  width: 32px; height: 32px; border-radius: 50%; background: var(--white); border: 1.5px solid var(--border);
-  display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: var(--muted2); flex-shrink: 0;
+  width: 22px; height: 22px; border-radius: 50%; background: var(--white); border: 2px solid var(--border);
+  flex-shrink: 0; position: relative; transition: border 0.15s;
 }
-.q-opt.selected .q-opt-num { background: var(--rose); border-color: var(--rose); color: #fff; }
+.q-opt.selected .q-opt-num { border-color: var(--rose); }
+.q-opt.selected .q-opt-num::after {
+  content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 10px; height: 10px; border-radius: 50%; background: var(--rose);
+}
 .q-opt-label { font-size: 14px; color: var(--muted2); font-weight: 500; }
 .quiz-nav { display: flex; justify-content: space-between; margin-top: 24px; }
 .q-back {
@@ -238,6 +242,15 @@ footer a:hover { color: var(--rose); }
   .result-cta-buttons .btn-main { width: 100%; }
   footer { padding: 20px 16px; }
 }
+ 
+/* ranking question */
+.q-opt.ranked { border-color: var(--rose); background: var(--rose-bg); }
+.q-opt.ranked .q-opt-num { border-color: var(--rose); background: var(--rose); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+.q-opt.ranked .q-opt-num::after { display: none; }
+.q-rank-hint { font-size: 12px; color: var(--muted); margin: 18px 0 0; line-height: 1.5; }
+.q-finish-btn { margin-top: 18px; width: 100%; background: var(--dark); color: #fff; font-size: 15px; font-weight: 700; padding: 15px; border-radius: 100px; border: none; cursor: pointer; transition: background 0.2s, transform 0.15s; }
+.q-finish-btn:hover:not(:disabled) { background: var(--dark2); transform: translateY(-1px); }
+.q-finish-btn:disabled { background: #8a9e8a; cursor: not-allowed; }
 </style>
 </head>
  
@@ -252,7 +265,7 @@ footer a:hover { color: var(--rose); }
 <section id="screen-intro" class="screen active">
   <div class="hero">
     <div class="wrap">
-      <div class="hero-tag">Тест на 5 минут</div>
+      <div class="hero-tag">Тест на 3 минуты</div>
       <h1>Почему ваш ресторан или отель до сих пор не может без вас?</h1>
       <p class="hero-sub">Ваш бизнес приносит деньги. Но только пока вы в нём — каждый день, с утра до ночи.</p>
       <p class="hero-sub">Стоит вам отвлечься, и всё начинает сыпаться. Поэтому вы по-прежнему:</p>
@@ -270,14 +283,14 @@ footer a:hover { color: var(--rose); }
       <p class="hero-sub">Знакомо? Тогда вопрос не в том, много ли вы работаете. Вопрос в том, что именно мешает выстроить систему, которая работает без вашего постоянного участия. У каждого владельца эта причина своя — и пока вы её не назвали, вы будете латать последствия, а не устранять источник.</p>
       <p class="hero-sub">Давайте выясним, где именно затык в вашем бизнесе.</p>
       <div class="hero-promise">
-        <div class="hero-promise-item">32 вопроса, 5 минут</div>
-        <div class="hero-promise-item">8 причин зависимости</div>
+        <div class="hero-promise-item">13 вопросов, 3 минуты</div>
+        <div class="hero-promise-item">5 причин зависимости</div>
         <div class="hero-promise-item">Личный результат на email</div>
       </div>
       <div class="scale-legend">
         <p>Как отвечать</p>
         <ol>
-          <li>Оценивайте не то, как «должно быть», а то, как происходило в вашем бизнесе последние 2–3 месяца.</li>
+          <li>Выбирайте вариант, который ближе всего к вашей реальной реакции и ситуации сейчас, а не к тому, как «должно быть».</li>
         </ol>
       </div>
       <button class="btn-main" onclick="goTo('screen-lead')">Начать тест →</button>
@@ -349,7 +362,7 @@ footer a:hover { color: var(--rose); }
     <div class="wrap">
       <div class="quiz-progress-wrap">
         <div class="quiz-progress-top">
-          <span id="q-counter">Вопрос 1 из 32</span>
+          <span id="q-counter">Вопрос 1 из 13</span>
           <span id="q-percent">3%</span>
         </div>
         <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="q-progress-fill"></div></div>
@@ -380,7 +393,7 @@ footer a:hover { color: var(--rose); }
       <div class="scenario-block" id="scenario-block"></div>
  
       <div>
-        <p class="breakdown-head">Все 8 шкал подробно</p>
+        <p class="breakdown-head">Все 5 причин · баллы</p>
         <div id="breakdown-wrap"></div>
       </div>
  
@@ -415,120 +428,55 @@ if (window.emailjs) {
  
 /* ---------- DATA ---------- */
  
-const SCALES = {
-  A: {
-    title: 'Неприятие потерь',
-    subtitle: '«Я боюсь цены чужой ошибки»',
-    desc: 'Высокий результат означает, что потенциальная ошибка сотрудника психологически весит для вас больше, чем потенциальная выгода от передачи ответственности. Вы понимаете пользу делегирования рационально, но в конкретной ситуации мозг выбирает более безопасный вариант: «Лучше я сделаю сам». Пока сотрудники не получают права на ограниченные ошибки, они не приобретают опыта принятия решений — и собственник получает подтверждение собственной гипотезы: «Вот видите — без меня они действительно не могут».'
-  },
-  B: {
-    title: 'Иллюзия контроля и перфекционизм',
-    subtitle: '«Без меня сделают не так»',
-    desc: 'Ваша проблема может быть не в недоверии людям как таковом — вы просто слишком тесно связываете качество результата со своим личным участием. Вы делегируете задачу, но продолжаете контролировать способ её выполнения. В итоге сотрудник получает ответственность формально, а реальное право принимать решения остаётся у вас.'
-  },
-  C: {
-    title: 'Незаменимость как психологическое вознаграждение',
-    subtitle: '«Мне нужно быть нужным»',
-    desc: 'Постоянные звонки, срочные вопросы и необходимость кого-то спасать могут быть утомительными — и одновременно давать сильное ощущение собственной ценности: «Без меня здесь ничего не происходит». Вы можете искренне хотеть освободиться от операционки и одновременно бессознательно поддерживать систему, в которой остаётесь центральной фигурой. Без осознания этой вторичной выгоды новые регламенты могут неожиданно перестать работать.'
-  },
-  D: {
-    title: 'Дефицит управленческих компетенций',
-    subtitle: '«Умею делать, но не умею управлять через других»',
-    desc: 'Вы можете великолепно разбираться в ресторанах или отелях и при этом не владеть технологией управления руководителями: постановкой результата, зонами ответственности, уровнями полномочий, контрольными точками, KPI, обратной связью, системой эскалации проблем. Поэтому «сделать самому» оказывается быстрее, чем «научить управлять» — и собственник постепенно становится главным операционным менеджером своего бизнеса.'
-  },
-  E: {
-    title: 'Отсутствие SOP и базы знаний',
-    subtitle: '«Весь бизнес у нас в головах»',
-    desc: 'Сотрудники спрашивают вас не потому, что беспомощны — а потому, что ответ больше негде получить. Если стандарты, сценарии, чек-листы и накопленный опыт компании не зафиксированы, собственник неизбежно превращается в живую базу знаний. Убрать его из процессов, ничего не изменив, действительно опасно.'
-  },
-  F: {
-    title: 'Слабый менеджмент',
-    subtitle: '«Мне некому передать управление»',
-    desc: 'Возможно, проблема не в вашей неспособности делегировать — делегировать действительно некому. Хороший исполнитель ≠ хороший менеджер. Если руководители не умеют принимать решения и отвечать за результат своего подразделения, собственник вынужден оставаться руководителем следующего уровня вниз.'
-  },
-  G: {
-    title: 'Отсутствие управленческой прозрачности',
-    subtitle: '«Чтобы контролировать, мне нужно присутствовать»',
-    desc: 'Когда управленческой системы нет, собственнику приходится лично ходить и смотреть: сколько людей работает, что на складе, сколько списывают, кто опаздывает. Проблема не в избыточном контроле — проблема в том, что контроль невозможно осуществлять иначе. Задача — заменить физический контроль системой цифр, отчётов и управления по отклонениям.'
-  },
-  H: {
-    title: 'Бизнес завязан на личность собственника',
-    subtitle: '«Компания и я пока одно и то же»',
-    desc: 'Внутри компании процессы уже могут работать достаточно хорошо, но внешние отношения по-прежнему персонализированы: поставщики договариваются с вами, VIP-гости пишут вам, партнёр доверяет вам. Это сильный актив на этапе роста бизнеса, но со временем он превращается в ограничение: ценность создаёт собственник, а не организация.'
-  }
+const CAUSES = {
+  K1: { code:'К1', title:'Заложник качества', sub:'«Боюсь провала и переделок»',
+    result:'Отдать можешь, но не отдаёшь результат: боишься провала и переделок. Корень — не люди, а твой порог доверия. Первый шаг — договориться с собой о критерии «принято» и проверять по нему, а не переделывать. Второй шаг — помнить, что пока ребёнок не упал 1000 раз, он не научился ходить.' },
+  K2: { code:'К2', title:'Человек-центр', sub:'«Мне нужно быть незаменимым»',
+    result:'Устал, но роль незаменимого даёт значимость. Пока «быть нужным = быть важным», система тебе эмоционально невыгодна.' },
+  K3: { code:'К3', title:'Один в поле', sub:'«Реально некому передать»',
+    result:'Ты бы отдал — реально некому. Проблема на входе: подбор и выращивание людей, а не делегирование. Первый шаг — создать среду для привлечения сильного заместителя и «скамейки запасных», а не новые KPI и стандарты для имеющихся людей.' },
+  K4: { code:'К4', title:'Всё в голове', sub:'«Передавать нечего — не упаковано»',
+    result:'Люди могли бы, но передавать нечего: нет регламентов, прав и метрик. Это навык упаковки процессов, и его можно развить. Первый шаг — осознать, что никто не упакует ваши стандарты вместо вас. Второй шаг — изучить основы упаковки навыков в понятные людям стандарты. Третий шаг — составить 3 регламента на самые критичные процессы, которые забирают у вас больше всего времени и нервов, и проверить их со специалистом.' },
+  K5: { code:'К5', title:'Нет карты местности', sub:'«Не видел, что бывает иначе»',
+    result:'Ты не видел модель «ресторан без хозяина» и не веришь, что она реальна для тебя. Первый шаг — не регламенты, а насмотренность и живой пример: увидеть своими глазами, что система вместо хаоса в ресторане действительно бывает.' }
 };
  
-// r:true — «перевёрнутый» вопрос: здоровый ответ = «часто/почти всегда»,
-// балл при подсчёте инвертируется (4 - ответ). По 2 обычных + 2 перевёрнутых на шкалу.
-const QUESTIONS = [
-  {n:1,  g:'A', t:'Когда сотрудник принимает решение самостоятельно, я прежде всего думаю о том, сколько может стоить его ошибка.'},
-  {n:2,  g:'D', t:'Мне бывает сложно чётко сформулировать сотруднику, какой результат я от него ожидаю, где заканчиваются его полномочия и в каких случаях он должен обратиться ко мне.'},
-  {n:3,  g:'G', t:'Чтобы понимать, нормально ли работает ресторан/отель, мне недостаточно посмотреть несколько отчётов или показателей — мне нужно самому увидеть, что происходит.'},
-  {n:4,  g:'B', t:'Даже если сотрудник достигает нужного результата, меня раздражает, когда он делает работу совсем не так, как сделал бы я.'},
-  {n:5,  g:'E', t:'На многие вопросы сотрудников невозможно просто дать ссылку на инструкцию, потому что нужного регламента или базы знаний у нас нет.'},
-  {n:6,  g:'H', t:'Есть важные гости, поставщики, партнёры или другие контрагенты, отношения с которыми фактически держатся на моём личном контакте.'},
-  {n:7,  g:'C', t:'Когда в заведении возникает сложная ситуация и все обращаются ко мне, я чувствую себя особенно нужным бизнесу.'},
-  {n:8,  g:'F', t:'Если меня не будет несколько дней, кто-то из руководителей почти наверняка начнёт перекладывать на меня вопросы, которые должен решать сам.'},
-  {n:9,  g:'H', r:true, t:'Договорённости с поставщиками, арендодателем, партнёрами и постоянными гостями оформлены так, что их можно полноценно передать сотруднику.'},
-  {n:10, g:'A', r:true, t:'Я спокойно позволяю сотрудникам принимать важные решения самостоятельно, даже понимая, что иногда придётся исправлять последствия.'},
-  {n:11, g:'D', r:true, t:'Мне удаётся выстроить промежуточный контроль так, чтобы не контролировать сотрудника постоянно.'},
-  {n:12, g:'G', r:true, t:'Даже находясь вне заведения, я быстро вижу по цифрам, если ухудшились сервис, расходы, списания, производительность или дисциплина.'},
-  {n:13, g:'B', r:true, t:'Если результат достаточно хороший, я спокойно принимаю его, даже когда сам сделал бы лучше.'},
-  {n:14, g:'E', t:'Значительная часть того, как правильно работать в нашем бизнесе, существует скорее в головах опытных сотрудников и в моей голове, чем в единой системе.'},
-  {n:15, g:'H', r:true, t:'Постоянные гости одинаково довольны сервисом независимо от того, присутствую ли я лично.'},
-  {n:16, g:'C', r:true, t:'Если несколько дней никто не обращается ко мне с проблемами, я испытываю спокойствие и облегчение, а не тревогу.'},
-  {n:17, g:'F', r:true, t:'Мои руководители (управляющий, директор, шеф) самостоятельно принимают большую часть реальных управленческих решений в своих зонах.'},
-  {n:18, g:'H', t:'Если завтра из коммуникации с ключевыми контрагентами убрать лично меня, часть отношений с ними заметно ослабнет.'},
-  {n:19, g:'A', r:true, t:'Я даю сотрудникам право на ограниченные ошибки на реальном бизнесе — так они учатся принимать решения.'},
-  {n:20, g:'D', t:'Мне легче самому решить проблему, чем разбирать с руководителем, почему она возникла, что он должен изменить и как мы будем контролировать результат в дальнейшем.'},
-  {n:21, g:'G', r:true, t:'У нас есть понятный набор цифр, по которому я за 10–15 минут понимаю состояние бизнеса без звонков сотрудникам.'},
-  {n:22, g:'B', t:'Когда я передаю кому-то свою функцию, мне хочется продолжать проверять детали, даже если объективных признаков проблемы пока нет.'},
-  {n:23, g:'E', r:true, t:'Если опытный сотрудник неожиданно увольняется, его знания остаются в компании — они зафиксированы в наших регламентах и базе знаний.'},
-  {n:24, g:'F', r:true, t:'Линейными сотрудниками управляют их непосредственные руководители, а не я напрямую.'},
-  {n:25, g:'C', t:'Мне приятно понимать, что есть вещи, которые в этом бизнесе никто не сможет сделать настолько хорошо, как я.'},
-  {n:26, g:'G', t:'Часть контроля у нас построена по принципу «пока лично не проверишь — не узнаешь».'},
-  {n:27, g:'F', t:'Если я перестану вмешиваться, проблема будет не столько в моём доверии, сколько в том, что некоторым руководителям действительно не хватает компетенций для самостоятельной работы.'},
-  {n:28, g:'A', t:'Я сильнее переживаю из-за возможной ошибки сотрудника, чем радуюсь времени и свободе, которые получил бы благодаря делегированию.'},
-  {n:29, g:'D', r:true, t:'Мне легко определить несколько измеримых показателей, по которым можно контролировать работу руководителя без постоянного участия в его операционке.'},
-  {n:30, g:'E', r:true, t:'Для повторяющихся нестандартных ситуаций у нас есть готовые сценарии, и объяснять их заново почти не приходится.'},
-  {n:31, g:'B', r:true, t:'Когда кто-то делает мою бывшую работу самостоятельно, я спокойно оставляю его в покое и не вмешиваюсь из-за мелких несовершенств.'},
-  {n:32, g:'C', r:true, t:'Моё ощущение себя как собственника не зависит от роли спасателя, который всегда знает, что делать.'}
+const SCENARIOS = [
+  { q: "Уехал на неделю. Вернулся — команда сама уладила конфликт с гостем: нормально, но не идеально, как сделал бы ты. Твоя реакция:", options: [ {t:"Обошлось, но это везение: обычно такие вопросы им не по зубам.", k:"K3"}, {t:"Ловлю себя на желании переиграть их решение по-своему.", k:"K1"}, {t:"Шло бы глаже, будь у них готовый регламент на такой случай.", k:"K4"}, {t:"Внутри лёгкий укол: выходит, без меня справляются.", k:"K2"}, {t:"Удивлён — честно не думал, что без меня это вообще решаемо.", k:"K5"} ] },
+  { q: "Как часто за последний месяц ты переделывал за сотрудником уже готовую работу?", options: [ {t:"Регулярно — почти всё требует моей доводки до уровня.", k:"K1"}, {t:"Переделываю редко, но всё равно всё проходит через моё утверждение.", k:"K2"}, {t:"Часто — просто делать толком некому, тяну сам.", k:"K3"}, {t:"Переделываю, потому что каждый лепит по-своему.", k:"K4"}, {t:"А разве бывает иначе? Так у всех в общепите.", k:"K5"} ] },
+  { q: "Появился бюджет на сильного человека, который снимет с тебя часть операционки. Что реально мешает нанять его завтра?", options: [ {t:"Боюсь, даже сильный сделает не так — придётся перепроверять.", k:"K1"}, {t:"Не хочется терять то, что ключевые вопросы замыкаются на мне.", k:"K2"}, {t:"На рынке нет никого нужного уровня — искал, не нашёл.", k:"K3"}, {t:"Возьму, но не представляю, как передать ему дела. Слишком долго и трудоёмко.", k:"K4"}, {t:"Не уверен, что это вообще решит проблему.", k:"K5"} ] },
+  { q: "Большинство рестораторов годами сидят в операционке. Что, по-вашему, держит их сильнее всего?", options: [ {t:"Не могут доверить и всё тянут на себе.", k:"K1"}, {t:"Им важно оставаться теми, без кого не решается.", k:"K2"}, {t:"Реально некому передать — кадры слабые.", k:"K3"}, {t:"Не умеют превратить дело в понятные процессы.", k:"K4"}, {t:"Просто не знают, как сделать по-другому, чтобы работало так же хорошо, как с их участием.", k:"K5"} ] },
+  { q: "Шеф-повар уходит в отпуск на две недели. Что у вас с кухней вероятнее всего в этот период?", options: [ {t:"Держится, но я лично замещаю его это время.", k:"K1"}, {t:"Держится, но за важным всё равно звонят мне.", k:"K2"}, {t:"Проседает: подменить некем, уровень остальных не тот.", k:"K3"}, {t:"Начинает сильно скакать качество, появляются стоп-листы, каждый повар отдаёт по-своему.", k:"K4"}, {t:"Кухня проседает, но так у всех, если шеф-повар в отпуске.", k:"K5"} ] },
+  { q: "Консультант показывает похожий ресторан: владелец появляется раз в неделю, выручка выше твоей. Первая честная мысль?", options: [ {t:"Мне было бы тревожно так всё отпустить и появляться так редко, даже если бы всё шло хорошо.", k:"K1"}, {t:"Возможно, но это дело моей жизни, мне нравится быть там часто.", k:"K2"}, {t:"Повезло ему с командой — я таких людей не встречал.", k:"K3"}, {t:"Вот бы и нам всё наладить, чтобы все работали по стандартам.", k:"K4"}, {t:"Не верю, что это про реальный ресторан, а не картинку для пыли в глаза.", k:"K5"} ] },
+  { q: "За чем сотрудники чаще всего идут к тебе в течение дня?", options: [ {t:"За согласованием — без моей проверки велик риск ошибки.", k:"K1"}, {t:"За любым спорным вопросом — так заведено, что итоговое слово за мной.", k:"K2"}, {t:"Потому что сами реально не вывозят такие вопросы.", k:"K3"}, {t:"Потому что нигде не прописано — негде подсмотреть ответ.", k:"K4"}, {t:"Это же роль собственника — помогать сотрудникам и направлять их!", k:"K5"} ] },
+  { q: "Решил внедрить чек-листы и регламенты. Что вероятнее всего произойдёт?", options: [ {t:"Пропишу, но всё равно буду перепроверять — бумага не гарантия, все норовят сделать по-своему.", k:"K1"}, {t:"Пропишу, но в спорных ситуациях финальное слово оставлю за собой.", k:"K2"}, {t:"Не буду прописывать — всё равно работать некому. А я все стандарты знаю с завязанными глазами.", k:"K3"}, {t:"Застряну на старте: не понимаю, как правильно это делать.", k:"K4"}, {t:"Не буду прописывать: регламенты везде есть, но нигде им не следуют.", k:"K5"} ] },
+  { q: "Главный признак для тебя, что делегирование удалось?", options: [ {t:"Результат вышел точно как сделал бы я сам.", k:"K1"}, {t:"Меня держат в курсе и заходят за финальным «ок».", k:"K2"}, {t:"Человек в принципе справился без провала — уже редкость.", k:"K3"}, {t:"Всё прошло по прописанному стандарту, без импровизаций.", k:"K4"}, {t:"Затрудняюсь ответить. Никто никогда не делал задачу так, как сделал бы её я сам.", k:"K5"} ] },
+  { q: "Через год ресторан растёт почти без твоего участия. Что тревожит первым?", options: [ {t:"Ещё немного — и где-то точно поползёт качество, и мы потеряем гостей.", k:"K1"}, {t:"Что я стану будто лишним в собственном деле.", k:"K2"}, {t:"Вырастут обороты, начнётся нехватка людей, поползёт качество — и мы всё потеряем.", k:"K3"}, {t:"Что всё держится на мне лично, и мне придётся ещё больше работать.", k:"K4"}, {t:"Такое место, как моё, не может расти без собственника: наёмные в росте бизнеса не заинтересованы.", k:"K5"} ] },
+  { q: "Ты уже пробовал выйти из операционки, но вернулся. Почему сорвалось?", options: [ {t:"Отпускал — сразу качество проседало, приходилось возвращаться.", k:"K1"}, {t:"Мне некуда было себя деть, и меня снова затягивало.", k:"K2"}, {t:"Вроде бы всё работало, но я не понимал, кто за что отвечает.", k:"K3"}, {t:"Не смог понятно описать и передать — люди теряли интерес, не понимая, какого результата я хочу.", k:"K4"}, {t:"Я никогда и не пробовал — не представляю, с чего начать.", k:"K5"} ] },
+  { q: "Новый администратор просит: «дайте право самому решать вопросы до 1000 евро в месяц без вас». Реакция?", options: [ {t:"Дам, но с обязательным отчётом по каждому случаю, иначе начнёт приворовывать.", k:"K1"}, {t:"Пусть лучше всё равно сверяется со мной: так привычнее отвечать за финансы.", k:"K2"}, {t:"Пока рано — мой администратор не тянет такой уровень.", k:"K3"}, {t:"Пока рано — непонятно, в какой ситуации можно дать такие полномочия, а в какой нет.", k:"K4"}, {t:"Администраторы вообще не должны принимать решения по расходам предприятия.", k:"K5"} ] }
 ];
  
-const ANSWER_LABELS = ['Практически никогда', 'Редко', 'Иногда', 'Часто', 'Почти всегда'];
+const RANKING = { q: "«Я уверен, что из операционки меня не выпускает прежде всего…» — выберите топ-3 по порядку важности:", options: [ {t:"…уверенность, что без меня упадёт качество, появятся стоп-листы, гостей станут плохо обслуживать.", k:"K1"}, {t:"…то, что мне важно оставаться у руля своего собственного детища.", k:"K2"}, {t:"…отсутствие рядом людей нужного уровня.", k:"K3"}, {t:"…то, что научить других и передать задачи мне сложнее и дольше, чем сделать самому, а времени и так нет.", k:"K4"}, {t:"…отсутствие понимания, как из неё выйти, с чего начинать.", k:"K5"} ] };
  
-const SCENARIOS = {
-  s1: {
-    tag: 'Сценарий 1',
-    title: 'Бизнес мог бы без вас. Но вы сами его не отпускаете',
-    text: 'Высокие результаты прежде всего в неприятии потерь, иллюзии контроля и потребности в незаменимости — а системные шкалы (SOP, менеджмент, прозрачность, персонализация) относительно низкие. Инфраструктура для делегирования у вас уже в значительной степени существует. Главное ограничение сейчас находится не в бизнесе, а в поведении собственника. Создание ещё двадцати регламентов проблему не решит.'
-  },
-  s2: {
-    tag: 'Сценарий 2',
-    title: 'С вами всё нормально. Бизнес действительно пока нельзя оставить',
-    text: 'Личные шкалы (неприятие потерь, перфекционизм, незаменимость) низкие, зато высокие показатели по отсутствию SOP, слабому менеджменту, отсутствию прозрачной системы контроля и завязанности связей на собственнике. Не нужно лечить себя от «гиперконтроля» — ваше присутствие пока действительно компенсирует отсутствующие элементы управленческой системы. Просто уйти из операционки в этой ситуации — не делегирование, а оставить функции без владельца.'
-  },
-  s3: {
-    tag: 'Сценарий 3',
-    title: 'Вы построили себе работу вместо бизнеса',
-    text: 'Особенно важная комбинация: дефицит управленческих компетенций вместе с отсутствием системы и слабыми руководителями. Вы сами остаётесь самым сильным специалистом и одновременно главным менеджером компании. Здесь не нужно заставлять себя меньше работать — нужно перейти на следующий уровень управленческой роли: перестать управлять работой и начать строить систему, которая управляет работой.'
-  },
-  s4: {
-    tag: 'Сценарий 4',
-    title: 'Замкнутый круг собственника',
-    text: 'Высокие показатели есть и среди личных причин, и среди системных — перед вами самый устойчивый сценарий. Вы боитесь передавать решения → руководители не получают опыта → остаются слабыми → вы убеждаетесь, что им нельзя доверять → продолжаете принимать решения сами → система управления не появляется, потому что быстрее спросить вас. Собственник незаменим, потому что система слабая, а система остаётся слабой, потому что собственник незаменим. Разрывать нужно именно этот круг.'
-  },
-  s0: {
-    tag: 'Смешанная картина',
-    title: 'Явного доминирующего сценария нет',
-    text: 'Ваши результаты распределены достаточно ровно — ни личные, ни системные причины не выражены критически сильно. Посмотрите на три ваши самые высокие шкалы ниже: именно с ними стоит начать работу в первую очередь.'
+// Порядок вариантов перемешиваем — свой для каждого вопроса, фиксируется один раз на загрузку.
+// Код причины (K1–K5) привязан к самому варианту, а не к его позиции, поэтому «по столбцу» тест не пройти.
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const t = a[i]; a[i] = a[j]; a[j] = t;
   }
-};
+  return a;
+}
+const OPTION_ORDER = SCENARIOS.map(function(){ return shuffle([0,1,2,3,4]); });
+const RANK_ORDER = shuffle([0,1,2,3,4]);
  
 /* ---------- STATE ---------- */
  
+const TOTAL = SCENARIOS.length + 1;          // 12 сценарных + 1 ранжирующий
 let currentQuestion = 0;
-let answers = new Array(QUESTIONS.length).fill(null);
+let answers = new Array(SCENARIOS.length).fill(null);  // индекс выбранного варианта
+let ranking = [];                             // ранжирование: индексы вариантов по порядку (до 3)
 let leadData = {};
  
 /* ---------- NAVIGATION ---------- */
@@ -555,7 +503,7 @@ document.getElementById('lead-form').addEventListener('submit', function(e) {
   btn.disabled = true;
   btn.textContent = 'Отправляем...';
  
-  // авто-ответ гостю (не блокирует прохождение теста)
+  // авто-ответ гостю через EmailJS (не блокирует прохождение теста)
   if (window.emailjs) {
     emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_GUEST, {
       name:  leadData.name,
@@ -564,208 +512,231 @@ document.getElementById('lead-form').addEventListener('submit', function(e) {
     }).catch(function(){ /* сбой отправки не мешает пользователю */ });
   }
  
-  const payload = new FormData();
-  payload.append('form_type', 'quiz_lead');
-  payload.append('name', leadData.name);
-  payload.append('email', leadData.email);
-  payload.append('phone', leadData.phone);
-  payload.append('newsletter', leadData.newsletter);
- 
-  fetch('https://formspree.io/f/xjglgdzp', {
-    method: 'POST',
-    body: payload,
-    headers: { 'Accept': 'application/json' }
-  })
-  .then(function(){
-    renderQuestion(0);
-    goTo('screen-quiz');
-  })
-  .catch(function(){
-    // не блокируем прохождение теста из-за сбоя сети
-    renderQuestion(0);
-    goTo('screen-quiz');
-  })
-  .finally(function(){
-    btn.disabled = false;
-    btn.textContent = 'Перейти к тесту →';
-  });
+  renderQuestion(0);
+  goTo('screen-quiz');
+  btn.disabled = false;
+  btn.textContent = 'Перейти к тесту →';
 });
  
 /* ---------- QUIZ ---------- */
  
-function renderQuestion(index) {
-  currentQuestion = index;
-  const q = QUESTIONS[index];
-  document.getElementById('q-counter').textContent = 'Вопрос ' + (index + 1) + ' из ' + QUESTIONS.length;
-  const pct = Math.round(((index) / QUESTIONS.length) * 100);
+function setProgress(index) {
+  const pct = Math.round((index / TOTAL) * 100);
+  document.getElementById('q-counter').textContent = 'Вопрос ' + (index + 1) + ' из ' + TOTAL;
   document.getElementById('q-percent').textContent = pct + '%';
   document.getElementById('q-progress-fill').style.width = pct + '%';
-  document.getElementById('q-text').textContent = q.t;
+}
  
+function renderQuestion(index) {
+  currentQuestion = index;
+  const isRank = (index === SCENARIOS.length);
+  setProgress(index);
   const optsWrap = document.getElementById('q-options');
   optsWrap.innerHTML = '';
-  ANSWER_LABELS.forEach(function(label, val) {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'q-opt' + (answers[index] === val ? ' selected' : '');
-    btn.innerHTML = '<span class="q-opt-num">' + val + '</span><span class="q-opt-label">' + label + '</span>';
-    btn.onclick = function() { selectAnswer(val); };
-    optsWrap.appendChild(btn);
-  });
+ 
+  if (!isRank) {
+    const q = SCENARIOS[index];
+    document.getElementById('q-text').textContent = q.q;
+    OPTION_ORDER[index].forEach(function(oi) {
+      const opt = q.options[oi];
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'q-opt' + (answers[index] === oi ? ' selected' : '');
+      btn.innerHTML = '<span class="q-opt-num"></span><span class="q-opt-label">' + opt.t + '</span>';
+      btn.onclick = function() { selectAnswer(oi); };
+      optsWrap.appendChild(btn);
+    });
+  } else {
+    document.getElementById('q-text').textContent = RANKING.q;
+    RANK_ORDER.forEach(function(oi) {
+      const opt = RANKING.options[oi];
+      const pos = ranking.indexOf(oi);
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'q-opt' + (pos >= 0 ? ' ranked' : '');
+      btn.innerHTML = '<span class="q-opt-num">' + (pos >= 0 ? (pos + 1) : '') + '</span><span class="q-opt-label">' + opt.t + '</span>';
+      btn.onclick = function() { toggleRank(oi); };
+      optsWrap.appendChild(btn);
+    });
+    const hint = document.createElement('p');
+    hint.className = 'q-rank-hint';
+    hint.textContent = ranking.length < 3
+      ? 'Отметьте 3 варианта по порядку важности — осталось ' + (3 - ranking.length) + '. Повторный тап снимает отметку.'
+      : 'Готово. Можно поменять выбор или показать результат.';
+    optsWrap.appendChild(hint);
+    const fin = document.createElement('button');
+    fin.type = 'button';
+    fin.className = 'q-finish-btn';
+    fin.textContent = 'Показать результат →';
+    fin.disabled = ranking.length < 3;
+    fin.onclick = function() {
+      if (ranking.length === 3) {
+        document.getElementById('q-progress-fill').style.width = '100%';
+        document.getElementById('q-percent').textContent = '100%';
+        finishQuiz();
+      }
+    };
+    optsWrap.appendChild(fin);
+  }
  
   document.getElementById('q-back-btn').disabled = (index === 0);
 }
  
-function selectAnswer(val) {
-  answers[currentQuestion] = val;
-  const opts = document.querySelectorAll('#q-options .q-opt');
-  opts.forEach(function(o, i){ o.classList.toggle('selected', i === val); });
-  if (document.activeElement && document.activeElement.blur) {
-    document.activeElement.blur();
-  }
- 
+function selectAnswer(oi) {
+  answers[currentQuestion] = oi;
+  const order = OPTION_ORDER[currentQuestion];
+  document.querySelectorAll('#q-options .q-opt').forEach(function(o, i) {
+    o.classList.toggle('selected', order[i] === oi);
+  });
+  if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
   setTimeout(function() {
-    if (currentQuestion < QUESTIONS.length - 1) {
-      renderQuestion(currentQuestion + 1);
-    } else {
-      document.getElementById('q-progress-fill').style.width = '100%';
-      document.getElementById('q-percent').textContent = '100%';
-      finishQuiz();
-    }
+    if (currentQuestion < SCENARIOS.length) renderQuestion(currentQuestion + 1);
   }, 220);
 }
  
+function toggleRank(oi) {
+  const pos = ranking.indexOf(oi);
+  if (pos >= 0) ranking.splice(pos, 1);
+  else if (ranking.length < 3) ranking.push(oi);
+  renderQuestion(currentQuestion);
+}
+ 
 function prevQuestion() {
-  if (currentQuestion > 0) {
-    renderQuestion(currentQuestion - 1);
-  }
+  if (currentQuestion > 0) renderQuestion(currentQuestion - 1);
 }
  
 /* ---------- SCORING ---------- */
  
 function computeScores() {
-  const scores = { A:0, B:0, C:0, D:0, E:0, F:0, G:0, H:0 };
-  QUESTIONS.forEach(function(q, i) {
-    const a = answers[i];
-    if (a === null || a === undefined) return; // не отвечено — 0 баллов
-    // перевёрнутый вопрос: высокий ответ = здоровое поведение, поэтому инвертируем
-    scores[q.g] += q.r ? (4 - a) : a;
+  const s = { K1:0, K2:0, K3:0, K4:0, K5:0 };
+  for (let i = 0; i < SCENARIOS.length; i++) {
+    const oi = answers[i];
+    if (oi == null) continue;
+    s[SCENARIOS[i].options[oi].k] += 1;   // сценарный выбор: +1 своей причине
+  }
+  const pts = [3, 2, 1];                   // ранжирование: 1-е +3, 2-е +2, 3-е +1
+  ranking.forEach(function(oi, idx) {
+    if (idx < 3) s[RANKING.options[oi].k] += pts[idx];
   });
-  return scores;
+  return s;
 }
  
-function bandFor(score) {
-  if (score <= 4) return { label: 'причина практически не выражена', color: 'var(--band1)' };
-  if (score <= 8) return { label: 'зона внимания', color: 'var(--band2)' };
-  if (score <= 12) return { label: 'выраженная причина', color: 'var(--band3)' };
-  return { label: 'критическая зависимость', color: 'var(--band4)' };
+// позиция причины в ранжирующем вопросе (1..3), для тай-брейка
+function rankPositions() {
+  const m = {};
+  ranking.forEach(function(oi, idx) {
+    const k = RANKING.options[oi].k;
+    if (!(k in m)) m[k] = idx + 1;
+  });
+  return m;
 }
  
-function determineScenario(scores) {
-  const personal = ['A','B','C'];
-  const systemic = ['E','F','G','H'];
-  const anyPersonalHigh = personal.some(function(k){ return scores[k] >= 9; });
-  const anySystemicHigh = systemic.some(function(k){ return scores[k] >= 9; });
-  const allSystemicLow = systemic.every(function(k){ return scores[k] <= 8; });
-  const allPersonalLow = personal.every(function(k){ return scores[k] <= 8; });
- 
-  if (scores.D >= 9 && scores.E >= 9 && scores.F >= 9) return SCENARIOS.s3;
-  if (anyPersonalHigh && anySystemicHigh) return SCENARIOS.s4;
-  if (anyPersonalHigh && allSystemicLow) return SCENARIOS.s1;
-  if (allPersonalLow && anySystemicHigh) return SCENARIOS.s2;
-  return SCENARIOS.s0;
+function analyzeProfile(scores) {
+  const rp = rankPositions();
+  const keys = Object.keys(scores).sort(function(a, b) {
+    if (scores[b] !== scores[a]) return scores[b] - scores[a];   // по баллам
+    const ra = rp[a] || 99, rb = rp[b] || 99;
+    if (ra !== rb) return ra - rb;                               // ничья → кто выше в ранжировании
+    return a.localeCompare(b);
+  });
+  const vals = keys.map(function(k){ return scores[k]; });
+  const spread = vals[0] - vals[vals.length - 1];   // разброс по всем пяти
+  const gap = vals[0] - vals[1];                     // отрыв лидера от второго
+  let type;
+  if (spread <= 2) type = 'systemic';                // всё в пределах 2 → системная незрелость
+  else if (gap >= 3) type = 'single';                // выраженный один корень
+  else type = 'mixed';                               // смешанный профиль
+  return { type: type, keys: keys, main: keys[0], background: keys[1], gap: gap, spread: spread };
 }
  
 /* ---------- RESULTS RENDER ---------- */
  
 function finishQuiz() {
   const scores = computeScores();
-  const sorted = Object.keys(scores).sort(function(a, b){ return scores[b] - scores[a]; });
-  const top3 = sorted.slice(0, 3);
-  const scenario = determineScenario(scores);
+  const profile = analyzeProfile(scores);
+  const keys = profile.keys;
+  const maxScore = Math.max(1, scores[keys[0]]);
  
-  // top-3 cards
+  // карточки топ-3 причин
   const top3Wrap = document.getElementById('top3-wrap');
   top3Wrap.innerHTML = '';
-  top3.forEach(function(key, i){
-    const s = SCALES[key];
+  keys.slice(0, 3).forEach(function(k, i) {
+    const c = CAUSES[k];
     const card = document.createElement('div');
     card.className = 'top3-card';
-    card.innerHTML = '<div class="top3-rank">Причина №' + (i+1) + '</div>' +
-      '<div class="top3-title">' + s.title + '</div>' +
-      '<div class="top3-score">' + scores[key] + '<span> / 16</span></div>';
+    card.innerHTML = '<div class="top3-rank">Причина №' + (i + 1) + '</div>' +
+      '<div class="top3-title">' + c.code + ' · ' + c.title + '</div>' +
+      '<div class="top3-score">' + scores[k] + '</div>';
     top3Wrap.appendChild(card);
   });
  
-  // scenario block
-  const scenarioWrap = document.getElementById('scenario-block');
-  scenarioWrap.innerHTML = '<div class="tag">' + scenario.tag + '</div>' +
-    '<h3>' + scenario.title + '</h3>' +
-    '<p>' + scenario.text + '</p>';
+  // вердикт
+  let vTag, vTitle, vHtml;
+  if (profile.type === 'single') {
+    const m = CAUSES[profile.main], b = CAUSES[profile.background];
+    vTag = 'Главный драйвер';
+    vTitle = m.code + ' · ' + m.title;
+    vHtml = '<p>' + m.result + '</p>' +
+      '<p style="margin-top:14px;font-size:13px;opacity:.75;">Фоновая причина: ' + b.code + ' · ' + b.title + '.</p>';
+  } else if (profile.type === 'mixed') {
+    const m = CAUSES[profile.main], b = CAUSES[profile.background];
+    vTag = 'Смешанный профиль';
+    vTitle = m.code + ' · ' + m.title + '  +  ' + b.code + ' · ' + b.title;
+    vHtml = '<p>' + m.result + '</p><p style="margin-top:14px;">' + b.result + '</p>';
+  } else {
+    const k4 = CAUSES.K4, k5 = CAUSES.K5;
+    vTag = 'Системная незрелость';
+    vTitle = 'Одного корня нет — дело в системе';
+    vHtml = '<p>Ни одна причина не выражена заметно сильнее других. Почти всегда это значит, что дело не в отдельном барьере, а в системной незрелости: процессы ещё не упакованы, а живого образца «как бывает иначе» перед глазами не было. Начинать стоит с упаковки процессов и живого примера.</p>' +
+      '<p style="margin-top:14px;">' + k4.code + ' · ' + k4.title + '. ' + k4.result + '</p>' +
+      '<p style="margin-top:14px;">' + k5.code + ' · ' + k5.title + '. ' + k5.result + '</p>';
+  }
+  document.getElementById('scenario-block').innerHTML =
+    '<div class="tag">' + vTag + '</div><h3>' + vTitle + '</h3>' + vHtml;
  
-  // full breakdown, sorted desc
+  // разбор всех 5 причин
+  const isMainKey = function(k) {
+    if (profile.type === 'systemic') return (k === 'K4' || k === 'K5');
+    return k === profile.main;
+  };
   const breakdownWrap = document.getElementById('breakdown-wrap');
   breakdownWrap.innerHTML = '';
-  sorted.forEach(function(key){
-    const s = SCALES[key];
-    const score = scores[key];
-    const band = bandFor(score);
-    const pct = Math.round((score / 16) * 100);
+  keys.forEach(function(k) {
+    const c = CAUSES[k];
+    const sc = scores[k];
+    const pct = Math.round((sc / maxScore) * 100);
+    const color = isMainKey(k) ? 'var(--rose)' : 'var(--band1)';
     const row = document.createElement('div');
     row.className = 'scale-row';
     row.innerHTML =
       '<div class="scale-row-top">' +
-        '<div><div class="scale-row-title">' + s.title + '</div><div class="scale-row-sub">' + s.subtitle + '</div></div>' +
-        '<div class="scale-row-score" style="color:' + band.color + '">' + score + ' / 16</div>' +
+        '<div><div class="scale-row-title">' + c.code + ' · ' + c.title + '</div><div class="scale-row-sub">' + c.sub + '</div></div>' +
+        '<div class="scale-row-score" style="color:' + color + '">' + sc + '</div>' +
       '</div>' +
-      '<div class="scale-bar"><div class="scale-bar-fill" style="width:' + pct + '%; background:' + band.color + '"></div></div>' +
-      '<div class="scale-band-label">' + band.label + '</div>' +
-      '<details><summary></summary><p class="scale-row-desc">' + s.desc + '</p></details>';
+      '<div class="scale-bar"><div class="scale-bar-fill" style="width:' + pct + '%; background:' + color + '"></div></div>' +
+      '<details><summary></summary><p class="scale-row-desc">' + c.result + '</p></details>';
     breakdownWrap.appendChild(row);
   });
  
-  // silent follow-up submission with results
-  const resultPayload = new FormData();
-  resultPayload.append('form_type', 'quiz_result');
-  resultPayload.append('name', leadData.name || '');
-  resultPayload.append('email', leadData.email || '');
-  resultPayload.append('phone', leadData.phone || '');
-  resultPayload.append('scenario', scenario.tag + ' — ' + scenario.title);
-  resultPayload.append('top_3', top3.map(function(k){ return SCALES[k].title + ' (' + scores[k] + '/16)'; }).join('; '));
-  resultPayload.append('all_scores', JSON.stringify(scores));
- 
-  fetch('https://formspree.io/f/xjglgdzp', {
-    method: 'POST',
-    body: resultPayload,
-    headers: { 'Accept': 'application/json' }
-  }).catch(function(){ /* не блокируем показ результата пользователю */ });
- 
-  // уведомление владельцу с контактами и результатами
+  // уведомление владельцу через EmailJS (контакты + результат)
   if (window.emailjs) {
     emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_OWNER, {
       name:       leadData.name  || '',
       email:      leadData.email || '',
       phone:      leadData.phone || '',
       title:      QUIZ_TITLE,
-      scenario:   scenario.tag + ' — ' + scenario.title,
-      top_3:      top3.map(function(k){ return SCALES[k].title + ' (' + scores[k] + '/16)'; }).join('; '),
+      scenario:   vTag + ': ' + vTitle,
+      top_3:      keys.slice(0, 3).map(function(k){ return CAUSES[k].code + ' ' + CAUSES[k].title + ' (' + scores[k] + ')'; }).join('; '),
       all_scores: JSON.stringify(scores)
     }).catch(function(){ /* сбой отправки не мешает показу результата */ });
   }
  
-  document.getElementById('result-greeting').textContent = leadData.email
-    ? 'Мы также отправили этот разбор на ' + leadData.email + '.'
-    : '';
+  document.getElementById('result-greeting').textContent = 'Разбор — ниже. Мы на связи по оставленным вами контактам.';
  
-  // готовим шаблоны сообщений для кнопок связи
   const greetName = leadData.name ? ' Меня зовут ' + leadData.name + '.' : '';
-  const messageTemplate = 'Добрый день!' + greetName + ' Я прошёл(а) опрос у вас на портале и хотел(а) бы с вами созвониться, чтобы обсудить несколько вопросов: [напишите свои вопросы в двух словах]';
- 
-  const emailBtn = document.getElementById('cta-email-btn');
-  emailBtn.href = 'mailto:hello@natashumanska.com?subject=' + encodeURIComponent('Вопрос после теста') + '&body=' + encodeURIComponent(messageTemplate);
- 
-  const waBtn = document.getElementById('cta-whatsapp-btn');
-  waBtn.href = 'https://wa.me/420608507366?text=' + encodeURIComponent(messageTemplate);
+  const messageTemplate = 'Добрый день!' + greetName + ' Я прошёл(а) опрос у вас на портале и хотел(а) бы созвониться, чтобы обсудить несколько вопросов: [напишите свои вопросы в двух словах]';
+  document.getElementById('cta-email-btn').href = 'mailto:hello@natashumanska.com?subject=' + encodeURIComponent('Вопрос после теста') + '&body=' + encodeURIComponent(messageTemplate);
+  document.getElementById('cta-whatsapp-btn').href = 'https://wa.me/420608507366?text=' + encodeURIComponent(messageTemplate);
  
   goTo('screen-result');
 }
